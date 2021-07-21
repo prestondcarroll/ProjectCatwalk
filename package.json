@@ -6,7 +6,8 @@
   "scripts": {
     "react-dev": "webpack -d eval-source-map --watch",
     "start": "nodemon server/index.js",
-    "easystart": "concurrently --kill-others \"npm run react-dev\" \"npm run start\""
+    "easystart": "concurrently --kill-others \"npm run react-dev\" \"npm run start\"",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,11 @@
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
     "@babel/preset-react": "^7.14.5",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
+    "jest": "^27.0.6",
     "nodemon": "^2.0.12",
+    "react-test-renderer": "^17.0.2",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
   },
