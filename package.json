@@ -1,0 +1,38 @@
+{
+  "name": "ProjectCatwalk",
+  "version": "1.0.0",
+  "description": "Front End Capstone",
+  "main": "webpack.config.js",
+  "scripts": {
+    "react-dev": "webpack -d eval-source-map --watch",
+    "start": "nodemon server/index.js",
+    "easystart": "concurrently --kill-others \"npm run react-dev\" \"npm run start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JessicaPrestonVinnie/ProjectCatwalk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JessicaPrestonVinnie/ProjectCatwalk/issues"
+  },
+  "homepage": "https://github.com/JessicaPrestonVinnie/ProjectCatwalk#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.12",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "concurrently": "^6.2.0",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
