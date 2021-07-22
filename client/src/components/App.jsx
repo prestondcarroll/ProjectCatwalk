@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -7,6 +8,16 @@ const Button = styled.button`
   padding: 1rem 2rem;
 `
 const App = () => {
+  $.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/products',
+    success: (data) => {
+      console.log(data);
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  })
   return (
     <Button>I am a button</Button>
   )
