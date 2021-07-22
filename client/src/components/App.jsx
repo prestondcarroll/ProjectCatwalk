@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
+import QA from './QA.jsx';
 
 const Button = styled.button`
   background-color: yellow;
@@ -19,7 +20,10 @@ const App = () => {
     }
   })
   return (
-    <Button>I am a button</Button>
+    <div>
+      <Button>I am a button</Button>
+      <QA />
+    </div>
   )
 }
 
