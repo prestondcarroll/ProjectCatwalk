@@ -1,11 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
-<<<<<<< HEAD
 import QA from './QA.jsx';
-=======
 import Overview from './Overview.jsx'
->>>>>>> ca008fb40b89f326b8289601ac42374942eb5841
 
 const Button = styled.button`
   background-color: yellow;
@@ -26,11 +23,8 @@ const App = () => {
   return (
     <div>
       <Button>I am a button</Button>
-<<<<<<< HEAD
-      <QA />
-=======
       <Overview/>
->>>>>>> ca008fb40b89f326b8289601ac42374942eb5841
+      <QA />
     </div>
   )
 }
