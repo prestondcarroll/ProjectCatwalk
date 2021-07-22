@@ -2,8 +2,10 @@
 
 exports[`should take a snapshot 1`] = `
 <DocumentFragment>
-  <div>
-    Hello World
-  </div>
+  <button
+    class="sc-bdnxRM ecpgqI"
+  >
+    I am a button
+  </button>
 </DocumentFragment>
 `;
