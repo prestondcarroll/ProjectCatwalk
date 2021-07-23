@@ -44,14 +44,14 @@ function Overview() {
       method: 'GET',
       url: 'http://localhost:3000/reviews',
       success: (data) => {
-        console.log('reviews are: ');
-        console.log(data);
+        // console.log('reviews are: ');
+        // console.log(data);
         setReviewMeta(data);
         setAverage(calculateAverage(data));
 
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err);
       },
     });
   }, []);
