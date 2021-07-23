@@ -7,7 +7,7 @@
     "react-dev": "webpack -d eval-source-map --watch",
     "start": "nodemon server/index.js",
     "easystart": "concurrently --kill-others \"npm run react-dev\" \"npm run start\"",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
