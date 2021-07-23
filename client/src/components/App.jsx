@@ -10,8 +10,8 @@ import Overview from './Overview.jsx';
 const DEFAULT_PRODUCT_ID = 20100;
 
 const App = () => {
-  [productId, setProductId] = useState(DEFAULT_PRODUCT_ID);
-  [outfit, setOutfit] = useState([]);
+  const [productId, setProductId] = useState(DEFAULT_PRODUCT_ID);
+  const [outfit, setOutfit] = useState([]);
   return (
     <div>
       <Overview />
