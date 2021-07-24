@@ -48,7 +48,9 @@ app.get('/products/:product_id/related', (req, res) => {
             success: (product) => {
               resolve(product);
             },
-            error: (err) => reject(err)
+            error: (err) => {
+              reject(err);
+            }
           });
         });
       });
@@ -65,11 +67,11 @@ app.get('/reviews', (req, res) => {
     method: 'GET',
     url: baseUrl + '/reviews/meta?product_id=20100',
     success: (data) => {
-      console.log(data);
+      // console.log(data);
       res.send(data);
     },
     error: (err) => {
-      console.log(err);
+      // console.log(err);
       res.sendStatus(500, err);
     },
   });

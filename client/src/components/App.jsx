@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div>
       <Overview />
-      <RelatedProduct />
+      <RelatedProduct productId={productId} />
       <QA />
     </div>
   );
