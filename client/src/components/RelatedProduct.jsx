@@ -4,17 +4,18 @@ import $ from 'jquery';
 
 const RelatedProduct = (props) => {
   const [realatedProducts, setRealatedProducts] = useState([]);
-  const [productReviews, setProductReviews] = useState({});
+  // const [productReviews, setProductReviews] = useState({});
 
   useEffect(() => {
     $.ajax({
       method: 'GET',
       url:`http://localhost:3000/products/${props.productId}/related/`,
       success: (products) => {
+        console.log(products);
         setRealatedProducts(products);
       },
       error: (err) => {
-        // console.log(err);
+        console.log(err);
       }
     });
   }, []);
@@ -22,7 +23,7 @@ const RelatedProduct = (props) => {
   return (
     <div>
       {realatedProducts.map(product =>
-        <RelatedProductItem product={product}/>
+        <RelatedProductItem product={product} />
       )}
     </div>
   );

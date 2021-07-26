@@ -46,7 +46,18 @@ app.get('/products/:product_id/related', (req, res) => {
             method: 'GET',
             url: baseUrl + `/products/${id}/`,
             success: (product) => {
-              resolve(product);
+              $.ajax({
+                method: 'GET',
+                url: baseUrl + `/products/${id}/styles/`,
+                success: (result) => {
+                  let productStyles = product;
+                  productStyles.results = result.results;
+                  resolve(productStyles);
+                },
+                error: (err) => {
+                  reject(err);
+                }
+              });
             },
             error: (err) => {
               reject(err);
@@ -55,6 +66,22 @@ app.get('/products/:product_id/related', (req, res) => {
         });
       });
       Promise.all(promises).then(values => res.send(values));
+    },
+    error: (err) => {
+      res.sendStatus(500, err);
+    }
+  });
+});
+
+/*use it as test*/
+app.get('/products/:product_id/styles', (req, res) => {
+  const productId = req.params.product_id;
+  $.ajax({
+    method: 'GET',
+    url: baseUrl + `/products/${productId}/styles/`,
+    success: (data) => {
+      console.log(data);
+      res.send(data);
     },
     error: (err) => {
       res.sendStatus(500, err);
