@@ -4,6 +4,7 @@ import $ from 'jquery';
 import styled from 'styled-components';
 import QA from './QA.jsx';
 import Overview from './Overview.jsx';
+import RelatedProduct from './RelatedProduct.jsx';
 
 
 // should put default back to 20100 before pull request
@@ -15,7 +16,8 @@ const App = () => {
   return (
     <div>
       <Overview />
-      <QA productId={productId} />
+      <RelatedProduct productId={productId} />
+      <QA />
     </div>
   );
 };
