@@ -14,7 +14,7 @@ const RelatedProduct = (props) => {
         setRealatedProducts(products);
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err);
       }
     });
   }, []);
