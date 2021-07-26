@@ -39,33 +39,61 @@ app.get('/products/:product_id/related', (req, res) => {
   $.ajax({
     method: 'GET',
     url: baseUrl + `/products/${productId}/related/`,
-    success: (data) => {
-      let promises = data.map(id => {
-        return new Promise((resolve, reject) => {
+    success: (productIds) => {
+      let idPromises = productIds.map(id => {
+        let productPromise = new Promise((resolve, reject) => {
           $.ajax({
             method: 'GET',
             url: baseUrl + `/products/${id}/`,
             success: (product) => {
-              $.ajax({
-                method: 'GET',
-                url: baseUrl + `/products/${id}/styles/`,
-                success: (result) => {
-                  let productStyles = product;
-                  productStyles.results = result.results;
-                  resolve(productStyles);
-                },
-                error: (err) => {
-                  reject(err);
-                }
-              });
+              resolve(product)
             },
             error: (err) => {
               reject(err);
             }
           });
         });
+        let stylesPromise = new Promise((resolve, reject) => {
+          $.ajax({
+            method: 'GET',
+            url: baseUrl + `/products/${id}/styles/`,
+            success: (styles) => {
+              resolve(styles);
+            },
+            error: (err) => {
+              reject(err);
+            }
+          });
+        });
+        let reviewsPromise = new Promise((resolve, reject) => {
+          $.ajax({
+            method: 'GET',
+            url: baseUrl + `/reviews/meta?product_id=${id}`,
+            success: (reviews) => {
+              resolve(reviews);
+            },
+            error: (err) => {
+              reject(err);
+            }
+          });
+        });
+        return [productPromise, stylesPromise, reviewsPromise]
       });
-      Promise.all(promises).then(values => res.send(values));
+      const promise4all = Promise.all(
+        idPromises.map(idPromise => {
+          return Promise.all(idPromise);
+        })
+      );
+      promise4all.then(function(values) {
+        let result = []
+        values.forEach(idData => {
+          let idResult = idData[0];
+          idResult.results = idData[1].results;
+          idResult.reviews = idData[2]
+          result.push(idResult)
+        })
+        res.send(result)
+      });
     },
     error: (err) => {
       res.sendStatus(500, err);
