@@ -37,14 +37,25 @@ app.get('/reviews', (req, res) => {
     method: 'GET',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/reviews/meta?product_id=20100',
     success: (data) => {
-      console.log(data);
       res.send(data);
     },
     error: (err) => {
-      console.log(err);
       res.sendStatus(500, err);
     },
   });
 });
+
+app.get('/questions', (req, res) => {
+  $.ajax({
+    method: 'GET',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions?product_id=${req.query.productId}&page=1&count=50`,
+    success: (data) => {
+      res.send(data);
+    },
+    error: (err) => {
+      res.sendStatus(500, err);
+    }
+  })
+})
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
