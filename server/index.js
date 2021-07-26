@@ -63,6 +63,7 @@ app.get('/products/:product_id/related', (req, res) => {
 });
 
 app.get('/reviews', (req, res) => {
+  const productId =  req.params.product_id;
   $.ajax({
     method: 'GET',
     url: baseUrl + '/reviews/meta?product_id=20100',

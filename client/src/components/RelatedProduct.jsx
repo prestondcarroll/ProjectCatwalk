@@ -4,6 +4,7 @@ import $ from 'jquery';
 
 const RelatedProduct = (props) => {
   const [realatedProducts, setRealatedProducts] = useState([]);
+  const [productReviews, setProductReviews] = useState({});
 
   useEffect(() => {
     $.ajax({
