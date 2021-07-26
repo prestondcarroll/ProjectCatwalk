@@ -17,7 +17,7 @@ const App = () => {
     <div>
       <Overview />
       <RelatedProduct productId={productId} />
-      <QA />
+      <QA productId={productId} />
     </div>
   );
 };
