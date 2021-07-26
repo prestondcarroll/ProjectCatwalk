@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import QuestionList from './QuestionList.jsx';
 
-const QA = () => {
+const QA = (props) => {
+  const [questions, setQuestions] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:3000/questions?productId=${props.productId}`)
+      .then((res) => setQuestions(res.data.results))
+      .catch();
+  }, []);
   return (
-    <div>Q AND A GOES HERE</div>
+    <QuestionList questions={questions} />
   );
 };
 
