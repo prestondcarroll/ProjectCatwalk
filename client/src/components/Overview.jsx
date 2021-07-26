@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable padded-blocks */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable spaced-comment */
@@ -6,19 +7,12 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
+import StarRating from './StarRating.jsx';
 
 // Star Rating
 // Input:
 
-
 const calculateAverage = (data) => {
-  //for every key in ratings,
-  //have running total of every review * 5 stars
-  //have running total of every review * respective star rating
-
-  //divide numberstars/ total stars
-  //return average
-
   const { ratings } = data;
   let totalStars = 0;
   let numberStars = 0;
@@ -35,20 +29,17 @@ const calculateAverage = (data) => {
 };
 
 function Overview() {
-  // Declare a new state variable, which we'll call "count"
   const [reviewMeta, setReviewMeta] = useState('reviewMeta');
   const [reviewAverage, setAverage] = useState('reviewAverage');
+
 
   useEffect(() => {
     $.ajax({
       method: 'GET',
       url: 'http://localhost:3000/reviews',
       success: (data) => {
-        // console.log('reviews are: ');
-        // console.log(data);
         setReviewMeta(data);
         setAverage(calculateAverage(data));
-
       },
       error: (err) => {
         // console.log(err);
@@ -56,12 +47,11 @@ function Overview() {
     });
   }, []);
 
-
-
   return (
     <div>
       <p>Product Overview will be here</p>
       <p>Average is: {reviewAverage}</p>
+      <StarRating rating={reviewAverage} />
     </div>
   );
 }
