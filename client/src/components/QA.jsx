@@ -7,7 +7,9 @@ const QA = (props) => {
   useEffect(() => {
     axios.get(`/questions?productId=${props.productId}`)
       .then((res) => setQuestions(res.data.results))
-      .catch();
+      .catch(err => {
+        console.log(err);
+      });
   }, []);
   return (
     <QuestionList questions={questions} productId={props.productId} />
