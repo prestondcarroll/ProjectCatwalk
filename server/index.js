@@ -11,7 +11,6 @@ $.ajaxPrefilter((settings, _, jqXHR) => {
   jqXHR.setRequestHeader('Authorization', API_KEY);
 });
 
-
 const app = express();
 
 // app.use( express.json() );
@@ -24,7 +23,21 @@ const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea';
 app.get('/products', (req, res) => {
   $.ajax({
     method: 'GET',
-    url: baseUrl + '/products/',
+    url: `${baseUrl}/products/`,
+    success: (data) => {
+      res.send(data);
+    },
+    error: (err) => {
+      res.sendStatus(500, err);
+    },
+  });
+});
+
+app.get('/products/:product_id/styles', (req, res) => {
+  const productId = req.params.product_id;
+  $.ajax({
+    method: 'GET',
+    url: `${baseUrl}/products/${productId}/styles/`,
     success: (data) => {
       res.send(data);
     },
@@ -113,15 +126,15 @@ app.get('/products/:product_id/styles', (req, res) => {
     },
     error: (err) => {
       res.sendStatus(500, err);
-    }
+    },
   });
 });
 
 app.get('/reviews', (req, res) => {
-  const productId =  req.params.product_id;
+  const productId = req.params.product_id;
   $.ajax({
     method: 'GET',
-    url: baseUrl + '/reviews/meta?product_id=20100',
+    url: `${baseUrl}/reviews/meta?product_id=20100`,
     success: (data) => {
       // console.log(data);
       res.send(data);
