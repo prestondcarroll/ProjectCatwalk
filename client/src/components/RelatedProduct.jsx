@@ -3,14 +3,27 @@ import RelatedProductItem from './RelatedProductItem.jsx';
 import styled from 'styled-components';
 import $ from 'jquery';
 
-const Container = styled.div`
+const CarouselContainer = styled.div`
   display: flex;
   flex-direction: row;
   font-family: Helvetica, Arial, sans-serif;
+  margin-right: 25%;
+  margin-left: 25%;
+  align-items: center;
+  justify-content: center;
+`
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `
 
 const RelatedProduct = (props) => {
-  const [realatedProducts, setRealatedProducts] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [productIndex, setProductIndex] = useState(0);
+  const [isLeftButtonShown, setIsLeftButtonShown] = useState(false);
+  const [isRightButtonShown, setIsRightButtonShown] = useState(false);
+
+  const CAROUSEL_WIDTH = 3;
   // const [productReviews, setProductReviews] = useState({});
 
   useEffect(() => {
@@ -19,7 +32,11 @@ const RelatedProduct = (props) => {
       url:`http://localhost:3000/products/${props.productId}/related/`,
       success: (products) => {
         // console.log(products);
-        setRealatedProducts(products);
+        setRelatedProducts(products);
+        setProductIndex(0)
+        if (products.length > CAROUSEL_WIDTH) {
+          setIsRightButtonShown(true);
+        }
       },
       error: (err) => {
         // console.log(err);
@@ -27,14 +44,36 @@ const RelatedProduct = (props) => {
     });
   }, []);
 
+  const handleClick = (isRight) => {
+    if (isRight) {
+      setProductIndex(productIndex + 1)
+      setIsLeftButtonShown(true);
+      if (productIndex + 1 + CAROUSEL_WIDTH >= relatedProducts.length) {
+        setIsRightButtonShown(false);
+      } else {
+        setIsRightButtonShown(true);
+      }
+    } else {
+      setProductIndex(productIndex - 1)
+      setIsRightButtonShown(true);
+      if (productIndex - 1 <= 0) {
+        setIsLeftButtonShown(false);
+      } else {
+        setIsLeftButtonShown(true);
+      }
+    }
+  }
+
   return (
     <div>
-    <h5>RELATED PRODUCTS</h5>
-    <Container>
-      {realatedProducts.map(product =>
-       <RelatedProductItem product={product} />
-      )}
-    </Container>
+      <h5>RELATED PRODUCTS</h5>
+      <CarouselContainer>
+        <button onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }}>left</button>
+        <CardContainer>
+          {relatedProducts.slice(productIndex, productIndex + CAROUSEL_WIDTH).map(product => <RelatedProductItem product={product} />)}
+        </CardContainer>
+        <button onClick={() => handleClick(true)} style={{visibility: isRightButtonShown ? 'visible' : 'hidden' }}>right</button>
+      </CarouselContainer>
     </div>
   );
 }
