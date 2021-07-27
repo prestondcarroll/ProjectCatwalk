@@ -8,25 +8,10 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 import StarRating from './StarRating.jsx';
+import calculateAverage from '../utils/calculateAverage.js';
 
 // Star Rating
 // Input:
-
-const calculateAverage = (data) => {
-  const { ratings } = data;
-  let totalStars = 0;
-  let numberStars = 0;
-  Object.keys(ratings).forEach((key) => {
-    const keyVal = parseInt(key, 10);
-    totalStars += ratings[key] * 5;
-    numberStars += keyVal * ratings[key];
-  });
-
-  const average = (numberStars / totalStars) * 5;
-  const rounded = (Math.round(average * 4) / 4).toFixed(2);
-  return rounded;
-
-};
 
 function Overview() {
   const [reviewMeta, setReviewMeta] = useState('reviewMeta');
