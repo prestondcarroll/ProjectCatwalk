@@ -5,12 +5,12 @@ import QuestionList from './QuestionList.jsx';
 const QA = (props) => {
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3000/questions?productId=${props.productId}`)
+    axios.get(`/questions?productId=${props.productId}`)
       .then((res) => setQuestions(res.data.results))
       .catch();
   }, []);
   return (
-    <QuestionList questions={questions} />
+    <QuestionList questions={questions} productId={props.productId} />
   );
 };
 
