@@ -12,7 +12,6 @@ const Footer = styled.div`
   color: #808080;
   font-size: 0.9em;
   white-space: pre;
-  margin-top: 1em;
   margin-bottom 1em;
 `
 
