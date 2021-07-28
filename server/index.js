@@ -166,7 +166,7 @@ app.get('/answers', (req, res) => {
       res.send(data.results);
     },
     error: (err) => {
-      console.log(err)
+      // console.log(err)
       res.sendStatus(500, err);
     }
   })

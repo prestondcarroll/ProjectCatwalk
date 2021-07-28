@@ -20,11 +20,11 @@ const App = () => {
       method: 'GET',
       url:`http://localhost:3000/products/20102/related/`,
       success: (products) => {
-        console.log(products);
+        // console.log(products);
         setOutfits(products);
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err);
       }
     });
   }, []);
