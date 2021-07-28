@@ -26,7 +26,7 @@ const RelatedProductItem = (props) => {
 
   return (
     <Card>
-      <FaStar size={20} style={{ fill: '#e4e5e9', position: 'absolute', top: 0, right: 0 , stroke: "#ffc107", strokeWidth: 20 }} onClick={() => setModalIsOpen(true)} />
+      <FaStar size={20} style={{ fill: '#e4e5e9', position: 'absolute', top: 0, right: 0 , stroke: "black", strokeWidth: 20 }} onClick={() => setModalIsOpen(true)} />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
