@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 /* eslint-disable padded-blocks */
 /* eslint-disable no-trailing-spaces */
@@ -14,6 +16,14 @@ import ImageView from './ImageView.jsx';
 
 // Star Rating
 // Input:
+
+const imageViewStyles = {
+  background: '#ddd',
+  // height: '500px',
+  // width: '1024px',
+  margin: '40px auto',
+  display: 'flex',
+};
 
 const calculateReviewCount = (data) => {
   const { ratings } = data;
@@ -32,7 +42,7 @@ const getStylePrice = (data) => {
 };
 
 const getDefaultStyle = (data) => {
-  let result = null;
+  let result = data[0];
   data.forEach((element) => {
     if (element['default?'] === true) {
       result = element;
@@ -135,30 +145,5 @@ function Overview(props) {
     </div>
   );
 }
-
-const imageViewStyles = {
-  background: '#ddd',
-  // height: '500px',
-  // width: '1024px',
-  margin: '40px auto',
-  display: 'flex',
-};
-
-// function ImageView(props) {
-//   return (
-  <div style={imageViewStyles}>
-    {/* Left Side */}
-    <div style={{ flex: 1 }}>
-      Left
-    </div>
-
-    {/* Right Side */}
-    <div style={{ flex: 1 }}>
-      Right
-    </div>
-
-  </div>;
-//   );
-// }
 
 export default Overview;

@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
@@ -56,7 +57,11 @@ function ImageView(props) {
       {/* Left Side */}
       <div style={{ flex: '1 1 10%' }}>
         {/* NOTE possibly change to use a state currenStyle */}
-        <ThumbnailGrid thumbnails={currentStyle.photos} />
+        <ThumbnailGrid
+          thumbnails={currentStyle.photos}
+          currentImageIdx={currentImageIdx}
+          setCurrentImageIdx={setCurrentImageIdx}
+        />
       </div>
 
       {/* Right Side */}
