@@ -140,8 +140,23 @@ app.get('/questions', (req, res) => {
     },
     error: (err) => {
       res.sendStatus(500, err);
+    }
+  })
+});
+
+app.get('/answers', (req, res) => {
+  $.ajax({
+    method: 'GET',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/${req.query.questionId}/answers?page=1&count=30`,
+    success: (data) => {
+      data.results.sort((a, b) => b.helpfulness - a.helpfulness);
+      res.send(data.results);
     },
-  });
+    error: (err) => {
+      console.log(err)
+      res.sendStatus(500, err);
+    }
+  })
 });
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

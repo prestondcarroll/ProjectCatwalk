@@ -22,7 +22,7 @@ const QuestionList = (props) => {
       <Container>
         {
           first4.map((question) => (
-            <Question key={question.question_id} question={question} />
+            <Question key={question.question_id} question={question} productId={props.productId} />
           ))
         }
       </Container>
