@@ -43,7 +43,7 @@ const RelatedProduct = (props) => {
         // console.log(err);
       }
     });
-  }, []);
+  }, [props.productId]);
 
   useEffect(() => {
     $.ajax({
