@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import StarRating from './StarRating.jsx';
 import calculateAverage from '../utils/calculateAverage.js';
+import { BiXCircle } from 'react-icons/bi';
 
 const StyledImage = styled.img`
   width: 200px;
@@ -22,6 +23,8 @@ const OutfitItem = (props) => {
 
   return (
     <Card>
+      <BiXCircle style={{position: 'absolute', top: 0, right: 0 }}
+      onClick={() => console.log('clicked')}/>
       <StyledImage src={props.product.results[0].photos[0].thumbnail_url || 'https://via.placeholder.com/300x300'} alt={props.product.name} />
       <h5>{props.product.category}</h5>
       <div>{props.product.name}</div>
