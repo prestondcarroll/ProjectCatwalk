@@ -16,17 +16,10 @@ const App = () => {
   const [outfits, setOutfits] = useState([]);
 
   useEffect(() => {
-    $.ajax({
-      method: 'GET',
-      url:`http://localhost:3000/products/20102/related/`,
-      success: (products) => {
-        // console.log(products);
-        setOutfits(products);
-      },
-      error: (err) => {
-        // console.log(err);
-      }
-    });
+    if (!localStorage.getItem('outfits')) {
+      localStorage.setItem('outfits', JSON.stringify([]))
+    }
+    setOutfits(JSON.parse(localStorage.getItem('outfits')))
   }, []);
 
   const handleChangeOverview = (productId) => {
@@ -34,11 +27,30 @@ const App = () => {
     setProductId(productId)
   }
 
+  const handleAddOutfits = () => {
+    $.ajax({
+      method: 'GET',
+      url:`http://localhost:3000/fullProducts/${productId}`,
+      success: (product) => {
+        console.log(product);
+        const currentOutfits = JSON.parse(localStorage.getItem('outfits'))
+        if (currentOutfits.map(fullProduct => fullProduct.id).indexOf(productId) === -1) {
+          currentOutfits.push(product)
+          localStorage.setItem('outfits', JSON.stringify(currentOutfits))
+          setOutfits(JSON.parse(localStorage.getItem('outfits')))
+        }
+      },
+      error: (err) => {
+        // console.log(err);
+      }
+    });
+  }
+
   return (
     <div>
       <Overview productId={productId} />
       <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} />
-      <Outfit outfits={outfits} productId={productId} />
+      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} />
       <QA productId={productId} />
     </div>
   );
