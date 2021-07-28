@@ -128,11 +128,11 @@ app.get('/products/:product_id/related', (req, res) => {
   });
 });
 
-app.get('/reviews', (req, res) => {
-  const productId = req.params.product_id;
+app.get('/reviews/meta', (req, res) => {
+  const productId = req.query.product_id;
   $.ajax({
     method: 'GET',
-    url: `${baseUrl}/reviews/meta?product_id=20100`,
+    url: `${baseUrl}/reviews/meta?product_id=${productId}`,
     success: (data) => {
       // console.log(data);
       res.send(data);

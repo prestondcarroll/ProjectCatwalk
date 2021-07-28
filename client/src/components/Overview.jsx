@@ -52,7 +52,7 @@ function Overview(props) {
   useEffect(() => {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3000/reviews',
+      url: `http://localhost:3000/reviews/meta?product_id=${props.productId}`,
       success: (data) => {
         setReviewCount(calculateReviewCount(data));
         setAverage(calculateAverage(data));
@@ -61,20 +61,20 @@ function Overview(props) {
         // console.log(err);
       },
     });
-  }, []);
+  }, [props.productId]);
 
   useEffect(() => {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3000/products',
+      url: `http://localhost:3000/products/${props.productId}`,
       success: (data) => {
-        setProductInfo(data[0]);
+        setProductInfo(data);
       },
       error: (err) => {
         // console.log(err);
       },
     });
-  }, []);
+  }, [props.productId]);
 
   useEffect(() => {
     $.ajax({
@@ -90,7 +90,7 @@ function Overview(props) {
         // console.log(err);
       },
     });
-  }, []);
+  }, [props.productId]);
 
   return (
     <div>

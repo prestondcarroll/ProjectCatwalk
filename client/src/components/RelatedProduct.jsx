@@ -87,7 +87,7 @@ const RelatedProduct = (props) => {
         <button onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }}>left</button>
         <CardContainer>
           {relatedProducts.slice(productIndex, productIndex + CAROUSEL_WIDTH).map(product => <RelatedProductItem product={product}
-          currentProduct={currentProduct} />)}
+          currentProduct={currentProduct} handleChangeOverview={props.handleChangeOverview} />)}
         </CardContainer>
         <button onClick={() => handleClick(true)} style={{visibility: isRightButtonShown ? 'visible' : 'hidden' }}>right</button>
       </CarouselContainer>

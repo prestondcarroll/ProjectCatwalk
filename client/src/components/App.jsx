@@ -29,11 +29,16 @@ const App = () => {
     });
   }, []);
 
+  const handleChangeOverview = (productId) => {
+    // console.log('productId', productId)
+    setProductId(productId)
+  }
+
   return (
     <div>
       <Overview productId={productId} />
-      <RelatedProduct productId={productId} />
-      <Outfit outfits={outfits} />
+      <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} />
+      <Outfit outfits={outfits} productId={productId} />
       <QA productId={productId} />
     </div>
   );
