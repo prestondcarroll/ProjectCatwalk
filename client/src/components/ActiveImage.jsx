@@ -1,18 +1,27 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
-// const imageViewStyles = {
-//   background: '#ddd',
-//   height: '500px',
-//   width: '1024px',
-//   margin: '40px auto',
-//   display: 'flex',
-// };
+const styles = {
+  height: '100%',
+  width: '100%',
+  margin: '-10px',
+  background: '#333',
+  position: 'relative',
+};
 
 function ActiveImage(props) {
   return (
-    <div>
-      <h5>Active Image</h5>
+    <div style={styles}>
+      <img
+        src={props.imageSrc}
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+        alt="no_img"
+      />
     </div>
   );
 }

@@ -1,22 +1,33 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import Thumbnail from './Thumbnail.jsx'
+import styled from 'styled-components';
+import Thumbnail from './Thumbnail.jsx';
 
-// const imageViewStyles = {
-//   background: '#ddd',
-//   height: '500px',
-//   width: '1024px',
-//   margin: '40px auto',
-//   display: 'flex',
-// };
+// for each photo in currentStyle
+// map a thumbnail while passing down thumbnail url
+const Parent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Child = styled.div`
+  margin: 5px;
+  width: 80px;
+  height: 80px;
+`;
 
 function ThumbnailGrid(props) {
   return (
     <div>
-      <Thumbnail />
-      <Thumbnail />
-      <Thumbnail />
-      <Thumbnail />
+      <Parent>
+        {props.thumbnails.map((element) => (
+          <Child>
+            <Thumbnail imgSrc={element.thumbnail_url} />
+          </Child>
+        ))}
+      </Parent>
     </div>
   );
 }

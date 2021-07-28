@@ -14,7 +14,7 @@ import Style from './Style.jsx';
 
 const ParentWrapper = styled.div`
   height: 100%;
-  width: 60%;
+  width: 100%;
   border: 1px solid black;
 `;
 

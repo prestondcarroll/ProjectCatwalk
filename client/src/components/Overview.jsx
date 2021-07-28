@@ -98,12 +98,12 @@ function Overview(props) {
 
       <div style={imageViewStyles}>
         {/* Left Side */}
-        <div style={{ flex: 1 }}>
-          <ImageView currentStyle={currentStyle} stylesInfo={stylesInfo} />
+        <div style={{ flex: '40%' }}>
+          <ImageView currentStyle={currentStyle} />
         </div>
 
         {/* Right Side */}
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: '60%' }}>
           <div style={{ display: 'flex' }}>
             <StarRating rating={reviewAverage} />
             <p>Read all {reviewCount} Reviews: Put LINK here </p>
