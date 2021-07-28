@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 import StarRating from './StarRating.jsx';
 import calculateAverage from '../utils/calculateAverage.js';
+import StylesList from './StylesList.jsx';
 
 // Star Rating
 // Input:
@@ -79,8 +80,8 @@ function Overview(props) {
       method: 'GET',
       url: `http://localhost:3000/products/${props.productId}/styles/`,
       success: (styles) => {
-        setStylesInfo(styles);
-        let defaultStyle = getDefaultStyle(styles.results);
+        setStylesInfo(styles.results);
+        const defaultStyle = getDefaultStyle(styles.results);
         setCurrentStyle(defaultStyle);
         setCurrentPrice(getStylePrice(defaultStyle));
       },
@@ -100,7 +101,7 @@ function Overview(props) {
 
       <h4>{productInfo.category}</h4>
       <h2>{productInfo.name}</h2>
-      <p>{"Price: $"}{currentPrice}</p>
+      <p>{'Price: $'}{currentPrice}</p>
 
       <div style={{ display: 'flex' }}>
         <h4>{'Styles >  '}</h4>
@@ -109,6 +110,13 @@ function Overview(props) {
 
       <p>Overview: {productInfo.description}</p>
       <p>Share on Social Media! Link1 Link2 Link3</p>
+
+      <StylesList
+        styles={stylesInfo}
+        changeStyle={setCurrentStyle}
+        changePrice={setCurrentPrice}
+        currentStyleID={currentStyle.style_id}
+      />
 
       <h3>END OF Overview Section</h3>
     </div>
