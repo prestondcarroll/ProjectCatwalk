@@ -32,7 +32,7 @@ const App = () => {
       method: 'GET',
       url:`http://localhost:3000/fullProducts/${productId}`,
       success: (product) => {
-        console.log(product);
+        // console.log(product);
         const currentOutfits = JSON.parse(localStorage.getItem('outfits'))
         if (currentOutfits.map(fullProduct => fullProduct.id).indexOf(productId) === -1) {
           currentOutfits.push(product)
@@ -46,11 +46,19 @@ const App = () => {
     });
   }
 
+  const handleDeleteOutfit = (deleteId) => {
+    let products = JSON.parse(localStorage.getItem('outfits'));
+    products = products.filter(product => product.id !== deleteId);
+    localStorage.setItem('outfits', JSON.stringify(products));
+    setOutfits(products);
+  }
+
+
   return (
     <div>
       <Overview productId={productId} />
       <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} />
-      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} />
+      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit}/>
       <QA productId={productId} />
     </div>
   );

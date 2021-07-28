@@ -24,7 +24,7 @@ const OutfitItem = (props) => {
   return (
     <Card>
       <BiXCircle style={{position: 'absolute', top: 0, right: 0 }}
-      onClick={() => console.log('clicked')}/>
+      onClick={() => props.handleDeleteOutfit(props.product.id)}/>
       <StyledImage src={props.product.results[0].photos[0].thumbnail_url || 'https://via.placeholder.com/300x300'} alt={props.product.name} />
       <h5>{props.product.category}</h5>
       <div>{props.product.name}</div>
