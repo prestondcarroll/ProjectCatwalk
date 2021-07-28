@@ -23,7 +23,21 @@ const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea';
 app.get('/products', (req, res) => {
   $.ajax({
     method: 'GET',
-    url: `${baseUrl}/products/`,
+    url: baseUrl + `/products/`,
+    success: (data) => {
+      res.send(data);
+    },
+    error: (err) => {
+      res.sendStatus(500, err);
+    },
+  });
+});
+
+app.get('/products/:product_id', (req, res) => {
+  const productId = req.params.product_id;
+  $.ajax({
+    method: 'GET',
+    url: baseUrl + `/products/${productId}/`,
     success: (data) => {
       res.send(data);
     },
@@ -114,22 +128,6 @@ app.get('/products/:product_id/related', (req, res) => {
   });
 });
 
-/*use it as test*/
-app.get('/products/:product_id/styles', (req, res) => {
-  const productId = req.params.product_id;
-  $.ajax({
-    method: 'GET',
-    url: baseUrl + `/products/${productId}/styles/`,
-    success: (data) => {
-      console.log(data);
-      res.send(data);
-    },
-    error: (err) => {
-      res.sendStatus(500, err);
-    },
-  });
-});
-
 app.get('/reviews', (req, res) => {
   const productId = req.params.product_id;
   $.ajax({
@@ -168,7 +166,7 @@ app.get('/answers', (req, res) => {
       res.send(data.results);
     },
     error: (err) => {
-      console.log(err)
+      // console.log(err)
       res.sendStatus(500, err);
     }
   })
