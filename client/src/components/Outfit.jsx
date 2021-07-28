@@ -16,13 +16,22 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
 `
+const Card = styled.div`
+  border-style: groove;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  width: 200px;
+  text-align: center;
+  line-height: 350px;
+`
 
 const Outfit = (props) => {
   const [productIndex, setProductIndex] = useState(0);
   const [isLeftButtonShown, setIsLeftButtonShown] = useState(false);
   const [isRightButtonShown, setIsRightButtonShown] = useState(true);
 
-  const CAROUSEL_WIDTH = 3;
+  const CAROUSEL_WIDTH = 2;
 
   const handleClick = (isRight) => {
     if (isRight) {
@@ -50,6 +59,7 @@ const Outfit = (props) => {
       <CarouselContainer>
         <button onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }}>left</button>
         <CardContainer>
+          <Card onClick={() => console.log('add outfit')}>Add to Outfit</Card>
           {props.outfits.slice(productIndex, productIndex + CAROUSEL_WIDTH).map(product => <OutfitItem product={product} />)}
         </CardContainer>
         <button onClick={() => handleClick(true)} style={{visibility: isRightButtonShown ? 'visible' : 'hidden' }}>right</button>
