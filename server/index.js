@@ -20,6 +20,19 @@ app.use(express.static(`${__dirname}/../client/dist`));
 
 const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea';
 
+app.get('/products', (req, res) => {
+  $.ajax({
+    method: 'GET',
+    url: baseUrl + `/products/`,
+    success: (data) => {
+      res.send(data);
+    },
+    error: (err) => {
+      res.sendStatus(500, err);
+    },
+  });
+});
+
 app.get('/products/:product_id', (req, res) => {
   const productId = req.params.product_id;
   $.ajax({
