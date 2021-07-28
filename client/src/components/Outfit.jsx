@@ -30,6 +30,7 @@ const Outfit = (props) => {
   const [productIndex, setProductIndex] = useState(0);
   const [isLeftButtonShown, setIsLeftButtonShown] = useState(false);
   const [isRightButtonShown, setIsRightButtonShown] = useState(true);
+  const [currentProduct, setCurrentProduct] = useState({});
 
   const CAROUSEL_WIDTH = 2;
 
@@ -53,13 +54,31 @@ const Outfit = (props) => {
     }
   }
 
+  useEffect(() => {
+    $.ajax({
+      method: 'GET',
+      url:`http://localhost:3000/products/${props.productId}/`,
+      success: (product) => {
+        // console.log(product);
+        setCurrentProduct(product);
+      },
+      error: (err) => {
+        // console.log(err);
+      }
+    });
+  }, []);
+
+  const handleAddClick = () => {
+    localStorage.setItem('currentOutfits', currentProduct);
+  }
+
   return (
     <div>
       <h5>YOUR OUTFIT</h5>
       <CarouselContainer>
         <button onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }}>left</button>
         <CardContainer>
-          <Card onClick={() => console.log('add outfit')}>Add to Outfit</Card>
+          <Card onClick={handleAddClick}>Add to Outfit</Card>
           {props.outfits.slice(productIndex, productIndex + CAROUSEL_WIDTH).map(product => <OutfitItem product={product} />)}
         </CardContainer>
         <button onClick={() => handleClick(true)} style={{visibility: isRightButtonShown ? 'visible' : 'hidden' }}>right</button>

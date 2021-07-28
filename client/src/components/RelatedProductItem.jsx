@@ -40,7 +40,7 @@ const RelatedProductItem = (props) => {
         <h2>Comparing</h2>
         <ProductComparison comparedProduct={props.product} currentProduct={props.currentProduct}/>
       </Modal>
-      <StyledImage src={props.product.results[0].photos[0].thumbnail_url || 'https://via.placeholder.com/300x300'} alt={props.product.name} />
+      <StyledImage src={props.product.results[0].photos[0].thumbnail_url || 'https://via.placeholder.com/300x300'} alt={props.product.name} onClick={() => props.handleChangeOverview(props.product.id)} />
       <h5>{props.product.category}</h5>
       <div>{props.product.name}</div>
       <p>${props.product.default_price}</p>
