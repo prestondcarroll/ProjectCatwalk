@@ -12,6 +12,10 @@ const Footer = styled.div`
   color: #808080;
   font-size: 0.9em;
   white-space: pre;
+<<<<<<< HEAD
+=======
+  margin-top: 1em;
+>>>>>>> main
   margin-bottom 1em;
 `
 

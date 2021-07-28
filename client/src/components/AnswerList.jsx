@@ -8,6 +8,7 @@ const A = styled.span`
   white-space: pre;
 `
 
+<<<<<<< HEAD
 const LoadMore = styled.span`
   font-size: 0.8em;
   white-space: pre;
@@ -22,6 +23,10 @@ const Expanded = styled.div`
 const AnswerList = (props) => {
   const [answers, setAnswers] = useState([]);
   const [answersExpanded, setAnswersExpanded] = useState(false);
+=======
+const AnswerList = (props) => {
+  const [answers, setAnswers] = useState([]);
+>>>>>>> main
   useEffect(() => {
     axios.get(`/answers?questionId=${props.questionId}`)
       .then((res) =>{
@@ -33,6 +38,7 @@ const AnswerList = (props) => {
     return (
       <div></div>
     );
+<<<<<<< HEAD
   } else if (answers.length === 2) {
     return (
       <div>
@@ -51,6 +57,9 @@ const AnswerList = (props) => {
       </div>
     )
   } else if (!answersExpanded) {
+=======
+  } else {
+>>>>>>> main
     return (
       <div>
         <div>
@@ -59,6 +68,7 @@ const AnswerList = (props) => {
         <div>
           <span style={{'whiteSpace':'pre'}}>       <Answer answer={answers[1]} /></span>
         </div>
+<<<<<<< HEAD
         <div>
           <LoadMore onClick={() => setAnswersExpanded(true)}>        LOAD MORE ANSWERS</LoadMore>
         </div>
@@ -76,6 +86,8 @@ const AnswerList = (props) => {
         <div>
           <LoadMore onClick={() => setAnswersExpanded(false)}>        LOAD LESS ANSWERS</LoadMore>
         </div>
+=======
+>>>>>>> main
       </div>
     );
   }

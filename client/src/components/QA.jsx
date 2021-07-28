@@ -29,7 +29,7 @@ const QA = (props) => {
     axios.get(`/questions?productId=${props.productId}`)
       .then((res) => setQuestions(res.data.results))
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
 
