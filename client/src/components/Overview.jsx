@@ -10,6 +10,7 @@ import $ from 'jquery';
 import StarRating from './StarRating.jsx';
 import calculateAverage from '../utils/calculateAverage.js';
 import StylesList from './StylesList.jsx';
+import ImageView from './ImageView.jsx';
 
 // Star Rating
 // Input:
@@ -94,33 +95,70 @@ function Overview(props) {
   return (
     <div>
       <h3>Overview Section:</h3>
-      <div style={{ display: 'flex' }}>
-        <StarRating rating={reviewAverage} />
-        <p>Read all {reviewCount} Reviews: Put LINK here </p>
+
+      <div style={imageViewStyles}>
+        {/* Left Side */}
+        <div style={{ flex: '40%' }}>
+          <ImageView currentStyle={currentStyle} />
+        </div>
+
+        {/* Right Side */}
+        <div style={{ flex: '60%' }}>
+          <div style={{ display: 'flex' }}>
+            <StarRating rating={reviewAverage} />
+            <p>Read all {reviewCount} Reviews: Put LINK here </p>
+          </div>
+
+          <h4>{productInfo.category}</h4>
+          <h2>{productInfo.name}</h2>
+          <p>{'Price: $'}{currentPrice}</p>
+
+          <div style={{ display: 'flex' }}>
+            <h4>{'Styles >  '}</h4>
+            <p>{currentStyle.name}</p>
+          </div>
+
+          <p>Overview: {productInfo.description}</p>
+          <p>Share on Social Media! Link1 Link2 Link3</p>
+
+          <StylesList
+            styles={stylesInfo}
+            changeStyle={setCurrentStyle}
+            changePrice={setCurrentPrice}
+            currentStyleID={currentStyle.style_id}
+          />
+        </div>
+
       </div>
-
-      <h4>{productInfo.category}</h4>
-      <h2>{productInfo.name}</h2>
-      <p>{'Price: $'}{currentPrice}</p>
-
-      <div style={{ display: 'flex' }}>
-        <h4>{'Styles >  '}</h4>
-        <p>{currentStyle.name}</p>
-      </div>
-
-      <p>Overview: {productInfo.description}</p>
-      <p>Share on Social Media! Link1 Link2 Link3</p>
-
-      <StylesList
-        styles={stylesInfo}
-        changeStyle={setCurrentStyle}
-        changePrice={setCurrentPrice}
-        currentStyleID={currentStyle.style_id}
-      />
 
       <h3>END OF Overview Section</h3>
     </div>
   );
 }
+
+const imageViewStyles = {
+  background: '#ddd',
+  // height: '500px',
+  // width: '1024px',
+  margin: '40px auto',
+  display: 'flex',
+};
+
+// function ImageView(props) {
+//   return (
+  <div style={imageViewStyles}>
+    {/* Left Side */}
+    <div style={{ flex: 1 }}>
+      Left
+    </div>
+
+    {/* Right Side */}
+    <div style={{ flex: 1 }}>
+      Right
+    </div>
+
+  </div>;
+//   );
+// }
 
 export default Overview;
