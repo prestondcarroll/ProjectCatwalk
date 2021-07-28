@@ -53,7 +53,6 @@ function Overview(props) {
       method: 'GET',
       url: 'http://localhost:3000/reviews',
       success: (data) => {
-        console.log("I'M HEREEE1");
         setReviewCount(calculateReviewCount(data));
         setAverage(calculateAverage(data));
       },
@@ -68,7 +67,6 @@ function Overview(props) {
       method: 'GET',
       url: 'http://localhost:3000/products',
       success: (data) => {
-        console.log("I'M HEREEE2");
         setProductInfo(data[0]);
       },
       error: (err) => {
@@ -82,7 +80,6 @@ function Overview(props) {
       method: 'GET',
       url: `http://localhost:3000/products/${props.productId}/styles/`,
       success: (styles) => {
-        console.log("I'M HEREEE3");
         setStylesInfo(styles.results);
         const defaultStyle = getDefaultStyle(styles.results);
         setCurrentStyle(defaultStyle);
@@ -93,8 +90,6 @@ function Overview(props) {
       },
     });
   }, []);
-
-  //
 
   return (
     <div>
@@ -116,7 +111,12 @@ function Overview(props) {
       <p>Overview: {productInfo.description}</p>
       <p>Share on Social Media! Link1 Link2 Link3</p>
 
-      <StylesList styles={stylesInfo} />
+      <StylesList
+        styles={stylesInfo}
+        changeStyle={setCurrentStyle}
+        changePrice={setCurrentPrice}
+        currentStyleID={currentStyle.style_id}
+      />
 
       <h3>END OF Overview Section</h3>
     </div>

@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-plusplus */
 /* eslint-disable import/extensions */
 /* eslint-disable padded-blocks */
@@ -10,17 +12,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Style from './Style.jsx';
 
-// const TestBoxContainer = styled.div`
-//   display: flex;
-//   flex-flow: wrap;
-// `;
-
-// const TestBoxItem = styled.div`
-//   flex: 0 32%
-//   height: 100px;
-//   margin-bottom: 2%;
-// `;
-
 const ParentWrapper = styled.div`
   height: 100%;
   width: 60%;
@@ -30,7 +21,6 @@ const ParentWrapper = styled.div`
 const Parent = styled.div`
   display: flex;
   flex-wrap: wrap;
-
 `;
 
 const Child = styled.div`
@@ -39,70 +29,66 @@ const Child = styled.div`
   height: 100px;
 `;
 
+const placeHolderStyle = {
+  style_id: 109986,
+  name: 'Forest Green & Black',
+  photos: [
+    {
+      thumbnail_url: 'https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+    },
+  ],
+};
+
 function StylesList(props) {
-  // const [reviewCount, setReviewCount] = useState('reviewCount');
-  //get number of styles
-  //calculate how many rows I need
-  //display 4 rows at a time
-  //map over each row
 
-  //make x amounts of rows
-
-  //for number of rows
-  //print row
-
-  //for each style, map a child component with a style component inside
-  //pass down picture, add a click listener?
-
-  const numRows = 2;
-  let styles = ['placeholder'];
+  //placeholder style until it's loaded
+  let styles = [placeHolderStyle];
+  //if styles are loaded change to styles to reflect that
   if (props.styles !== undefined && typeof props.styles !== 'string') {
     styles = props.styles;
   }
 
+  //render x amount of empty divs to have a multiple of 4 divs rendered
   if (styles.length % 4 !== 0) {
     const emptyDivsNum = styles.length % 4;
     return (
       <div>
-        <h1>test</h1>
         <ParentWrapper>
           <Parent>
             {styles.map((element) => (
-              <Child> <Style style={element} /> </Child>
+              <Child> <Style
+                style={element}
+                changeStyle={props.changeStyle}
+                changePrice={props.changePrice}
+                currentStyleID={props.currentStyleID}
+              />
+              </Child>
             ))}
-            {[...Array(emptyDivsNum)].map(() => <Child>  </Child>)}
+            {[...Array(emptyDivsNum)].map(() => <Child />)}
           </Parent>
         </ParentWrapper>
       </div>
     );
   }
+  //else if already multiple of 4 render no empty divs
   return (
     <div>
       <h1>test</h1>
       <ParentWrapper>
         <Parent>
           {styles.map((element) => (
-            <Child> <Style style={element} /> </Child>
+            <Child> <Style
+              style={element}
+              changeStyle={props.changeStyle}
+              changePrice={props.changePrice}
+              currentStyleID={props.currentStyleID}
+            />
+            </Child>
           ))}
-
         </Parent>
       </ParentWrapper>
     </div>
   );
-
-  // return (
-  //   <div>
-  //     <h1>test</h1>
-  //     <ParentWrapper>
-  //       <Parent>
-  //         {styles.map((element) => (
-  //           <Child> <Style style={element} /> </Child>
-  //         ))}
-
-  //       </Parent>
-  //     </ParentWrapper>
-  //   </div>
-  // );
 }
 
 export default StylesList;
