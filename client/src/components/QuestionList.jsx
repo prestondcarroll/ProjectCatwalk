@@ -39,7 +39,7 @@ const QuestionList = (props) => {
       <Container>
         {
           first4.map((question) => (
-            <QuestionStyle><Question key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
+            <QuestionStyle><Question questionId={question.question_id} productName={props.productName} key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
           ))
         }
       </Container>
@@ -49,7 +49,7 @@ const QuestionList = (props) => {
       <ScrollContainer>
         {
           props.questions.map((question) => (
-            <QuestionStyle><Question key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
+            <QuestionStyle><Question questionId={question.question_id} productName={props.productName} key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
           ))
         }
       </ScrollContainer>

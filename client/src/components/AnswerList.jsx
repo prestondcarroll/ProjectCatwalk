@@ -20,44 +20,36 @@ const Expanded = styled.div`
 `
 
 const AnswerList = (props) => {
-  const [answers, setAnswers] = useState([]);
   const [answersExpanded, setAnswersExpanded] = useState(false);
-  useEffect(() => {
-    axios.get(`/answers?questionId=${props.questionId}`)
-      .then((res) =>{
-         setAnswers(res.data);
-      })
-      .catch();
-  }, []);
-  if (answers.length === 0) {
+  if (props.answers.length === 0) {
     return (
       <div></div>
     );
-  } else if (answers.length === 2) {
+  } else if (props.answers.length === 2) {
     return (
       <div>
         <div>
-          <A>A:  </A> <Answer answer={answers[0]} />
+          <A>A:  </A> <Answer answer={props.answers[0]} />
         </div>
         <div>
-          <span style={{'whiteSpace':'pre'}}>       <Answer answer={answers[1]} /></span>
+          <span style={{'whiteSpace':'pre'}}>       <Answer answer={props.answers[1]} /></span>
         </div>
       </div>
     );
-  } else if (answers.length === 1) {
+  } else if (props.answers.length === 1) {
     return (
       <div>
-        <A>A:  </A> <Answer answer={answers[0]} />
+        <A>A:  </A> <Answer answer={props.answers[0]} />
       </div>
     )
   } else if (!answersExpanded) {
     return (
       <div>
         <div>
-          <A>A:  </A> <Answer answer={answers[0]} />
+          <A>A:  </A> <Answer answer={props.answers[0]} />
         </div>
         <div>
-          <span style={{'whiteSpace':'pre'}}>       <Answer answer={answers[1]} /></span>
+          <span style={{'whiteSpace':'pre'}}>       <Answer answer={props.answers[1]} /></span>
         </div>
         <div>
           <LoadMore onClick={() => setAnswersExpanded(true)}>        LOAD MORE ANSWERS</LoadMore>
@@ -68,9 +60,9 @@ const AnswerList = (props) => {
     return(
       <div>
         <Expanded>
-         <A>A:  </A> <Answer answer={answers[0]} />
+         <A>A:  </A> <Answer answer={props.answers[0]} />
           {
-            answers.slice(1).map((answer) => <span style={{'whiteSpace':'pre'}}>       <Answer answer={answer} /></span>)
+            props.answers.slice(1).map((answer) => <span style={{'whiteSpace':'pre'}}>       <Answer answer={answer} /></span>)
           }
         </Expanded>
         <div>

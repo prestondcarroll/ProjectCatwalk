@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 const jsdom = require('jsdom');
 
 const dom = new jsdom.JSDOM('');
@@ -13,7 +14,7 @@ $.ajaxPrefilter((settings, _, jqXHR) => {
 
 const app = express();
 
-// app.use( express.json() );
+app.use(express.json());
 
 // UNCOMMENT FOR REACT
 app.use(express.static(`${__dirname}/../client/dist`));
@@ -224,6 +225,45 @@ app.get('/answers', (req, res) => {
       res.sendStatus(500, err);
     }
   })
+});
+
+app.post('/questions', (req, res) => {
+  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/', req.body, {
+    headers: {
+      Authorization: API_KEY
+    }
+  })
+  .then(() => res.send())
+  .catch((err) => res.sendStatus(500, err));
+});
+
+axios.interceptors.request.use(request => {
+  console.log('Starting Request', JSON.stringify(request, null, 2))
+  return request
+});
+
+app.post('/answers/:questionId', (req, res) => {
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/${req.params.questionId}/answers`, req.body, {
+    headers: {
+      Authorization: API_KEY
+    }
+  })
+  .then(() => res.send())
+  .catch((err) => {res.sendStatus(500, err)});
+  // console.log(req.body);
+  // $.ajax({
+  //   method: 'POST',
+  //   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/${req.params.productId}/answers`,
+  //   contentType: 'application/x-www-form-urlencoded',
+  //   data: req.body,
+  //   success: () => {
+  //     res.send()
+  //   },
+  //   error: (err) => {
+  //     console.log(err);
+  //     res.sendStatus(500, err)
+  //   }
+  // })
 });
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
