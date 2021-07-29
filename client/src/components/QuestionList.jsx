@@ -28,7 +28,9 @@ const ScrollContainer = styled.div`
 const QuestionList = (props) => {
   let first4 = [];
   for (var i = 0; i < 4; i++) {
-    first4.push(props.questions[i]);
+    if (props.questions[i]) {
+      first4.push(props.questions[i]);
+    }
   }
   if (props.questions.length === 0) {
     return <div>loading...</div>
