@@ -221,7 +221,6 @@ app.get('/answers', (req, res) => {
       res.send(data.results);
     },
     error: (err) => {
-      // console.log(err)
       res.sendStatus(500, err);
     }
   })
@@ -237,10 +236,10 @@ app.post('/questions', (req, res) => {
   .catch((err) => res.sendStatus(500, err));
 });
 
-axios.interceptors.request.use(request => {
-  console.log('Starting Request', JSON.stringify(request, null, 2))
-  return request
-});
+// axios.interceptors.request.use(request => {
+//   console.log('Starting Request', JSON.stringify(request, null, 2))
+//   return request
+// });
 
 app.post('/answers/:questionId', (req, res) => {
   axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/${req.params.questionId}/answers`, req.body, {
@@ -250,20 +249,58 @@ app.post('/answers/:questionId', (req, res) => {
   })
   .then(() => res.send())
   .catch((err) => {res.sendStatus(500, err)});
-  // console.log(req.body);
-  // $.ajax({
-  //   method: 'POST',
-  //   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/${req.params.productId}/answers`,
-  //   contentType: 'application/x-www-form-urlencoded',
-  //   data: req.body,
-  //   success: () => {
-  //     res.send()
-  //   },
-  //   error: (err) => {
-  //     console.log(err);
-  //     res.sendStatus(500, err)
-  //   }
-  // })
 });
+
+app.post('/questions/helpful/:questionId', (req, res) => {
+  $.ajax({
+    method: 'PUT',
+    url: `${baseUrl}/qa/questions/${req.params.questionId}/helpful`,
+    success: () => {
+      res.send()
+    },
+    error: (err) => {
+      res.sendStatus(500, err.results)
+    }
+  })
+});
+
+app.post('/questions/report/:questionId', (req,res) => {
+  $.ajax({
+    method: 'PUT',
+    url: `${baseUrl}/qa/questions/${req.params.questionId}/report`,
+    success: () => {
+      res.send()
+    },
+    error: (err) => {
+      res.sendStatus(500, err.results)
+    }
+  })
+});
+
+app.post('/answers/helpful/:answerId', (req, res) => {
+  $.ajax({
+    method: 'PUT',
+    url: `${baseUrl}/qa/answers/${req.params.answerId}/helpful`,
+    success: () => {
+      res.send()
+    },
+    error: (err) => {
+      res.sendStatus(500, err.results)
+    }
+  })
+});
+
+app.post('/answers/report/:answerId', (req, res) => {
+  $.ajax({
+    method: 'PUT',
+    url: `${baseUrl}/qa/answers/${req.params.answerId}/report`,
+    success: () => {
+      res.send()
+    },
+    error: (err) => {
+      res.sendStatus(500, err.results)
+    }
+  })
+})
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

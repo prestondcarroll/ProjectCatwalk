@@ -55,6 +55,8 @@ const Question = (props) => {
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [answers, setAnswers] = useState([]);
+  const [helpful, setHelpful] = useState(false);
+  const [reported, setReported] = useState(false);
   useEffect(() => {
     fetchAnswers();
   }, []);
@@ -77,6 +79,24 @@ const Question = (props) => {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  const helpfulHandler = (event) => {
+    if (!helpful) {
+      axios.post(`/questions/helpful/${props.questionId}`)
+      .then(props.fetchQuestions)
+      .then(() => setHelpful(true))
+      .catch();
+    }
+  };
+
+  const reportHandler = (event) => {
+    if (!reported) {
+      axios.post(`/questions/report/${props.questionId}`)
+      .then(props.fetchQuestions)
+      .then(() => setReported(true))
+      .catch();
+    }
   };
 
   const handleSubmit = (event) => {
@@ -118,8 +138,8 @@ const Question = (props) => {
   }
   return (
     <div>
-      <Container>Q: {props.question.question_body}<Help>Helpful?  <Button>Yes</Button> ({props.question.question_helpfulness})   |   <Button onClick={() => setQuestionModal(true)}>Add An Answer</Button></Help></Container>
-      <Answers><AnswerList answers={answers} questionId={props.question.question_id} /></Answers>
+      <Container>Q: {props.question.question_body}<Help>Helpful?  <Button onClick={helpfulHandler}>Yes</Button> ({props.question.question_helpfulness})   |   <Button onClick={() => setQuestionModal(true)}>Add An Answer</Button>   | <Button onClick={reportHandler}>Report</Button></Help></Container>
+      <Answers><AnswerList fetchAnswers={fetchAnswers} answers={answers} questionId={props.question.question_id} /></Answers>
       <Modal
         isOpen={questionModal}
         onRequestClose={() => setQuestionModal(false)}>

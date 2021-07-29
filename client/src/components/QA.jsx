@@ -133,7 +133,7 @@ const QA = (props) => {
     <div>
       <SearchBar value={searchValue} onChange={setSearchValue} />
       <QWrapper>
-        <QuestionList productName={productName} questions={currentQuestions} productId={props.productId} questionsExpanded={questionsExpanded} />
+        <QuestionList fetchQuestions={fetchQuestions} productName={productName} questions={currentQuestions} productId={props.productId} questionsExpanded={questionsExpanded} />
       </QWrapper>
       <Wrapper>
         <Button onClick={() => setQuestionsExpanded(!questionsExpanded)}>{questionsExpanded ? 'LESS ANSWERED QUESTIONS' : 'MORE ANSWERED QUESTIONS'}</Button>

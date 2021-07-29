@@ -29,7 +29,7 @@ const AnswerList = (props) => {
     return (
       <div>
         <div>
-          <A>A:  </A> <Answer answer={props.answers[0]} />
+          <A>A:  </A> <Answer fetchAnswers={props.fetchAnswers} answer={props.answers[0]} />
         </div>
         <div>
           <span style={{'whiteSpace':'pre'}}>       <Answer answer={props.answers[1]} /></span>
@@ -39,14 +39,14 @@ const AnswerList = (props) => {
   } else if (props.answers.length === 1) {
     return (
       <div>
-        <A>A:  </A> <Answer answer={props.answers[0]} />
+        <A>A:  </A> <Answer fetchAnswers={props.fetchAnswers} answer={props.answers[0]} />
       </div>
     )
   } else if (!answersExpanded) {
     return (
       <div>
         <div>
-          <A>A:  </A> <Answer answer={props.answers[0]} />
+          <A>A:  </A> <Answer fetchAnswers={props.fetchAnswers} answer={props.answers[0]} />
         </div>
         <div>
           <span style={{'whiteSpace':'pre'}}>       <Answer answer={props.answers[1]} /></span>
@@ -60,9 +60,9 @@ const AnswerList = (props) => {
     return(
       <div>
         <Expanded>
-         <A>A:  </A> <Answer answer={props.answers[0]} />
+         <A>A:  </A> <Answer fetchAnswers={props.fetchAnswers} answer={props.answers[0]} />
           {
-            props.answers.slice(1).map((answer) => <span style={{'whiteSpace':'pre'}}>       <Answer answer={answer} /></span>)
+            props.answers.slice(1).map((answer) => <span style={{'whiteSpace':'pre'}}>       <Answer fetchAnswers={props.fetchAnswers} answer={answer} /></span>)
           }
         </Expanded>
         <div>
