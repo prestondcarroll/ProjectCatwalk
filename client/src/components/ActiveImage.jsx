@@ -1,24 +1,15 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 const styles = {
   height: '100%',
   width: '100%',
   margin: '-5px',
-  // background: '#333',
   position: 'relative',
 };
-
-// put left arrow if image idx > 0
-// put right arrow if imageidx < numImages - 1
-
-// if left arrow clicked
-//   set currentImgIdx to less than 1
-// if right arrow clicked
-//   set currentImgIdx to 1 greater
 
 function ActiveImage(props) {
   const needLeftArrow = props.currentImageIdx > 0;
@@ -27,14 +18,18 @@ function ActiveImage(props) {
   const needOnlyLeftArrow = needLeftArrow && !needLeftAndRight;
   const needOnlyRightArrow = needRightArrow && !needLeftAndRight;
 
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    document.body.style.cursor = hovered ? 'pointer' : 'auto'
+  }, [hovered]);
+
   const handlePressLeft = () => {
-    const newIdx = props.currentImageIdx - 1;
-    props.setCurrentImageIdx(newIdx);
+    props.setCurrentImageIdx(props.currentImageIdx - 1);
   };
 
   const handlePressRight = () => {
-    const newIdx = props.currentImageIdx + 1;
-    props.setCurrentImageIdx(newIdx);
+    props.setCurrentImageIdx(props.currentImageIdx + 1);
   };
 
   return (
@@ -51,6 +46,7 @@ function ActiveImage(props) {
                     height: '100%',
                   }}
                   alt="no_img"
+                  onPointerOver={() => }
                 />
               </div>
 

@@ -14,9 +14,6 @@ import calculateAverage from '../utils/calculateAverage.js';
 import StylesList from './StylesList.jsx';
 import ImageView from './ImageView.jsx';
 
-// Star Rating
-// Input:
-
 const imageViewStyles = {
   background: '#ddd',
   // height: '500px',
@@ -138,7 +135,6 @@ function Overview(props) {
             currentStyleID={currentStyle.style_id}
           />
         </div>
-
       </div>
 
       <h3>END OF Overview Section</h3>

@@ -4,12 +4,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
-// draw all whole yellow stars
-// draw grey star, draw a section of a star (1/4th 1/2 3/4th's) on top of the grey star
-// draw remaining grey stars until it total stars is 5
-
-// input:props.rating a number rating rounded to the nearest .25
-
 // yellow: #ffc107
 // gray: #e4e5e9
 
