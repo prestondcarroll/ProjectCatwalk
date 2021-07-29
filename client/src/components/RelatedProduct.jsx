@@ -18,6 +18,15 @@ const CardContainer = styled.div`
   flex-direction: row;
 `
 
+const Wrapper = styled.div`
+  margin-left: 25%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  font-color: #696969;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+`
+
 const RelatedProduct = (props) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [productIndex, setProductIndex] = useState(0);
@@ -83,7 +92,7 @@ const RelatedProduct = (props) => {
   // console.log(props);
   return (
     <div>
-      <h5>RELATED PRODUCTS</h5>
+      <Wrapper>RELATED PRODUCTS</Wrapper>
       <CarouselContainer>
         <FaAngleLeft size={30} onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }} />
         <CardContainer>
