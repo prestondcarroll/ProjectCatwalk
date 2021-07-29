@@ -21,7 +21,7 @@ function ActiveImage(props) {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    document.body.style.cursor = hovered ? 'pointer' : 'auto'
+    document.body.style.cursor = hovered ? 'zoom-in' : 'auto';
   }, [hovered]);
 
   const handlePressLeft = () => {
@@ -46,7 +46,8 @@ function ActiveImage(props) {
                     height: '100%',
                   }}
                   alt="no_img"
-                  onPointerOver={() => }
+                  onPointerOver={() => setHovered(true)}
+                  onPointerOut={() => setHovered(false)}
                 />
               </div>
 
@@ -73,6 +74,8 @@ function ActiveImage(props) {
                     height: '100%',
                   }}
                   alt="no_img"
+                  onPointerOver={() => setHovered(true)}
+                  onPointerOut={() => setHovered(false)}
                 />
               </div>
 
@@ -91,7 +94,7 @@ function ActiveImage(props) {
         && (
           <div style={styles}>
             <span>
-              <div style={styles} >
+              <div style={styles}>
                 <img
                   src={props.imageSrc}
                   style={{
@@ -99,6 +102,8 @@ function ActiveImage(props) {
                     height: '100%',
                   }}
                   alt="no_img"
+                  onPointerOver={() => setHovered(true)}
+                  onPointerOut={() => setHovered(false)}
                 />
               </div>
 
