@@ -22,9 +22,10 @@ const imageViewStyles = {
 
 // take in currentStyle, and index
 // return image corresponding to that index
-const getCurrentImage = (currentStyle, idx) => currentStyle.photos[idx].url;
 
-const getCurrentImageThumb = (currentStyle, idx) => currentStyle.photos[idx].url;
+const getCurrentImage = (currentStyle, idx) => (currentStyle.photos[idx] ? currentStyle.photos[idx].url : 'no photo found');
+
+// const getCurrentImageThumb = (currentStyle, idx) => currentStyle.photos[idx].url;
 
 const placeHolderStyle = {
   style_id: 109986,
@@ -51,6 +52,11 @@ function ImageView(props) {
   if (props.currentStyle !== undefined && typeof props.currentStyle !== 'string') {
     currentStyle = props.currentStyle;
   }
+
+  //reset current image to be default when a new product is loaded
+  useEffect(() => {
+    setCurrentImageIdx(defaultImageIdx);
+  }, [props.productId]);
 
   return (
     <div style={imageViewStyles}>

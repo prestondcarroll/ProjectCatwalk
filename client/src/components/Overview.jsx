@@ -109,7 +109,7 @@ function Overview(props) {
       <div style={imageViewStyles}>
         {/* Left Side */}
         <div style={{ flex: '40%' }}>
-          <ImageView currentStyle={currentStyle} />
+          <ImageView currentStyle={currentStyle} productId={props.productId} />
         </div>
 
         {/* Right Side */}
