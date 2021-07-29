@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
@@ -21,9 +22,10 @@ const imageViewStyles = {
 
 // take in currentStyle, and index
 // return image corresponding to that index
-const getCurrentImage = (currentStyle, idx) => currentStyle.photos[idx].url;
 
-const getCurrentImageThumb = (currentStyle, idx) => currentStyle.photos[idx].url;
+const getCurrentImage = (currentStyle, idx) => (currentStyle.photos[idx] ? currentStyle.photos[idx].url : 'no photo found');
+
+// const getCurrentImageThumb = (currentStyle, idx) => currentStyle.photos[idx].url;
 
 const placeHolderStyle = {
   style_id: 109986,
@@ -51,17 +53,32 @@ function ImageView(props) {
     currentStyle = props.currentStyle;
   }
 
+  // reset current image to be default when a new product is loaded
+  useEffect(() => {
+    setCurrentImageIdx(defaultImageIdx);
+  }, [props.productId]);
+
   return (
     <div style={imageViewStyles}>
       {/* Left Side */}
       <div style={{ flex: '1 1 10%' }}>
         {/* NOTE possibly change to use a state currenStyle */}
-        <ThumbnailGrid thumbnails={currentStyle.photos} />
+        <ThumbnailGrid
+          productId={props.productId}
+          thumbnails={currentStyle.photos}
+          currentImageIdx={currentImageIdx}
+          setCurrentImageIdx={setCurrentImageIdx}
+        />
       </div>
 
       {/* Right Side */}
       <div style={{ flex: '1 1 90%' }}>
-        <ActiveImage imageSrc={getCurrentImage(currentStyle, typeof currentImageIdx === 'string' ? imageIdx : currentImageIdx)} />
+        <ActiveImage
+          imageSrc={getCurrentImage(currentStyle, typeof currentImageIdx === 'string' ? imageIdx : currentImageIdx)}
+          numImages={currentStyle.photos.length}
+          currentImageIdx={currentImageIdx}
+          setCurrentImageIdx={setCurrentImageIdx}
+        />
       </div>
 
     </div>
