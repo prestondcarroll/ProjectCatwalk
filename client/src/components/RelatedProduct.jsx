@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RelatedProductItem from './RelatedProductItem.jsx';
 import styled from 'styled-components';
 import $ from 'jquery';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 const CarouselContainer = styled.div`
   display: flex;
@@ -84,12 +85,12 @@ const RelatedProduct = (props) => {
     <div>
       <h5>RELATED PRODUCTS</h5>
       <CarouselContainer>
-        <button onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }}>left</button>
+        <FaAngleLeft size={30} onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }} />
         <CardContainer>
           {relatedProducts.slice(productIndex, productIndex + CAROUSEL_WIDTH).map(product => <RelatedProductItem product={product}
           currentProduct={currentProduct} handleChangeOverview={props.handleChangeOverview} />)}
         </CardContainer>
-        <button onClick={() => handleClick(true)} style={{visibility: isRightButtonShown ? 'visible' : 'hidden' }}>right</button>
+        <FaAngleRight size={30} onClick={() => handleClick(true)} style={{visibility: isRightButtonShown ? 'visible' : 'hidden' }} />
       </CarouselContainer>
     </div>
   );
