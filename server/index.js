@@ -61,6 +61,56 @@ app.get('/products/:product_id/styles', (req, res) => {
   });
 });
 
+app.get('/fullProducts/:product_id', (req, res) =>{
+  const productId = req.params.product_id;
+  let productPromise = new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'GET',
+      url: baseUrl + `/products/${productId}/`,
+      success: (product) => {
+        resolve(product)
+      },
+      error: (err) => {
+        reject(err);
+      }
+    });
+  });
+  let stylesPromise = new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'GET',
+      url: baseUrl + `/products/${productId}/styles/`,
+      success: (styles) => {
+        resolve(styles);
+      },
+      error: (err) => {
+        reject(err);
+      }
+    });
+  });
+  let reviewsPromise = new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'GET',
+      url: baseUrl + `/reviews/meta?product_id=${productId}`,
+      success: (reviews) => {
+        resolve(reviews);
+      },
+      error: (err) => {
+        reject(err);
+      }
+    });
+  });
+  Promise.all([productPromise, stylesPromise, reviewsPromise])
+  .then((values) => {
+    let result = values[0];
+    result.results = values[1].results;
+    result.reviews = values[2]
+    res.send(result)
+  })
+  .catch((err) => {
+    res.sendStatus(500, err);
+  });
+})
+
 app.get('/products/:product_id/related', (req, res) => {
   const productId = req.params.product_id;
   $.ajax({
@@ -111,7 +161,8 @@ app.get('/products/:product_id/related', (req, res) => {
           return Promise.all(idPromise);
         })
       );
-      promise4all.then(function(values) {
+      promise4all
+      .then((values) => {
         let result = []
         values.forEach(idData => {
           let idResult = idData[0];
@@ -119,7 +170,10 @@ app.get('/products/:product_id/related', (req, res) => {
           idResult.reviews = idData[2]
           result.push(idResult)
         })
-        res.send(result)
+        res.send(result);
+      })
+      .catch((err) => {
+        res.sendStatus(500, err);
       });
     },
     error: (err) => {
