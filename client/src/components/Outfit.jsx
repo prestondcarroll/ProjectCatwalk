@@ -68,18 +68,15 @@ const Outfit = (props) => {
     });
   }, []);
 
-  const handleAddClick = () => {
-    localStorage.setItem('currentOutfits', currentProduct);
-  }
-
   return (
     <div>
       <h5>YOUR OUTFIT</h5>
       <CarouselContainer>
         <button onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }}>left</button>
         <CardContainer>
-          <Card onClick={handleAddClick}>Add to Outfit</Card>
-          {props.outfits.slice(productIndex, productIndex + CAROUSEL_WIDTH).map(product => <OutfitItem product={product} />)}
+          <Card onClick={() => props.handleAddOutfits()}>Add to Outfit</Card>
+          {props.outfits.slice(productIndex, productIndex + CAROUSEL_WIDTH).map(product => <OutfitItem product={product}
+           handleDeleteOutfit={props.handleDeleteOutfit} />)}
         </CardContainer>
         <button onClick={() => handleClick(true)} style={{visibility: isRightButtonShown ? 'visible' : 'hidden' }}>right</button>
       </CarouselContainer>
