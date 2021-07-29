@@ -28,7 +28,9 @@ const ScrollContainer = styled.div`
 const QuestionList = (props) => {
   let first4 = [];
   for (var i = 0; i < 4; i++) {
-    first4.push(props.questions[i]);
+    if (props.questions[i]) {
+      first4.push(props.questions[i]);
+    }
   }
   if (props.questions.length === 0) {
     return <div>loading...</div>
@@ -37,7 +39,7 @@ const QuestionList = (props) => {
       <Container>
         {
           first4.map((question) => (
-            <QuestionStyle><Question key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
+            <QuestionStyle><Question fetchQuestions={props.fetchQuestions} questionId={question.question_id} productName={props.productName} key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
           ))
         }
       </Container>
@@ -47,7 +49,7 @@ const QuestionList = (props) => {
       <ScrollContainer>
         {
           props.questions.map((question) => (
-            <QuestionStyle><Question key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
+            <QuestionStyle><Question fetchQuestions={props.fetchQuestions} questionId={question.question_id} productName={props.productName} key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
           ))
         }
       </ScrollContainer>
