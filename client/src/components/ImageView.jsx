@@ -53,7 +53,7 @@ function ImageView(props) {
     currentStyle = props.currentStyle;
   }
 
-  //reset current image to be default when a new product is loaded
+  // reset current image to be default when a new product is loaded
   useEffect(() => {
     setCurrentImageIdx(defaultImageIdx);
   }, [props.productId]);
@@ -64,6 +64,7 @@ function ImageView(props) {
       <div style={{ flex: '1 1 10%' }}>
         {/* NOTE possibly change to use a state currenStyle */}
         <ThumbnailGrid
+          productId={props.productId}
           thumbnails={currentStyle.photos}
           currentImageIdx={currentImageIdx}
           setCurrentImageIdx={setCurrentImageIdx}
