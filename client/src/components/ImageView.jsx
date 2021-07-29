@@ -73,7 +73,12 @@ function ImageView(props) {
 
       {/* Right Side */}
       <div style={{ flex: '1 1 90%' }}>
-        <ActiveImage imageSrc={getCurrentImage(currentStyle, typeof currentImageIdx === 'string' ? imageIdx : currentImageIdx)} />
+        <ActiveImage
+          imageSrc={getCurrentImage(currentStyle, typeof currentImageIdx === 'string' ? imageIdx : currentImageIdx)}
+          numImages={currentStyle.photos.length}
+          currentImageIdx={currentImageIdx}
+          setCurrentImageIdx={setCurrentImageIdx}
+        />
       </div>
 
     </div>
