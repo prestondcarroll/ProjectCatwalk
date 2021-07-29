@@ -18,6 +18,19 @@ const Card = styled.div`
   position: relative;
 `
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    maxHeight: 'calc(10vh - 20px)',
+    overflowY: 'auto'
+  },
+};
+
 // Modal.setAppElement('#root');
 const RelatedProductItem = (props) => {
   // console.log(props);
@@ -28,13 +41,11 @@ const RelatedProductItem = (props) => {
     <Card>
       <FaStar size={20} style={{ fill: '#e4e5e9', position: 'absolute', top: 0, right: 0 , stroke: "black", strokeWidth: 20 }} onClick={() => setModalIsOpen(true)} />
       <Modal
+        scrollable={true}
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         style = {
-          {
-            overlay: { backgroundColor: '#e4e5e9' },
-            content: { color: 'black'}
-          }
+          customStyles
         }
         >
         <h2>Comparing</h2>
