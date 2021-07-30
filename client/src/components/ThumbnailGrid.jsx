@@ -86,13 +86,17 @@ function ThumbnailGrid(props) {
     setWindowEnd(4);
   }, [props.productId]);
 
-  // if more than 5 thumbnails,
-  // determine if arrows are needed for top
-  //  if window.start > 0
-  //    put arrow on first thumbnail
-  // determine for bottom
-  //  if window.end < total number of thumbnails - 1
-  //    put arrow on bottom thumbnail
+  useEffect(() => {
+    if (props.currentImageIdx < windowStart) {
+      setWindowStart(windowStart - 1);
+      setWindowEnd(windowEnd - 1);
+    }
+
+    if (props.currentImageIdx > windowEnd) {
+      setWindowStart(windowStart + 1);
+      setWindowEnd(windowEnd + 1);
+    }
+  }, [props.currentImageIdx]);
 
   const needUpArrow = windowStart > 0;
   const needDownArrow = windowEnd < numThumbs - 1;

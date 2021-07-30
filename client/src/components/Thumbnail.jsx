@@ -14,15 +14,6 @@ const styles = {
   position: 'relative',
 };
 
-// imageIdx={index}
-// currentImageIdx={props.currentImageIdx}
-// setCurrentImageIdx={props.setCurrentImageIdx}
-
-// set click listener on thumbnail
-// if clicked execute setCurrentImageIdx with index passed from props
-
-// add highlighted to thumbnail if currentImageIdx === index from props
-
 function Thumbnail(props) {
   const handleThumbClick = () => {
     props.setCurrentImageIdx(props.imageIdx);
