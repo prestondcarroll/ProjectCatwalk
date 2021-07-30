@@ -104,8 +104,8 @@ app.get('/fullProducts/:product_id', (req, res) =>{
   .then((values) => {
     let result = values[0];
     result.results = values[1].results;
-    result.reviews = values[2]
-    res.send(result)
+    result.reviews = values[2];
+    res.send(result);
   })
   .catch((err) => {
     res.sendStatus(500, err);
