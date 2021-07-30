@@ -13,6 +13,7 @@ import StarRating from './StarRating.jsx';
 import calculateAverage from '../utils/calculateAverage.js';
 import StylesList from './StylesList.jsx';
 import ImageView from './ImageView.jsx';
+import CartSelector from './CartSelector.jsx';
 
 const imageViewStyles = {
   background: '#ddd',
@@ -107,6 +108,8 @@ function Overview(props) {
         {/* Left Side */}
         <div style={{ flex: '40%' }}>
           <ImageView currentStyle={currentStyle} productId={props.productId} />
+          <p>Overview: {productInfo.description}</p>
+          <p>Share on Social Media! Link1 Link2 Link3</p>
         </div>
 
         {/* Right Side */}
@@ -116,8 +119,8 @@ function Overview(props) {
             <p>Read all {reviewCount} Reviews: Put LINK here </p>
           </div>
 
-          <h4>{productInfo.category}</h4>
-          <h2>{productInfo.name}</h2>
+          <h5>{productInfo.category}</h5>
+          <h3>{productInfo.name}</h3>
           <p>{'Price: $'}{currentPrice}</p>
 
           <div style={{ display: 'flex' }}>
@@ -125,8 +128,7 @@ function Overview(props) {
             <p>{currentStyle.name}</p>
           </div>
 
-          <p>Overview: {productInfo.description}</p>
-          <p>Share on Social Media! Link1 Link2 Link3</p>
+
 
           <StylesList
             styles={stylesInfo}
@@ -134,6 +136,14 @@ function Overview(props) {
             changePrice={setCurrentPrice}
             currentStyleID={currentStyle.style_id}
           />
+
+          <CartSelector
+            productId={props.productId}
+            currentStyleID={currentStyle.style_id}
+            currentStyle={currentStyle}
+          />
+
+
         </div>
       </div>
 
