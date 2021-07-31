@@ -14,6 +14,7 @@ import calculateAverage from '../utils/calculateAverage.js';
 import StylesList from './StylesList.jsx';
 import ImageView from './ImageView.jsx';
 import CartSelector from './CartSelector.jsx';
+import ExpandedView from './ExpandedView.jsx';
 
 const imageViewStyles = {
   background: '#ddd',
@@ -56,6 +57,8 @@ function Overview(props) {
   const [stylesInfo, setStylesInfo] = useState('stylesInfo');
   const [currentStyle, setCurrentStyle] = useState('currentStyle');
   const [currentPrice, setCurrentPrice] = useState('currentPrice');
+  const [displayType, setDisplayType] = useState('visible');
+  const [currentImageIdx, setCurrentImageIdx] = useState('currentImageIdx');
 
   useEffect(() => {
     $.ajax({
@@ -100,6 +103,25 @@ function Overview(props) {
     });
   }, [props.productId]);
 
+  useEffect(() => {
+    setCurrentImageIdx(0);
+  }, [props.productId]);
+
+  if (displayType === 'none') {
+    return (
+      <div style={{ flex: '100%' }}>
+        <ExpandedView
+          currentStyle={currentStyle}
+          productId={props.productId}
+          setDisplayType={setDisplayType}
+          displayType={displayType}
+          currentImageIdx={currentImageIdx}
+          setCurrentImageIdx={setCurrentImageIdx}
+        />
+      </div>
+    );
+  }
+
   return (
     <div>
       <h3>Overview Section:</h3>
@@ -107,7 +129,14 @@ function Overview(props) {
       <div style={imageViewStyles}>
         {/* Left Side */}
         <div style={{ flex: '40%' }}>
-          <ImageView currentStyle={currentStyle} productId={props.productId} />
+          <ImageView
+            currentStyle={currentStyle}
+            productId={props.productId}
+            setDisplayType={setDisplayType}
+            displayType={displayType}
+            currentImageIdx={currentImageIdx}
+            setCurrentImageIdx={setCurrentImageIdx}
+          />
           <p>Overview: {productInfo.description}</p>
           <p>Share on Social Media! Link1 Link2 Link3</p>
         </div>
@@ -128,8 +157,6 @@ function Overview(props) {
             <p>{currentStyle.name}</p>
           </div>
 
-
-
           <StylesList
             styles={stylesInfo}
             changeStyle={setCurrentStyle}
@@ -142,7 +169,6 @@ function Overview(props) {
             currentStyleID={currentStyle.style_id}
             currentStyle={currentStyle}
           />
-
 
         </div>
       </div>
