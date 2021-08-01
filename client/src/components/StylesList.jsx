@@ -15,7 +15,7 @@ import Style from './Style.jsx';
 const ParentWrapper = styled.div`
   height: 100%;
   width: 100%;
-  border: 1px solid black;
+  // border: 1px solid black;
 `;
 
 const Parent = styled.div`
@@ -59,7 +59,6 @@ function StylesList(props) {
               <Child> <Style
                 style={element}
                 changeStyle={props.changeStyle}
-                changePrice={props.changePrice}
                 currentStyleID={props.currentStyleID}
               />
               </Child>
@@ -80,7 +79,6 @@ function StylesList(props) {
             <Child> <Style
               style={element}
               changeStyle={props.changeStyle}
-              changePrice={props.changePrice}
               currentStyleID={props.currentStyleID}
             />
             </Child>

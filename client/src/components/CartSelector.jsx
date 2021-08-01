@@ -13,7 +13,6 @@ const ParentWrapper = styled.div`
   height: 100%;
   width: 100%;
   margin-top: 1em;
-  border: 1px solid black;
 `;
 
 const Parent = styled.div`
@@ -25,20 +24,23 @@ const Child = styled.div`
   flex: 1 0 42%;
   margin: 5px;
   height: 100px;
+  border: 3px solid #525252;
 `;
 
 function CartSelector(props) {
-  // state currentStyleID pass and use useEffect to have buttons refresh
-
-  // get array of sizes and quantities from sku's
-
-  // state for currentSize
-  // state for currentQuantity
-
-  // pass all sizes to size
-  // pass inStockQuantity to quantity
-
   const placeHolderSize = ['Loading'];
+  const [currentSize, setCurrentSize] = useState('Select Size');
+  const [currentQuantity, setCurrentQuantity] = useState('-');
+  const [sizes, setSizes] = useState('sizes');
+  const [inStockQuantity, setInStockQuantity] = useState(-1);
+  const [sizeMessage, setSizeMessage] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectRef, setSelectRef] = useState('');
+
+  const openMenu = () => {
+    selectRef.focus();
+    setIsMenuOpen(true);
+  };
 
   const getSizes = (style) => {
     const sizes = [];
@@ -58,11 +60,6 @@ function CartSelector(props) {
     });
     return result;
   };
-
-  const [currentSize, setCurrentSize] = useState('Select Size');
-  const [currentQuantity, setCurrentQuantity] = useState('-');
-  const [sizes, setSizes] = useState('sizes');
-  const [inStockQuantity, setInStockQuantity] = useState(-1);
 
   useEffect(() => {
     const currentStyleLoaded = (props.currentStyle !== 'currentStyle' && props.currentStyle !== undefined);
@@ -90,7 +87,13 @@ function CartSelector(props) {
           <Child>
             <Size
               sizes={sizesLoaded ? sizes : placeHolderSize}
+              sizeMessage={sizeMessage}
               setCurrentSize={setCurrentSize}
+              setIsMenuOpen={setIsMenuOpen}
+              isMenuOpen={isMenuOpen}
+              openMenu={openMenu}
+              selectRef={selectRef}
+              setSelectRef={setSelectRef}
             />
           </Child>
           <Child>
@@ -99,7 +102,9 @@ function CartSelector(props) {
               setCurrentQuantity={setCurrentQuantity}
             />
           </Child>
-          <Child><AddToCart /></Child>
+          <Child>
+            <AddToCart setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} openMenu={openMenu} />
+          </Child>
           <Child><AddToOutfit /></Child>
         </Parent>
       </ParentWrapper>
@@ -108,65 +113,3 @@ function CartSelector(props) {
 }
 
 export default CartSelector;
-
-// "product_id": "20100",
-// "results": [
-//     {
-//         "style_id": 109986,
-//         "name": "Forest Green & Black",
-//         "original_price": "140.00",
-//         "sale_price": null,
-//         "default?": true,
-//         "photos": [
-//             {
-//                 "thumbnail_url": "https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-//                 "url": "https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-//             },
-//             {
-//                 "thumbnail_url": "https://images.unsplash.com/photo-1534011546717-407bced4d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-//                 "url": "https://images.unsplash.com/photo-1534011546717-407bced4d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
-//             },
-//             {
-//                 "thumbnail_url": "https://images.unsplash.com/photo-1549831243-a69a0b3d39e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-//                 "url": "https://images.unsplash.com/photo-1549831243-a69a0b3d39e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80"
-//             },
-//             {
-//                 "thumbnail_url": "https://images.unsplash.com/photo-1527522883525-97119bfce82d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-//                 "url": "https://images.unsplash.com/photo-1527522883525-97119bfce82d?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
-//             },
-//             {
-//                 "thumbnail_url": "https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-//                 "url": "https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-//             },
-//             {
-//                 "thumbnail_url": "https://images.unsplash.com/photo-1532543491484-63e29b3c1f5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-//                 "url": "https://images.unsplash.com/photo-1532543491484-63e29b3c1f5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-//             }
-//         ],
-//         "skus": {
-//             "638231": {
-//                 "quantity": 8,
-//                 "size": "XS"
-//             },
-//             "638232": {
-//                 "quantity": 16,
-//                 "size": "S"
-//             },
-//             "638233": {
-//                 "quantity": 17,
-//                 "size": "M"
-//             },
-//             "638234": {
-//                 "quantity": 10,
-//                 "size": "L"
-//             },
-//             "638235": {
-//                 "quantity": 15,
-//                 "size": "XL"
-//             },
-//             "638236": {
-//                 "quantity": 4,
-//                 "size": "XL"
-//             }
-//         }
-//     },

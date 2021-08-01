@@ -43,11 +43,6 @@ function ImageView(props) {
     currentStyle = props.currentStyle;
   }
 
-  // reset current image to be default when a new product is loaded
-  // useEffect(() => {
-  //   props.setCurrentImageIdx(defaultImageIdx);
-  // }, [props.productId]);
-
   return (
     <div style={imageViewStyles}>
       {/* Left Side */}

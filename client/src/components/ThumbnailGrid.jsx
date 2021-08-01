@@ -16,6 +16,7 @@ const Parent = styled.div`
 
 const Child = styled.div`
   margin: 5px;
+  margin-bottom: 20px;
   width: 80px;
   height: 80px;
 `;

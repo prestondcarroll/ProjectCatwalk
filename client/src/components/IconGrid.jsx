@@ -23,8 +23,6 @@ const Child = styled.div`
 const styles = {
   height: '100%',
   width: '100%',
-
-  // background: '#333',
   position: 'relative',
 };
 
