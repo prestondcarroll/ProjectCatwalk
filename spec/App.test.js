@@ -1,11 +1,23 @@
-import React from 'react'
-import {render, cleanup} from '@testing-library/react'
-import App from '../client/src/components/App.jsx';
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
+// import App from '../client/src/components/App.jsx';
 import styled from 'styled-components';
 
-afterEach(cleanup)
+import { Tracker, TrackerProvider } from 'react-tracker';
+import trackPageView from '../client/src/tracking/listeners/app.js';
+import AppWithTracking from '../client/src/components/AppContainer.jsx';
+
+const tracker = new Tracker([trackPageView]);
+
+const RootComponentWithTracking = (
+  <TrackerProvider tracker={tracker}>
+    <AppWithTracking />
+  </TrackerProvider>
+);
+
+afterEach(cleanup);
 
 it('should take a snapshot', () => {
-   const { asFragment } = render(<App />)
-   expect(asFragment(<App />)).toMatchSnapshot()
+  const { asFragment } = render(RootComponentWithTracking);
+  expect(asFragment(RootComponentWithTracking)).toMatchSnapshot();
 });
