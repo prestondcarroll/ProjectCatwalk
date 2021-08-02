@@ -19,12 +19,20 @@ const CardContainer = styled.div`
 `
 const Card = styled.div`
   border-style: groove;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   position: relative;
-  width: 200px;
+  width: 250px;
   text-align: center;
   line-height: 350px;
+`
+const Wrapper = styled.div`
+  margin-left: 25%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  font-color: #696969;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
 `
 
 const Outfit = (props) => {
@@ -71,7 +79,7 @@ const Outfit = (props) => {
 
   return (
     <div>
-      <h5>YOUR OUTFIT</h5>
+      <Wrapper>YOUR OUTFIT</Wrapper>
       <CarouselContainer>
         <FaAngleLeft size={30} onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }} />
         <CardContainer>

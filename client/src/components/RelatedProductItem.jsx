@@ -8,13 +8,13 @@ import Modal from 'react-modal';
 import ProductComparison from './ProductComparison.jsx';
 
 const StyledImage = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
 `
 const Card = styled.div`
   border-style: groove;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   position: relative;
 `
 
