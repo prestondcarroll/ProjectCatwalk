@@ -25,18 +25,10 @@ const styles = {
   },
 };
 
-const getStylePrice = (data) => {
-  if (data.sale_price === null) {
-    return data.original_price;
-  }
-  return data.sale_price;
-};
-
 function Style(props) {
 
   const handleStyleChange = () => {
     props.changeStyle(props.style);
-    props.changePrice(getStylePrice(props.style));
   };
 
   //if a style is currently selected put the checkmark on top of the image

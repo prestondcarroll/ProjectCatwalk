@@ -7,13 +7,16 @@ import Overview from './Overview.jsx';
 import RelatedProduct from './RelatedProduct.jsx';
 import Outfit from './Outfit.jsx';
 
-
 // should put default back to 20100 before pull request
 const DEFAULT_PRODUCT_ID = 20100;
 
-const App = () => {
+const App = ({trackPageView}) => {
   const [productId, setProductId] = useState(DEFAULT_PRODUCT_ID);
   const [outfits, setOutfits] = useState([]);
+
+  useEffect(() => {
+    trackPageView(1, 1);
+  }, []);
 
   useEffect(() => {
     if (!localStorage.getItem('outfits')) {

@@ -51,7 +51,7 @@ function Overview(props) {
   const [stylesInfo, setStylesInfo] = useState('stylesInfo');
   const [currentStyle, setCurrentStyle] = useState('currentStyle');
   const [displayType, setDisplayType] = useState('visible');
-  const [currentImageIdx, setCurrentImageIdx] = useState('currentImageIdx');
+  const [currentImageIdx, setCurrentImageIdx] = useState(0);
 
   useEffect(() => {
     $.ajax({

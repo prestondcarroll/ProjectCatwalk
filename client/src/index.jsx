@@ -1,5 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
+import { Tracker, TrackerProvider } from 'react-tracker';
+import trackPageView  from './tracking/listeners/app.js';
+import AppWithTracking from './components/AppContainer.jsx';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const tracker = new Tracker([trackPageView]);
+
+// const RootComponentWithTracking = ( );
+
+ReactDOM.render(
+  <TrackerProvider tracker={tracker}>
+    <AppWithTracking />
+  </TrackerProvider>,
+  document.getElementById('root'),
+);
