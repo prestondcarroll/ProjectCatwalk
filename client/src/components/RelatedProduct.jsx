@@ -68,7 +68,6 @@ const RelatedProduct = (props) => {
       }
     });
   }, []);
-  // console.log('tt',currentProduct);
 
   const handleClick = (isRight) => {
     if (isRight) {
