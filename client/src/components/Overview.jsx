@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-script-url */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
@@ -14,11 +16,11 @@ import calculateAverage from '../utils/calculateAverage.js';
 import StylesList from './StylesList.jsx';
 import ImageView from './ImageView.jsx';
 import CartSelector from './CartSelector.jsx';
+import ExpandedView from './ExpandedView.jsx';
+import Price from './Price.jsx';
 
 const imageViewStyles = {
   background: '#ddd',
-  // height: '500px',
-  // width: '1024px',
   margin: '40px auto',
   display: 'flex',
 };
@@ -30,13 +32,6 @@ const calculateReviewCount = (data) => {
     total += parseInt(ratings[key], 10);
   });
   return total;
-};
-
-const getStylePrice = (data) => {
-  if (data.sale_price === null) {
-    return data.original_price;
-  }
-  return data.sale_price;
 };
 
 const getDefaultStyle = (data) => {
@@ -55,7 +50,8 @@ function Overview(props) {
   const [productInfo, setProductInfo] = useState('productInfo');
   const [stylesInfo, setStylesInfo] = useState('stylesInfo');
   const [currentStyle, setCurrentStyle] = useState('currentStyle');
-  const [currentPrice, setCurrentPrice] = useState('currentPrice');
+  const [displayType, setDisplayType] = useState('visible');
+  const [currentImageIdx, setCurrentImageIdx] = useState('currentImageIdx');
 
   useEffect(() => {
     $.ajax({
@@ -92,7 +88,6 @@ function Overview(props) {
         setStylesInfo(styles.results);
         const defaultStyle = getDefaultStyle(styles.results);
         setCurrentStyle(defaultStyle);
-        setCurrentPrice(getStylePrice(defaultStyle));
       },
       error: (err) => {
         // console.log(err);
@@ -100,40 +95,68 @@ function Overview(props) {
     });
   }, [props.productId]);
 
+  useEffect(() => {
+    setCurrentImageIdx(0);
+  }, [props.productId]);
+
+  if (displayType === 'none') {
+    return (
+      <div style={{ flex: '100%' }}>
+        <ExpandedView
+          currentStyle={currentStyle}
+          productId={props.productId}
+          setDisplayType={setDisplayType}
+          displayType={displayType}
+          currentImageIdx={currentImageIdx}
+          setCurrentImageIdx={setCurrentImageIdx}
+        />
+      </div>
+    );
+  }
+
   return (
     <div>
-      <h3>Overview Section:</h3>
-
       <div style={imageViewStyles}>
         {/* Left Side */}
         <div style={{ flex: '40%' }}>
-          <ImageView currentStyle={currentStyle} productId={props.productId} />
-          <p>Overview: {productInfo.description}</p>
-          <p>Share on Social Media! Link1 Link2 Link3</p>
+          <ImageView
+            currentStyle={currentStyle}
+            productId={props.productId}
+            setDisplayType={setDisplayType}
+            displayType={displayType}
+            currentImageIdx={currentImageIdx}
+            setCurrentImageIdx={setCurrentImageIdx}
+          />
+          <p>{productInfo.description}</p>
+          <span>Share on Social Media! &nbsp;</span>
+          <a href="javascript:void(0)">Facebook</a>
+          <span>&nbsp;</span>
+          <a href="javascript:void(0)">Twitter</a>
+          <span>&nbsp;</span>
+          <a href="javascript:void(0)">Pinterest</a>
+
         </div>
 
         {/* Right Side */}
         <div style={{ flex: '60%' }}>
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             <StarRating rating={reviewAverage} />
-            <p>Read all {reviewCount} Reviews: Put LINK here </p>
+            <span> &ensp; Read all {reviewCount} Reviews&nbsp;</span>
+            <a href="javascript:void(0)">here</a>
           </div>
 
-          <h5>{productInfo.category}</h5>
-          <h3>{productInfo.name}</h3>
-          <p>{'Price: $'}{currentPrice}</p>
+          <h3>{productInfo.category}</h3>
+          <h2>{productInfo.name}</h2>
+          <Price currentStyle={currentStyle} />
 
-          <div style={{ display: 'flex' }}>
-            <h4>{'Styles >  '}</h4>
-            <p>{currentStyle.name}</p>
+          <div style={{ overflow: 'hidden' }}>
+            <p style={{ fontWeight: 'bold', float: 'left' }}>{'Styles >'} &ensp;</p>
+            <p style={{ float: 'left' }}>{currentStyle.name}</p>
           </div>
-
-
 
           <StylesList
             styles={stylesInfo}
             changeStyle={setCurrentStyle}
-            changePrice={setCurrentPrice}
             currentStyleID={currentStyle.style_id}
           />
 
@@ -143,11 +166,8 @@ function Overview(props) {
             currentStyle={currentStyle}
           />
 
-
         </div>
       </div>
-
-      <h3>END OF Overview Section</h3>
     </div>
   );
 }

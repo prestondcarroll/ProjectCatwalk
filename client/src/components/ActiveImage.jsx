@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
@@ -32,6 +34,14 @@ function ActiveImage(props) {
     props.setCurrentImageIdx(props.currentImageIdx + 1);
   };
 
+  const handleClick = () => {
+    if (props.displayType === 'visible') {
+      props.setDisplayType('none');
+    } else {
+      props.setDisplayType('visible');
+    }
+  };
+
   return (
     <div style={styles}>
       {needOnlyLeftArrow
@@ -44,10 +54,12 @@ function ActiveImage(props) {
                   style={{
                     width: '100%',
                     height: '100%',
+                    objectFit: 'scale-down',
                   }}
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
                   onPointerOut={() => setHovered(false)}
+                  onClick={() => handleClick()}
                 />
               </div>
 
@@ -72,10 +84,12 @@ function ActiveImage(props) {
                   style={{
                     width: '100%',
                     height: '100%',
+                    objectFit: 'scale-down',
                   }}
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
                   onPointerOut={() => setHovered(false)}
+                  onClick={() => handleClick()}
                 />
               </div>
 
@@ -100,10 +114,12 @@ function ActiveImage(props) {
                   style={{
                     width: '100%',
                     height: '100%',
+                    objectFit: 'scale-down',
                   }}
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
                   onPointerOut={() => setHovered(false)}
+                  onClick={() => handleClick()}
                 />
               </div>
 

@@ -3,14 +3,14 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import ThumbnailGrid from './ThumbnailGrid.jsx';
 import ActiveImage from './ActiveImage.jsx';
+import IconGrid from './IconGrid.jsx';
 import ZoomImage from './ZoomImage.jsx';
 
 const imageViewStyles = {
   background: '#ddd',
-  height: '500px',
-  width: '1024px',
+  height: '700px',
+  width: '100%',
   margin: '40px auto',
   display: 'flex',
 };
@@ -30,7 +30,7 @@ const placeHolderStyle = {
 
 const defaultImageIdx = 0;
 
-function ImageView(props) {
+function ExpandedView(props) {
   // const [currentImageIdx, setCurrentImageIdx] = useState('currentImageIdx');
   let currentStyle = placeHolderStyle;
   const imageIdx = defaultImageIdx;
@@ -43,12 +43,17 @@ function ImageView(props) {
     currentStyle = props.currentStyle;
   }
 
+  // reset current image to be default when a new product is loaded
+  // useEffect(() => {
+  //   props.setCurrentImageIdx(defaultImageIdx);
+  // }, [props.productId]);
+
   return (
     <div style={imageViewStyles}>
       {/* Left Side */}
       <div style={{ flex: '1 1 10%' }}>
         {/* NOTE possibly change to use a state currenStyle */}
-        <ThumbnailGrid
+        <IconGrid
           productId={props.productId}
           thumbnails={currentStyle.photos}
           currentImageIdx={props.currentImageIdx}
@@ -58,7 +63,7 @@ function ImageView(props) {
 
       {/* Right Side */}
       <div style={{ flex: '1 1 90%' }}>
-        <ActiveImage
+        <ZoomImage
           imageSrc={getCurrentImage(currentStyle, typeof props.currentImageIdx === 'string' ? imageIdx : props.currentImageIdx)}
           numImages={currentStyle.photos.length}
           currentImageIdx={props.currentImageIdx}
@@ -72,4 +77,4 @@ function ImageView(props) {
   );
 }
 
-export default ImageView;
+export default ExpandedView;

@@ -4,13 +4,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaBacon, FaEgg } from 'react-icons/fa';
 
 const styles = {
   height: '100%',
   width: '100%',
 
-  background: '#333',
+  // background: '#333',
   position: 'relative',
 };
 
@@ -23,26 +23,19 @@ function Thumbnail(props) {
     return (
       <div onClick={handleThumbClick} style={styles}>
         <span>
-          <img
-            src={props.imgSrc}
+          <FaBacon
+            size={50}
             style={{
-              width: '100%',
-              height: '100%',
-              border: '3px solid #525252',
+              fill: '#df3f32',
             }}
-            alt="no_img"
           />
 
-          <svg>
-            <rect fill="#525252" id="box" x="0" y="0" width="86" height="5" />
-          </svg>
-
-          {/* <FaCheck
+          <FaEgg
             size={15}
             style={{
-              fill: '#a7ffa4', position: 'absolute', left: '.01em', bottom: '.25em',
+              fill: '#fbfbf8', position: 'absolute', left: '2em', bottom: '2em',
             }}
-          /> */}
+          />
         </span>
       </div>
     );
@@ -50,14 +43,11 @@ function Thumbnail(props) {
 
   return (
     <div onClick={handleThumbClick} style={styles}>
-      <img
-        src={props.imgSrc}
+      <FaBacon
+        size={50}
         style={{
-          width: '100%',
-          height: '100%',
-          border: '3px solid #525252',
+          fill: '#df3f32',
         }}
-        alt="no_img"
       />
     </div>
   );

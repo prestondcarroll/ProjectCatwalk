@@ -4,8 +4,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
-import Thumbnail from './Thumbnail.jsx';
+import { FaUtensils } from 'react-icons/fa';
+import Icon from './Icon.jsx';
 
 // for each photo in currentStyle
 // map a thumbnail while passing down thumbnail url
@@ -16,7 +16,6 @@ const Parent = styled.div`
 
 const Child = styled.div`
   margin: 5px;
-  margin-bottom: 20px;
   width: 80px;
   height: 80px;
 `;
@@ -24,8 +23,6 @@ const Child = styled.div`
 const styles = {
   height: '100%',
   width: '100%',
-
-  // background: '#333',
   position: 'relative',
 };
 
@@ -35,7 +32,7 @@ const styles = {
 
 // default window to be 0-4
 
-function ThumbnailGrid(props) {
+function IconGrid(props) {
   let numThumbs = 999;
   if (props.thumbnails !== undefined && typeof props.thumbnails !== 'string') {
     numThumbs = props.thumbnails.length;
@@ -47,8 +44,7 @@ function ThumbnailGrid(props) {
         <Parent>
           {props.thumbnails.map((element, index) => (
             <Child>
-              <Thumbnail
-                imgSrc={element.thumbnail_url}
+              <Icon
                 imageIdx={index}
                 currentImageIdx={props.currentImageIdx}
                 setCurrentImageIdx={props.setCurrentImageIdx}
@@ -112,7 +108,7 @@ function ThumbnailGrid(props) {
               <div style={styles}>
                 <span>
                   <Child>
-                    <Thumbnail
+                    <Icon
                       imgSrc={props.thumbnails[windowStart].thumbnail_url}
                       imageIdx={windowStart}
                       currentImageIdx={props.currentImageIdx}
@@ -120,11 +116,11 @@ function ThumbnailGrid(props) {
                     />
                   </Child>
 
-                  <FaAngleUp
+                  <FaUtensils
                     onClick={handlePressUp}
                     size={35}
                     style={{
-                      fill: '#FF0000', position: 'absolute', left: '1.75em', bottom: '3.25em',
+                      fill: '#C0C0C0', position: 'absolute', left: '1.75em', bottom: '3.25em',
                     }}
                   />
                 </span>
@@ -133,7 +129,7 @@ function ThumbnailGrid(props) {
             : (
               <div>
                 <Child>
-                  <Thumbnail
+                  <Icon
                     imgSrc={props.thumbnails[windowStart].thumbnail_url}
                     imageIdx={windowStart}
                     currentImageIdx={props.currentImageIdx}
@@ -146,7 +142,7 @@ function ThumbnailGrid(props) {
           {/* Do next three thumbnails */}
           {props.thumbnails.slice(windowStart + 1, windowStart + 4).map((element, index) => (
             <Child>
-              <Thumbnail
+              <Icon
                 imgSrc={element.thumbnail_url}
                 imageIdx={index + windowStart + 1}
                 currentImageIdx={props.currentImageIdx}
@@ -161,7 +157,7 @@ function ThumbnailGrid(props) {
               <div style={styles}>
                 <span>
                   <Child>
-                    <Thumbnail
+                    <Icon
                       imgSrc={props.thumbnails[windowEnd].thumbnail_url}
                       imageIdx={windowEnd}
                       currentImageIdx={props.currentImageIdx}
@@ -169,11 +165,11 @@ function ThumbnailGrid(props) {
                     />
                   </Child>
 
-                  <FaAngleDown
+                  <FaUtensils
                     onClick={handlePressDown}
                     size={35}
                     style={{
-                      fill: '#FF0000', position: 'absolute', left: '1.75em', bottom: '.2em',
+                      fill: '#C0C0C0', position: 'absolute', left: '1.75em', bottom: '.2em',
                     }}
                   />
                 </span>
@@ -182,7 +178,7 @@ function ThumbnailGrid(props) {
             : (
               <div>
                 <Child>
-                  <Thumbnail
+                  <Icon
                     imgSrc={props.thumbnails[windowEnd].thumbnail_url}
                     imageIdx={windowEnd}
                     currentImageIdx={props.currentImageIdx}
@@ -204,4 +200,4 @@ function ThumbnailGrid(props) {
   );
 }
 
-export default ThumbnailGrid;
+export default IconGrid;

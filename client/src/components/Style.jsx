@@ -21,6 +21,7 @@ const styles = {
     width: '100px',
     height: '100px',
     borderRadius: '50px',
+    border: '3px solid #525252',
   },
 };
 
