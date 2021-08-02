@@ -45,6 +45,7 @@ const RelatedProduct = (props) => {
         // console.log(products);
         setRelatedProducts(products);
         setProductIndex(0)
+        setIsLeftButtonShown(false);
         if (products.length > CAROUSEL_WIDTH) {
           setIsRightButtonShown(true);
         }
