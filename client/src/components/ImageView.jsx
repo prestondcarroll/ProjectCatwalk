@@ -35,9 +35,9 @@ function ImageView(props) {
   let currentStyle = placeHolderStyle;
   const imageIdx = defaultImageIdx;
 
-  if (props.currentImageIdx === undefined || typeof props.currentImageIdx === 'string') {
-    props.setCurrentImageIdx(imageIdx);
-  }
+  // if (props.currentImageIdx === undefined || typeof props.currentImageIdx === 'string') {
+  //   props.setCurrentImageIdx(imageIdx);
+  // }
   // if styles are loaded change to styles to reflect that
   if (props.currentStyle !== undefined && typeof props.currentStyle !== 'string') {
     currentStyle = props.currentStyle;
