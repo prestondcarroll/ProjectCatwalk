@@ -76,22 +76,18 @@ const RelatedProduct = (props) => {
       setIsLeftButtonShown(true);
       if (productIndex + 1 + CAROUSEL_WIDTH >= relatedProducts.length) {
         setIsRightButtonShown(false);
-      } else {
-        setIsRightButtonShown(true);
       }
     } else {
       setProductIndex(productIndex - 1)
       setIsRightButtonShown(true);
       if (productIndex - 1 <= 0) {
         setIsLeftButtonShown(false);
-      } else {
-        setIsLeftButtonShown(true);
       }
     }
   }
   // console.log(props);
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Related Product')}}>
       <Wrapper>RELATED PRODUCTS</Wrapper>
       <CarouselContainer>
         <FaAngleLeft size={30} onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }} />

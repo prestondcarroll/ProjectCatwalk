@@ -59,12 +59,18 @@ const App = ({trackPageView}) => {
   }
 
 
+//  const handleClick = (e, moduleElem) => {
+//    console.log(e.target);
+//    console.log(new Date());
+//    console.log(moduleElem);
+//  }
+
   return (
     <div>
       <Overview productId={productId} trackPageView={trackPageView} />
-      <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} />
-      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit}/>
-      <QA productId={productId} />
+      <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} trackPageView={trackPageView} />
+      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit} trackPageView={trackPageView} />
+      <QA productId={productId} trackPageView={trackPageView} />
     </div>
   );
 };
