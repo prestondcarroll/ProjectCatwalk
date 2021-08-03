@@ -14,12 +14,6 @@ const App = ({trackPageView}) => {
   const [productId, setProductId] = useState(DEFAULT_PRODUCT_ID);
   const [outfits, setOutfits] = useState([]);
 
-  // trackPageView()
-
-  // useEffect(() => {
-  //   trackPageView(1, 1);
-  // }, []);
-
   useEffect(() => {
     if (!localStorage.getItem('outfits')) {
       localStorage.setItem('outfits', JSON.stringify([]))
