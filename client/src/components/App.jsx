@@ -67,10 +67,10 @@ const App = ({trackPageView}) => {
 
   return (
     <div>
-      <Overview productId={productId} />
-      <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} />
-      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit} />
-      <QA productId={productId} />
+      <Overview productId={productId} trackPageView={trackPageView} />
+      <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} trackPageView={trackPageView} />
+      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit} trackPageView={trackPageView} />
+      <QA productId={productId} trackPageView={trackPageView} />
     </div>
   );
 };

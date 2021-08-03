@@ -73,7 +73,7 @@ const Outfit = (props) => {
   }, [props.outfits]);
 
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Outfit')}}>
       <Wrapper>YOUR OUTFIT</Wrapper>
       <CarouselContainer>
         <FaAngleLeft size={30} onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }} />

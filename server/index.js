@@ -303,4 +303,20 @@ app.post('/answers/report/:answerId', (req, res) => {
   })
 })
 
+app.post('/interactions', (req, res) => {
+  console.log(JSON.stringify(req.body));
+  $.ajax({
+    method: 'POST',
+    url: `${baseUrl}/interactions`,
+    data: JSON.stringify(req.body),
+    contentType: 'application/json',
+    success: () => {
+      res.send('ok');
+    },
+    error: (err) => {
+      console.log(err);
+      res.sendStatus(500, err.results);
+    }
+  })
+})
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

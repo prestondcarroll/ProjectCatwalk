@@ -124,7 +124,7 @@ function Overview(props) {
   }
 
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
       <div style={imageViewStyles}>
         {/* Left Side */}
         <div style={{ flex: '40%' }}>
