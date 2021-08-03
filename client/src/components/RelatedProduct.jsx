@@ -87,7 +87,7 @@ const RelatedProduct = (props) => {
   }
   // console.log(props);
   return (
-    <div onClick={(e, moduleElem) => props.handleClick(e, 'Related Product')}>
+    <div>
       <Wrapper>RELATED PRODUCTS</Wrapper>
       <CarouselContainer>
         <FaAngleLeft size={30} onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }} />

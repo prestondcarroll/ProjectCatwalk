@@ -124,7 +124,7 @@ function Overview(props) {
   }
 
   return (
-    <div onClick={(e, moduleElem) => props.handleClick(e, 'Overview')}>
+    <div>
       <div style={imageViewStyles}>
         {/* Left Side */}
         <div style={{ flex: '40%' }}>

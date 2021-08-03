@@ -59,18 +59,18 @@ const App = ({trackPageView}) => {
   }
 
 
- const handleClick = (e, moduleElem) => {
-   console.log(e.target);
-   console.log(new Date());
-   console.log(moduleElem);
- }
+//  const handleClick = (e, moduleElem) => {
+//    console.log(e.target);
+//    console.log(new Date());
+//    console.log(moduleElem);
+//  }
 
   return (
     <div>
-      <Overview productId={productId} handleClick={handleClick} />
-      <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} handleClick={handleClick} />
-      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit} handleClick={handleClick} />
-      <QA productId={productId} handleClick={handleClick} />
+      <Overview productId={productId} />
+      <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} />
+      <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit} />
+      <QA productId={productId} />
     </div>
   );
 };
