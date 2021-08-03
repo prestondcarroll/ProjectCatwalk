@@ -14,9 +14,11 @@ const App = ({trackPageView}) => {
   const [productId, setProductId] = useState(DEFAULT_PRODUCT_ID);
   const [outfits, setOutfits] = useState([]);
 
-  useEffect(() => {
-    trackPageView(1, 1);
-  }, []);
+  // trackPageView()
+
+  // useEffect(() => {
+  //   trackPageView(1, 1);
+  // }, []);
 
   useEffect(() => {
     if (!localStorage.getItem('outfits')) {
@@ -59,7 +61,7 @@ const App = ({trackPageView}) => {
 
   return (
     <div>
-      <Overview productId={productId} />
+      <Overview productId={productId} trackPageView={trackPageView} />
       <RelatedProduct productId={productId} handleChangeOverview={handleChangeOverview} />
       <Outfit outfits={outfits} productId={productId} handleAddOutfits={handleAddOutfits} handleDeleteOutfit={handleDeleteOutfit}/>
       <QA productId={productId} />
