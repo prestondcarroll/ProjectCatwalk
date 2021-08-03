@@ -314,7 +314,7 @@ app.post('/interactions', (req, res) => {
       res.send('ok');
     },
     error: (err) => {
-      console.log(err);
+      // console.log(err);
       res.sendStatus(500, err.results);
     }
   })
