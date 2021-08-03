@@ -37,7 +37,7 @@ const StarRating = (props) => {
   }
 
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
 
       {[...Array(wholeStarNum)].map(() => <FaStar size={30} style={{ fill: '#ffc107' }} />)}
 

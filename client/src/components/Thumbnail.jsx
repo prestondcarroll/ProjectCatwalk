@@ -15,13 +15,14 @@ const styles = {
 };
 
 function Thumbnail(props) {
-  const handleThumbClick = () => {
+  const handleThumbClickAndTrack = (event) => {
     props.setCurrentImageIdx(props.imageIdx);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
   if (props.imageIdx === props.currentImageIdx) {
     return (
-      <div onClick={handleThumbClick} style={styles}>
+      <div onClick={handleThumbClickAndTrack} style={styles}>
         <span>
           <img
             src={props.imgSrc}
@@ -36,20 +37,13 @@ function Thumbnail(props) {
           <svg>
             <rect fill="#525252" id="box" x="0" y="0" width="86" height="5" />
           </svg>
-
-          {/* <FaCheck
-            size={15}
-            style={{
-              fill: '#a7ffa4', position: 'absolute', left: '.01em', bottom: '.25em',
-            }}
-          /> */}
         </span>
       </div>
     );
   }
 
   return (
-    <div onClick={handleThumbClick} style={styles}>
+    <div onClick={handleThumbClickAndTrack} style={styles}>
       <img
         src={props.imgSrc}
         style={{

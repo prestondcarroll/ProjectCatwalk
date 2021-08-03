@@ -15,13 +15,14 @@ const styles = {
 };
 
 function Thumbnail(props) {
-  const handleThumbClick = () => {
+  const handleThumbClickAndTrack = (event) => {
     props.setCurrentImageIdx(props.imageIdx);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
   if (props.imageIdx === props.currentImageIdx) {
     return (
-      <div onClick={handleThumbClick} style={styles}>
+      <div onClick={handleThumbClickAndTrack} style={styles}>
         <span>
           <FaBacon
             size={50}
@@ -42,7 +43,7 @@ function Thumbnail(props) {
   }
 
   return (
-    <div onClick={handleThumbClick} style={styles}>
+    <div onClick={handleThumbClickAndTrack} style={styles}>
       <FaBacon
         size={50}
         style={{

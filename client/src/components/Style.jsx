@@ -27,14 +27,15 @@ const styles = {
 
 function Style(props) {
 
-  const handleStyleChange = () => {
+  const handleStyleChangeAndTrack = (event) => {
     props.changeStyle(props.style);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
   //if a style is currently selected put the checkmark on top of the image
   if (props.currentStyleID !== undefined && props.currentStyleID === props.style.style_id) {
     return (
-      <div onClick={handleStyleChange} style={{ ...styles.card }}>
+      <div onClick={handleStyleChangeAndTrack} style={{ ...styles.card }}>
         <span style={{ display: 'inline-block', position: 'relative' }}>
           <img
             textAnchor="middle"
@@ -58,7 +59,7 @@ function Style(props) {
   }
   //else return image with no checkmark on it
   return (
-    <div onClick={handleStyleChange} style={{ ...styles.card }}>
+    <div onClick={handleStyleChangeAndTrack} style={{ ...styles.card }}>
       <img style={styles.image} src={props.style.photos[0].thumbnail_url} alt="no_img" />
     </div>
   );

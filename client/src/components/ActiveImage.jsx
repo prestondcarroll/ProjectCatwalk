@@ -26,20 +26,23 @@ function ActiveImage(props) {
     document.body.style.cursor = hovered ? 'zoom-in' : 'auto';
   }, [hovered]);
 
-  const handlePressLeft = () => {
+  const handlePressLeftAndTrack = (event) => {
     props.setCurrentImageIdx(props.currentImageIdx - 1);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
-  const handlePressRight = () => {
+  const handlePressRightAndTrack = (event) => {
     props.setCurrentImageIdx(props.currentImageIdx + 1);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
-  const handleClick = () => {
+  const handleClickAndTrack = (event) => {
     if (props.displayType === 'visible') {
       props.setDisplayType('none');
     } else {
       props.setDisplayType('visible');
     }
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
   return (
@@ -59,12 +62,12 @@ function ActiveImage(props) {
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
                   onPointerOut={() => setHovered(false)}
-                  onClick={() => handleClick()}
+                  onClick={(event) => handleClickAndTrack(event)}
                 />
               </div>
 
               <FaAngleLeft
-                onClick={handlePressLeft}
+                onClick={handlePressLeftAndTrack}
                 size={50}
                 style={{
                   fill: '#FF0000', position: 'absolute', left: '0.20em', bottom: '15em',
@@ -89,12 +92,12 @@ function ActiveImage(props) {
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
                   onPointerOut={() => setHovered(false)}
-                  onClick={() => handleClick()}
+                  onClick={(event) => handleClickAndTrack(event)}
                 />
               </div>
 
               <FaAngleRight
-                onClick={handlePressRight}
+                onClick={handlePressRightAndTrack}
                 size={50}
                 style={{
                   fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',
@@ -119,12 +122,12 @@ function ActiveImage(props) {
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
                   onPointerOut={() => setHovered(false)}
-                  onClick={() => handleClick()}
+                  onClick={(event) => handleClickAndTrack(event)}
                 />
               </div>
 
               <FaAngleLeft
-                onClick={handlePressLeft}
+                onClick={handlePressLeftAndTrack}
                 size={50}
                 style={{
                   fill: '#FF0000', position: 'absolute', left: '0.20em', bottom: '15em',
@@ -132,7 +135,7 @@ function ActiveImage(props) {
               />
 
               <FaAngleRight
-                onClick={handlePressRight}
+                onClick={handlePressRightAndTrack}
                 size={50}
                 style={{
                   fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',

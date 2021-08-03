@@ -22,7 +22,7 @@ function Quantity(props) {
   }, [props.inStockQuantity]);
 
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
       <h3>Quantity</h3>
       <select onChange={handleChange}>
         {quantities.map((quantity) => (

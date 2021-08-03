@@ -27,7 +27,7 @@ function Size(props) {
 
   if (props.sizes[1] === undefined || props.sizes[1] === null) {
     return (
-      <div>
+      <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
         <h3>{props.sizeMessage}</h3>
         <Select
           ref={(r) => {
@@ -46,7 +46,7 @@ function Size(props) {
   }
 
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
       <h3>{props.sizeMessage}</h3>
       <Select
         ref={(r) => {

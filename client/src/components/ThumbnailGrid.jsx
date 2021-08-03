@@ -63,18 +63,19 @@ function ThumbnailGrid(props) {
   const [windowStart, setWindowStart] = useState('windowStart');
   const [windowEnd, setWindowEnd] = useState('windowEnd');
 
-  const handlePressUp = () => {
+  const handlePressUpAndTrack = (event) => {
     const newStart = windowStart - 1;
     const newEnd = windowEnd - 1;
     setWindowStart(newStart);
     setWindowEnd(newEnd);
   };
 
-  const handlePressDown = () => {
+  const handlePressDownAndTrack = (event) => {
     const newStart = windowStart + 1;
     const newEnd = windowEnd + 1;
     setWindowStart(newStart);
     setWindowEnd(newEnd);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
   useEffect(() => {
@@ -117,11 +118,12 @@ function ThumbnailGrid(props) {
                       imageIdx={windowStart}
                       currentImageIdx={props.currentImageIdx}
                       setCurrentImageIdx={props.setCurrentImageIdx}
+                      trackPageView={props.trackPageView}
                     />
                   </Child>
 
                   <FaAngleUp
-                    onClick={handlePressUp}
+                    onClick={handlePressUpAndTrack}
                     size={35}
                     style={{
                       fill: '#FF0000', position: 'absolute', left: '1.75em', bottom: '3.25em',
@@ -131,13 +133,14 @@ function ThumbnailGrid(props) {
               </div>
             )
             : (
-              <div>
+              <div >
                 <Child>
                   <Thumbnail
                     imgSrc={props.thumbnails[windowStart].thumbnail_url}
                     imageIdx={windowStart}
                     currentImageIdx={props.currentImageIdx}
                     setCurrentImageIdx={props.setCurrentImageIdx}
+                    trackPageView={props.trackPageView}
                   />
                 </Child>
               </div>
@@ -145,14 +148,17 @@ function ThumbnailGrid(props) {
 
           {/* Do next three thumbnails */}
           {props.thumbnails.slice(windowStart + 1, windowStart + 4).map((element, index) => (
-            <Child>
-              <Thumbnail
-                imgSrc={element.thumbnail_url}
-                imageIdx={index + windowStart + 1}
-                currentImageIdx={props.currentImageIdx}
-                setCurrentImageIdx={props.setCurrentImageIdx}
-              />
-            </Child>
+            <div>
+              <Child>
+                <Thumbnail
+                  imgSrc={element.thumbnail_url}
+                  imageIdx={index + windowStart + 1}
+                  currentImageIdx={props.currentImageIdx}
+                  setCurrentImageIdx={props.setCurrentImageIdx}
+                  trackPageView={props.trackPageView}
+                />
+              </Child>
+            </div>
           ))}
 
           {/* Do last thumbnail determine if it needs an arrow */}
@@ -166,11 +172,12 @@ function ThumbnailGrid(props) {
                       imageIdx={windowEnd}
                       currentImageIdx={props.currentImageIdx}
                       setCurrentImageIdx={props.setCurrentImageIdx}
+                      trackPageView={props.trackPageView}
                     />
                   </Child>
 
                   <FaAngleDown
-                    onClick={handlePressDown}
+                    onClick={handlePressDownAndTrack}
                     size={35}
                     style={{
                       fill: '#FF0000', position: 'absolute', left: '1.75em', bottom: '.2em',
@@ -187,6 +194,7 @@ function ThumbnailGrid(props) {
                     imageIdx={windowEnd}
                     currentImageIdx={props.currentImageIdx}
                     setCurrentImageIdx={props.setCurrentImageIdx}
+                    trackPageView={props.trackPageView}
                   />
                 </Child>
               </div>

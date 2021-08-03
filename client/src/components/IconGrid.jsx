@@ -48,6 +48,7 @@ function IconGrid(props) {
                 imageIdx={index}
                 currentImageIdx={props.currentImageIdx}
                 setCurrentImageIdx={props.setCurrentImageIdx}
+                trackPageView={props.trackPageView}
               />
             </Child>
           ))}
@@ -59,18 +60,20 @@ function IconGrid(props) {
   const [windowStart, setWindowStart] = useState('windowStart');
   const [windowEnd, setWindowEnd] = useState('windowEnd');
 
-  const handlePressUp = () => {
+  const handlePressUpAndTrack = (event) => {
     const newStart = windowStart - 1;
     const newEnd = windowEnd - 1;
     setWindowStart(newStart);
     setWindowEnd(newEnd);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
-  const handlePressDown = () => {
+  const handlePressDownAndTrack = (event) => {
     const newStart = windowStart + 1;
     const newEnd = windowEnd + 1;
     setWindowStart(newStart);
     setWindowEnd(newEnd);
+    props.trackPageView(event.target.outerHTML, 'Overview');
   };
 
   useEffect(() => {
@@ -113,11 +116,12 @@ function IconGrid(props) {
                       imageIdx={windowStart}
                       currentImageIdx={props.currentImageIdx}
                       setCurrentImageIdx={props.setCurrentImageIdx}
+                      trackPageView={props.trackPageView}
                     />
                   </Child>
 
                   <FaUtensils
-                    onClick={handlePressUp}
+                    onClick={handlePressUpAndTrack}
                     size={35}
                     style={{
                       fill: '#C0C0C0', position: 'absolute', left: '1.75em', bottom: '3.25em',
@@ -134,6 +138,7 @@ function IconGrid(props) {
                     imageIdx={windowStart}
                     currentImageIdx={props.currentImageIdx}
                     setCurrentImageIdx={props.setCurrentImageIdx}
+                    trackPageView={props.trackPageView}
                   />
                 </Child>
               </div>
@@ -147,6 +152,7 @@ function IconGrid(props) {
                 imageIdx={index + windowStart + 1}
                 currentImageIdx={props.currentImageIdx}
                 setCurrentImageIdx={props.setCurrentImageIdx}
+                trackPageView={props.trackPageView}
               />
             </Child>
           ))}
@@ -162,11 +168,12 @@ function IconGrid(props) {
                       imageIdx={windowEnd}
                       currentImageIdx={props.currentImageIdx}
                       setCurrentImageIdx={props.setCurrentImageIdx}
+                      trackPageView={props.trackPageView}
                     />
                   </Child>
 
                   <FaUtensils
-                    onClick={handlePressDown}
+                    onClick={handlePressDownAndTrack}
                     size={35}
                     style={{
                       fill: '#C0C0C0', position: 'absolute', left: '1.75em', bottom: '.2em',
@@ -183,6 +190,7 @@ function IconGrid(props) {
                     imageIdx={windowEnd}
                     currentImageIdx={props.currentImageIdx}
                     setCurrentImageIdx={props.setCurrentImageIdx}
+                    trackPageView={props.trackPageView}
                   />
                 </Child>
               </div>

@@ -110,7 +110,7 @@ function Overview(props) {
 
   if (displayType === 'none') {
     return (
-      <div style={{ flex: '100%' }}>
+      <div style={{ flex: '100%' }} onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
         <ExpandedView
           currentStyle={currentStyle}
           productId={props.productId}
@@ -118,13 +118,14 @@ function Overview(props) {
           displayType={displayType}
           currentImageIdx={currentImageIdx}
           setCurrentImageIdx={setCurrentImageIdx}
+          trackPageView={props.trackPageView}
         />
       </div>
     );
   }
 
   return (
-    <div onClick={(event) => {props.trackPageView(event.target, 'Overview')}} >
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}} >
       <div style={imageViewStyles}>
         {/* Left Side */}
         <div style={{ flex: '40%' }}>
@@ -135,6 +136,7 @@ function Overview(props) {
             displayType={displayType}
             currentImageIdx={currentImageIdx}
             setCurrentImageIdx={setCurrentImageIdx}
+            trackPageView={props.trackPageView}
           />
           <p>{productInfo.description}</p>
           <span>Share on Social Media! &nbsp;</span>
@@ -149,14 +151,14 @@ function Overview(props) {
         {/* Right Side */}
         <div style={{ flex: '60%' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <StarRating rating={reviewAverage} />
+            <StarRating rating={reviewAverage} trackPageView={props.trackPageView} />
             <span> &ensp; Read all {reviewCount} Reviews&nbsp;</span>
             <a href="javascript:void(0)">here</a>
           </div>
 
           <h3>{productInfo.category}</h3>
           <h2>{productInfo.name}</h2>
-          <Price currentStyle={currentStyle} />
+          <Price currentStyle={currentStyle} trackPageView={props.trackPageView} />
 
           <div style={{ overflow: 'hidden' }}>
             <p style={{ fontWeight: 'bold', float: 'left' }}>{'Styles >'} &ensp;</p>
@@ -167,12 +169,14 @@ function Overview(props) {
             styles={stylesInfo}
             changeStyle={setCurrentStyle}
             currentStyleID={currentStyle.style_id}
+            trackPageView={props.trackPageView}
           />
 
           <CartSelector
             productId={props.productId}
             currentStyleID={currentStyle.style_id}
             currentStyle={currentStyle}
+            trackPageView={props.trackPageView}
           />
 
         </div>

@@ -60,6 +60,7 @@ function StylesList(props) {
                 style={element}
                 changeStyle={props.changeStyle}
                 currentStyleID={props.currentStyleID}
+                trackPageView={props.trackPageView}
               />
               </Child>
             ))}
@@ -80,6 +81,7 @@ function StylesList(props) {
               style={element}
               changeStyle={props.changeStyle}
               currentStyleID={props.currentStyleID}
+              trackPageView={props.trackPageView}
             />
             </Child>
           ))}

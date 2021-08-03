@@ -11,7 +11,7 @@ function Price(props) {
 
   if (isOnSale) {
     return (
-      <div>
+      <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
         <div style={{ overflow: 'hidden' }}>
           <p style={{ color: '#e43a36', float: 'left' }}>${props.currentStyle.sale_price} &nbsp;</p>
           <p style={{ textDecoration: 'line-through', float: 'left' }}>${props.currentStyle.original_price} &ensp;</p>
@@ -21,7 +21,7 @@ function Price(props) {
   }
 
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
       <p>${props.currentStyle.original_price}</p>
     </div>
   );

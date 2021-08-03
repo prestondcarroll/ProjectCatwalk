@@ -58,6 +58,7 @@ function ExpandedView(props) {
           thumbnails={currentStyle.photos}
           currentImageIdx={props.currentImageIdx}
           setCurrentImageIdx={props.setCurrentImageIdx}
+          trackPageView={props.trackPageView}
         />
       </div>
 
@@ -70,6 +71,7 @@ function ExpandedView(props) {
           setCurrentImageIdx={props.setCurrentImageIdx}
           setDisplayType={props.setDisplayType}
           displayType={props.displayType}
+          trackPageView={props.trackPageView}
         />
       </div>
 

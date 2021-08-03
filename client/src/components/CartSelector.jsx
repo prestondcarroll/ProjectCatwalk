@@ -94,16 +94,23 @@ function CartSelector(props) {
               openMenu={openMenu}
               selectRef={selectRef}
               setSelectRef={setSelectRef}
+              trackPageView={props.trackPageView}
             />
           </Child>
           <Child>
             <Quantity
               inStockQuantity={inStockQuantity}
               setCurrentQuantity={setCurrentQuantity}
+              trackPageView={props.trackPageView}
             />
           </Child>
           <Child>
-            <AddToCart setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} openMenu={openMenu} />
+            <AddToCart
+              setIsMenuOpen={setIsMenuOpen}
+              isMenuOpen={isMenuOpen}
+              openMenu={openMenu}
+              trackPageView={props.trackPageView}
+            />
           </Child>
           <Child><AddToOutfit /></Child>
         </Parent>

@@ -53,6 +53,7 @@ function ImageView(props) {
           thumbnails={currentStyle.photos}
           currentImageIdx={props.currentImageIdx}
           setCurrentImageIdx={props.setCurrentImageIdx}
+          trackPageView={props.trackPageView}
         />
       </div>
 
@@ -65,6 +66,7 @@ function ImageView(props) {
           setCurrentImageIdx={props.setCurrentImageIdx}
           setDisplayType={props.setDisplayType}
           displayType={props.displayType}
+          trackPageView={props.trackPageView}
         />
       </div>
 
