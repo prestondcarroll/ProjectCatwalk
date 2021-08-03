@@ -1,9 +1,10 @@
-function getPageViewEvent(pageId, userId) {
+function getPageViewEvent(eventTarget, module) {
   return {
     type: 'PAGE_VIEW',
     data: {
-      pageId,
-      userId,
+      eventTarget,
+      module,
+      time: new Date(),
     },
   };
 };

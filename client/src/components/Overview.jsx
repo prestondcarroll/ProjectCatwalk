@@ -53,6 +53,15 @@ function Overview(props) {
   const [displayType, setDisplayType] = useState('visible');
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
 
+  const overviewRef = React.createRef();
+
+  // useEffect(() => {
+
+  //   document.body.addEventListener('click', (event) => {
+  //     props.trackPageView(event, 'Overview');
+  //   });
+  // }, []);
+
   useEffect(() => {
     $.ajax({
       method: 'GET',
@@ -115,7 +124,7 @@ function Overview(props) {
   }
 
   return (
-    <div>
+    <div onClick={(event) => {props.trackPageView(event.target, 'Overview')}} >
       <div style={imageViewStyles}>
         {/* Left Side */}
         <div style={{ flex: '40%' }}>
