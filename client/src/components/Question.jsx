@@ -20,6 +20,7 @@ const Help = styled.span`
 
 const Button = styled.a`
   text-decoration: underline;
+  cursor: pointer;
 `
 
 const Answers = styled.div`

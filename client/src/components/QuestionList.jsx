@@ -27,32 +27,37 @@ const ScrollContainer = styled.div`
 
 const QuestionList = (props) => {
   let first4 = [];
+  let rest = [];
   for (var i = 0; i < 4; i++) {
     if (props.questions[i]) {
       first4.push(props.questions[i]);
     }
   }
+  for (var i = 4; i < props.questions.length; i++) {
+    rest.push(props.questions[i]);
+  }
+  let containerStyle = {
+    'display': 'flex',
+    'flexDirection': 'column',
+    'marginRight': '25%',
+    'marginLeft': '25%',
+    'fontFamily': 'Helvetica, Arial, sans-serif',
+    'overflowY': props.questionsExpanded ? 'scroll' : 'hidden',
+    'height' : props.questionsExpanded ? '65vh' : 'auto',
+  }
   if (props.questions.length === 0) {
     return <div>loading...</div>
-  } else if (!props.questionsExpanded) {
-    return (
-      <Container>
-        {
-          first4.map((question) => (
-            <QuestionStyle><Question fetchQuestions={props.fetchQuestions} questionId={question.question_id} productName={props.productName} key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
-          ))
-        }
-      </Container>
-    );
   } else {
     return (
-      <ScrollContainer>
+      <div style={containerStyle}>
         {
-          props.questions.map((question) => (
+          !props.questionsExpanded ? (first4.map((question) => (
             <QuestionStyle><Question fetchQuestions={props.fetchQuestions} questionId={question.question_id} productName={props.productName} key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
-          ))
+          ))) : (props.questions.map((question) => (
+            <QuestionStyle><Question fetchQuestions={props.fetchQuestions} questionId={question.question_id} productName={props.productName} key={question.question_id} question={question} productId={props.productId} /></QuestionStyle>
+          )))
         }
-      </ScrollContainer>
+      </div>
     );
   }
 };

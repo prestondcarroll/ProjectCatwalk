@@ -27,6 +27,7 @@ const Helpful = styled.span`
 
 const A = styled.a`
   text-decoration: underline;
+  cursor: pointer;
 `
 
 const Answer = (props) => {
@@ -55,7 +56,7 @@ const Answer = (props) => {
     return (
       <Wrapper>
         <AnswerStyle>{props.answer.body}</AnswerStyle>
-        <Footer>        by {props.answer.answerer_name}, {moment(props.answer.date.slice(0, 10)).format('MMMM d, YYYY')}   <Helpful>|   Helpful? <A onClick={helpfulHandler}>Yes</A> ({props.answer.helpfulness})   |</Helpful>   <A onClick={reportHandler} style={{fontSize: '0.87em'}}>Report</A></Footer>
+        <Footer>          by {props.answer.answerer_name}, {moment(props.answer.date.slice(0, 10)).format('MMMM d, YYYY')}   <Helpful>|   Helpful? <A onClick={helpfulHandler}>Yes</A> ({props.answer.helpfulness})   |</Helpful>   <A onClick={reportHandler} style={{fontSize: '0.87em'}}>Report</A></Footer>
       </Wrapper>
     );
   } else {
