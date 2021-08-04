@@ -62,19 +62,21 @@ function ActiveImage(props) {
         && (
           <div style={styles}>
             <span>
-              <div style={styles}>
-                <img
-                  src={props.imageSrc}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'scale-down',
-                  }}
-                  alt="no_img"
-                  onPointerOver={() => setHovered(true)}
-                  onPointerOut={() => setHovered(false)}
-                  onClick={() => handleClick()}
-                />
+              <div style={container}>
+                <div style={child}>
+                  <img
+                    src={props.imageSrc}
+                    style={{
+                      height: '600px',
+                      border: '3px solid #000000',
+                      width: '100%',
+                    }}
+                    alt="no_img"
+                    onPointerOver={() => setHovered(true)}
+                    onPointerOut={() => setHovered(false)}
+                    onClick={() => handleClick()}
+                  />
+                </div>
               </div>
 
               <FaAngleLeft
@@ -97,10 +99,9 @@ function ActiveImage(props) {
                 <img
                   src={props.imageSrc}
                   style={{
-                    // width: '500px',
-                    height: '480px',
+                    height: '600px',
                     border: '3px solid #000000',
-                    // objectFit: 'scale-down',
+                    width: '100%',
                   }}
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
@@ -125,19 +126,21 @@ function ActiveImage(props) {
         && (
           <div style={styles}>
             <span>
-              <div style={styles}>
-                <img
-                  src={props.imageSrc}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'scale-down',
-                  }}
-                  alt="no_img"
-                  onPointerOver={() => setHovered(true)}
-                  onPointerOut={() => setHovered(false)}
-                  onClick={() => handleClick()}
-                />
+              <div style={container}>
+                <div style={child}>
+                  <img
+                    src={props.imageSrc}
+                    style={{
+                      height: '600px',
+                      width: '100%',
+                      border: '3px solid #000000',
+                    }}
+                    alt="no_img"
+                    onPointerOver={() => setHovered(true)}
+                    onPointerOut={() => setHovered(false)}
+                    onClick={() => handleClick()}
+                  />
+                </div>
               </div>
 
               <FaAngleLeft
