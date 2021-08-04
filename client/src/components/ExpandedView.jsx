@@ -10,7 +10,7 @@ import ZoomImage from './ZoomImage.jsx';
 const imageViewStyles = {
   background: '#ddd',
   height: '700px',
-  width: '100%',
+  width: '1000px',
   margin: '40px auto',
   display: 'flex',
 };

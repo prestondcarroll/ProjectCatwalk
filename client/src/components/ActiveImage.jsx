@@ -9,8 +9,22 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 const styles = {
   height: '100%',
   width: '100%',
+  // border: '3px solid #000000',
   margin: '-5px',
   position: 'relative',
+};
+
+const container = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  margin: '5px',
+  // border: '3px solid #000000',
+};
+
+const child = {
+  // border: '3px solid #fff',
+  flexGrow: '1',
 };
 
 function ActiveImage(props) {
@@ -48,19 +62,21 @@ function ActiveImage(props) {
         && (
           <div style={styles}>
             <span>
-              <div style={styles}>
-                <img
-                  src={props.imageSrc}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'scale-down',
-                  }}
-                  alt="no_img"
-                  onPointerOver={() => setHovered(true)}
-                  onPointerOut={() => setHovered(false)}
-                  onClick={() => handleClick()}
-                />
+              <div style={container}>
+                <div style={child}>
+                  <img
+                    src={props.imageSrc}
+                    style={{
+                      height: '600px',
+                      border: '3px solid #000000',
+                      width: '100%',
+                    }}
+                    alt="no_img"
+                    onPointerOver={() => setHovered(true)}
+                    onPointerOut={() => setHovered(false)}
+                    onClick={() => handleClick()}
+                  />
+                </div>
               </div>
 
               <FaAngleLeft
@@ -76,15 +92,16 @@ function ActiveImage(props) {
 
       {needOnlyRightArrow
         && (
-          <div style={styles}>
-            <span>
-              <div style={styles}>
+        <div style={styles}>
+          <span>
+            <div style={container}>
+              <div style={child}>
                 <img
                   src={props.imageSrc}
                   style={{
+                    height: '600px',
+                    border: '3px solid #000000',
                     width: '100%',
-                    height: '100%',
-                    objectFit: 'scale-down',
                   }}
                   alt="no_img"
                   onPointerOver={() => setHovered(true)}
@@ -93,34 +110,37 @@ function ActiveImage(props) {
                 />
               </div>
 
-              <FaAngleRight
-                onClick={handlePressRight}
-                size={50}
-                style={{
-                  fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',
-                }}
-              />
-            </span>
-          </div>
+            </div>
+            <FaAngleRight
+              onClick={handlePressRight}
+              size={50}
+              style={{
+                fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',
+              }}
+            />
+          </span>
+        </div>
         )}
 
       {needLeftAndRight
         && (
           <div style={styles}>
             <span>
-              <div style={styles}>
-                <img
-                  src={props.imageSrc}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'scale-down',
-                  }}
-                  alt="no_img"
-                  onPointerOver={() => setHovered(true)}
-                  onPointerOut={() => setHovered(false)}
-                  onClick={() => handleClick()}
-                />
+              <div style={container}>
+                <div style={child}>
+                  <img
+                    src={props.imageSrc}
+                    style={{
+                      height: '600px',
+                      width: '100%',
+                      border: '3px solid #000000',
+                    }}
+                    alt="no_img"
+                    onPointerOver={() => setHovered(true)}
+                    onPointerOut={() => setHovered(false)}
+                    onClick={() => handleClick()}
+                  />
+                </div>
               </div>
 
               <FaAngleLeft

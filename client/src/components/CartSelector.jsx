@@ -37,9 +37,17 @@ function CartSelector(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectRef, setSelectRef] = useState('');
 
-  const openMenu = () => {
-    selectRef.focus();
-    setIsMenuOpen(true);
+  const openMenu = (fromButton) => {
+    if (fromButton !== true) {
+      selectRef.focus();
+      setIsMenuOpen(true);
+    } else if (fromButton === true && currentSize === 'Select Size') {
+      setSizeMessage('Please select a size');
+      selectRef.focus();
+      setIsMenuOpen(true);
+    } else if (fromButton === true && currentSize !== 'Select Size') {
+      setSizeMessage('Added to Cart');
+    }
   };
 
   const getSizes = (style) => {
@@ -75,6 +83,7 @@ function CartSelector(props) {
     const currentSizeLoaded = (currentSize !== 'Select Size' && currentSize !== undefined);
     if (currentSizeLoaded) {
       setInStockQuantity(getInStockQuantity(props.currentStyle, currentSize));
+      setSizeMessage('');
     }
   }, [currentSize]);
 

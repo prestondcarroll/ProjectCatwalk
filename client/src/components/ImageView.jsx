@@ -9,7 +9,7 @@ import ZoomImage from './ZoomImage.jsx';
 
 const imageViewStyles = {
   background: '#ddd',
-  height: '500px',
+  height: '650px',
   width: '1024px',
   margin: '40px auto',
   display: 'flex',
@@ -35,9 +35,6 @@ function ImageView(props) {
   let currentStyle = placeHolderStyle;
   const imageIdx = defaultImageIdx;
 
-  // if (props.currentImageIdx === undefined || typeof props.currentImageIdx === 'string') {
-  //   props.setCurrentImageIdx(imageIdx);
-  // }
   // if styles are loaded change to styles to reflect that
   if (props.currentStyle !== undefined && typeof props.currentStyle !== 'string') {
     currentStyle = props.currentStyle;
