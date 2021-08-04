@@ -21,21 +21,22 @@ function ZoomImage(props) {
   let figureElem = '';
 
   const MagnifyingFigure = {
-    width: '75%',
-    height: '100%',
+    width: '800px',
+    height: '500px',
     overflow: 'hidden',
     border: '3px solid #fff',
     position: 'relative',
   };
 
   const MagnifyingImg = {
-    height: '100%',
     width: '100%',
+    height: '100%',
     maxWidth: '100%',
     minWidth: '100%',
-    position: 'relative',
+    position: 'absolute',
     left: '50%',
     top: '50%',
+    // transform: `translate(-50%,-50%) scale(${scale})`,
     transform: `translate(-${clientX}%,-${clientY}%) scale(${scale})`,
     objectFit: 'scale-down',
   };
@@ -69,15 +70,18 @@ function ZoomImage(props) {
   };
 
   const handleMouseMove = (event) => {
-    let tempClientX = event.clientX - figureElem.offsetLeft;
-    let tempClientY = event.clientY - figureElem.offsetTop;
+    const tempClientX = event.clientX - figureElem.offsetLeft;
+    const tempClientY = event.clientY - figureElem.offsetTop;
 
-    let mWidth = figureElem.offsetWidth;
-    let mHeight = figureElem.offsetHeight;
+    const mWidth = figureElem.offsetWidth;
+    const mHeight = figureElem.offsetHeight;
 
-    setClientX(tempClientX / mWidth * 100);
-    setClientY(tempClientY / mWidth * 100);
-    setScale(2.5);
+    console.log("X: " + ((tempClientX / mWidth * 100) - 66));
+    console.log("Y: " + ((tempClientY / mHeight * 100) - 10));
+
+    setClientX((tempClientX / mWidth * 100) - 66);
+    setClientY((tempClientY / mHeight * 100) - 10);
+    setScale(2);
   };
 
   const handleMouseLeave = () => {
@@ -98,7 +102,7 @@ function ZoomImage(props) {
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                   style={MagnifyingFigure}
-                  ref={el => figureElem = el}
+                  ref={(el) => figureElem = el}
                 >
                   <img
                     id="magnifying_img"
@@ -133,7 +137,7 @@ function ZoomImage(props) {
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                   style={MagnifyingFigure}
-                  ref={el => figureElem = el}
+                  ref={(el) => figureElem = el}
                 >
                   <img
                     id="magnifying_img"
@@ -168,7 +172,7 @@ function ZoomImage(props) {
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                   style={MagnifyingFigure}
-                  ref={el => figureElem = el}
+                  ref={(el) => figureElem = el}
                 >
                   <img
                     id="magnifying_img"

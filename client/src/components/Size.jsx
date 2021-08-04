@@ -23,18 +23,20 @@ function Size(props) {
 
   const onChange = (selectedOption) => {
     props.setCurrentSize(selectedOption.value);
+    props.selectRef.blur();
   };
 
   if (props.sizes[1] === undefined || props.sizes[1] === null) {
     return (
       <div>
-        <h3>{props.sizeMessage}</h3>
+        <h6>{props.sizeMessage}</h6>
         <Select
           ref={(r) => {
             props.setSelectRef(r);
           }}
           id="sizeSelect"
           options={sizeOptions}
+          onClick={props.openMenu}
           onFocus={props.openMenu}
           onInputChange={onInputChange}
           onChange={onChange}

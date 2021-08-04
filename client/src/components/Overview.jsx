@@ -55,13 +55,6 @@ function Overview(props) {
 
   const overviewRef = React.createRef();
 
-  // useEffect(() => {
-
-  //   document.body.addEventListener('click', (event) => {
-  //     props.trackPageView(event, 'Overview');
-  //   });
-  // }, []);
-
   useEffect(() => {
     $.ajax({
       method: 'GET',
