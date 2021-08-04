@@ -12,6 +12,7 @@ const Button = styled.a`
   margin-right: 1em;
   padding: 1.5em;
   font-family: Helvetica, Arial, sans-serif;
+  cursor: pointer;
 `
 
 const Wrapper = styled.div`
