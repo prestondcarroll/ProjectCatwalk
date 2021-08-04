@@ -99,6 +99,7 @@ function ActiveImage(props) {
                   style={{
                     // width: '500px',
                     height: '480px',
+                    border: '3px solid #000000',
                     // objectFit: 'scale-down',
                   }}
                   alt="no_img"
