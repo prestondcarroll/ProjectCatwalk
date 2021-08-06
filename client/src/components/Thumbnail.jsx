@@ -28,13 +28,13 @@ function Thumbnail(props) {
             style={{
               width: '100%',
               height: '100%',
-              border: '3px solid #525252',
+              border: '3px solid #17a1b3',
             }}
             alt="no_img"
           />
 
           <svg>
-            <rect fill="#525252" id="box" x="0" y="0" width="86" height="5" />
+            <rect fill="#e72169" id="box" x="0" y="0" width="86" height="5" />
           </svg>
 
           {/* <FaCheck
@@ -55,7 +55,7 @@ function Thumbnail(props) {
         style={{
           width: '100%',
           height: '100%',
-          border: '3px solid #525252',
+          border: '3px solid #17a1b3',
         }}
         alt="no_img"
       />
