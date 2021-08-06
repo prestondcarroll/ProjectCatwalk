@@ -7,6 +7,7 @@ import Overview from './Overview.jsx';
 import RelatedProduct from './RelatedProduct.jsx';
 import Outfit from './Outfit.jsx';
 const SERVER_ENDPOINT = require('../../client.config.js');
+import background from '../images/myGrid.png'
 
 // should put default back to 20100 before pull request
 const DEFAULT_PRODUCT_ID = 20100;
