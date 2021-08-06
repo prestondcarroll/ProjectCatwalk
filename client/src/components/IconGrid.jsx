@@ -4,14 +4,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FaUtensils } from 'react-icons/fa';
+import { FaAngleLeft, FaAngleRight} from 'react-icons/fa';
 import Icon from './Icon.jsx';
 
 // for each photo in currentStyle
 // map a thumbnail while passing down thumbnail url
 const Parent = styled.div`
   display: flex;
-  flex-direction: column;
 `;
 
 const Child = styled.div`
@@ -23,6 +22,9 @@ const Child = styled.div`
 const styles = {
   height: '100%',
   width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   position: 'relative',
 };
 
@@ -40,7 +42,7 @@ function IconGrid(props) {
 
   if (numThumbs < 6) {
     return (
-      <div>
+      <div style={styles}>
         <Parent>
           {props.thumbnails.map((element, index) => (
             <Child>
@@ -100,12 +102,12 @@ function IconGrid(props) {
 
   if (typeof windowStart !== 'string' && typeof windowEnd !== 'string') {
     return (
-      <div>
+      <div style={styles}>
         <Parent>
           {/* Do first thumbnail determine if it needs an arrow */}
           {needUpArrow
             ? (
-              <div style={styles}>
+              <div>
                 <span>
                   <Child>
                     <Icon
@@ -116,11 +118,11 @@ function IconGrid(props) {
                     />
                   </Child>
 
-                  <FaUtensils
+                  <FaAngleLeft
                     onClick={handlePressUp}
                     size={35}
                     style={{
-                      fill: '#C0C0C0', position: 'absolute', left: '1.75em', bottom: '3.25em',
+                      fill: '#C0C0C0', position: 'absolute', left: '12em', bottom: '3.5em',
                     }}
                   />
                 </span>
@@ -154,7 +156,7 @@ function IconGrid(props) {
           {/* Do last thumbnail determine if it needs an arrow */}
           {needDownArrow
             ? (
-              <div style={styles}>
+              <div >
                 <span>
                   <Child>
                     <Icon
@@ -165,11 +167,11 @@ function IconGrid(props) {
                     />
                   </Child>
 
-                  <FaUtensils
+                  <FaAngleRight
                     onClick={handlePressDown}
                     size={35}
                     style={{
-                      fill: '#C0C0C0', position: 'absolute', left: '1.75em', bottom: '.2em',
+                      fill: '#C0C0C0', position: 'absolute', left: '45em', bottom: '3.5em',
                     }}
                   />
                 </span>

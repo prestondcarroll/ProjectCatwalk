@@ -24,7 +24,9 @@ const Child = styled.div`
   flex: 1 0 42%;
   margin: 5px;
   height: 100px;
-  border: 3px solid #525252;
+  border: 3px solid #17a1b3;
+  color: #e72169;
+  background: #231c44;
 `;
 
 function CartSelector(props) {

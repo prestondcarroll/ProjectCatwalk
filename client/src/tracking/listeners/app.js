@@ -1,7 +1,6 @@
 import $ from 'jquery';
 const SERVER_ENDPOINT = require('../../../client.config.js');
 
-window.dataLayer = window.dataLayer || [];
 function trackPageView(event, trackingHistory) {
   const body = {
     element: event.data.eventTarget,
@@ -21,7 +20,6 @@ function trackPageView(event, trackingHistory) {
       console.log(err)
     }
   })
-  window.dataLayer.push(event);
   return event;
 }
 

@@ -11,6 +11,9 @@ const styles = {
   height: '100%',
   width: '100%',
   margin: '-5px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   position: 'relative',
 };
 
@@ -18,21 +21,26 @@ function ZoomImage(props) {
   const [scale, setScale] = useState(1);
   const [clientX, setClientX] = useState(50);
   const [clientY, setClientY] = useState(50);
+  const [figureWidth, setFigureWidth] = useState(800);
+  const [figureHeight, setFigureHeight] = useState(500);
   let figureElem = '';
+  let imgElem = '';
 
   const MagnifyingFigure = {
-    width: '800px',
-    height: '500px',
+    width: `${figureWidth}px`,
+    height: `${figureHeight}px`,
     overflow: 'hidden',
     border: '3px solid #fff',
     position: 'relative',
   };
 
   const MagnifyingImg = {
-    width: '100%',
-    height: '100%',
-    maxWidth: '100%',
-    minWidth: '100%',
+    // width: '100%',
+    // height: '100%',
+    maxWidth: '800px',
+    maxHeight: '500px',
+
+    // minWidth: '100%',
     position: 'absolute',
     left: '50%',
     top: '50%',
@@ -76,8 +84,10 @@ function ZoomImage(props) {
     const mWidth = figureElem.offsetWidth;
     const mHeight = figureElem.offsetHeight;
 
-    console.log("X: " + ((tempClientX / mWidth * 100) - 66));
-    console.log("Y: " + ((tempClientY / mHeight * 100) - 10));
+
+
+    console.log(`X: ${(tempClientX / mWidth * 100) - 66}`);
+    console.log(`Y: ${(tempClientY / mHeight * 100) - 10}`);
 
     setClientX((tempClientX / mWidth * 100) - 66);
     setClientY((tempClientY / mHeight * 100) - 10);
@@ -88,6 +98,9 @@ function ZoomImage(props) {
     setScale(1);
     setClientX(50);
     setClientY(50);
+
+    // setFigureHeight(imgElem.height);
+    // setFigureWidth(imgElem.width);
   };
 
   return (
@@ -147,6 +160,7 @@ function ZoomImage(props) {
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
                     onClick={() => handleClick()}
+                    ref={(el) => imgElem = el}
                   />
                 </figure>
               </div>
