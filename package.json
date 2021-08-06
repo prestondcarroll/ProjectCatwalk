@@ -4,7 +4,8 @@
   "description": "Front End Capstone",
   "main": "webpack.config.js",
   "scripts": {
-    "react-dev": "webpack -d eval-source-map --watch",
+    "react-dev": "webpack -d eval-source-map --config webpack.dev.js --watch",
+    "react-prod": "webpack --config webpack.prod.js",
     "start": "nodemon server/index.js",
     "easystart": "concurrently --kill-others \"npm run react-dev\" \"npm run start\"",
     "test": "jest --coverage"
@@ -38,7 +39,8 @@
     "react-test-renderer": "^17.0.2",
     "url-loader": "^4.1.1",
     "webpack": "^5.45.1",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
