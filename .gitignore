@@ -3,3 +3,4 @@ config.js
 client/dist/bundle.js
 spec/__snapshots__/
 coverage/
+vinniefec.pem
