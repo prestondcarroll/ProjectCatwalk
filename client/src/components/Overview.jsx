@@ -19,8 +19,17 @@ import CartSelector from './CartSelector.jsx';
 import ExpandedView from './ExpandedView.jsx';
 import Price from './Price.jsx';
 
+const Container = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  color: '#17a1b3',
+  alignItems: 'center',
+  justifyContent: 'center'
+};
+
 const imageViewStyles = {
-  background: '#ddd',
+  background: '#281761',
   margin: '40px auto',
   display: 'flex',
 };
@@ -117,57 +126,59 @@ function Overview(props) {
   }
 
   return (
-    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
-      <div style={imageViewStyles}>
-        {/* Left Side */}
-        <div style={{ flex: '40%' }}>
-          <ImageView
-            currentStyle={currentStyle}
-            productId={props.productId}
-            setDisplayType={setDisplayType}
-            displayType={displayType}
-            currentImageIdx={currentImageIdx}
-            setCurrentImageIdx={setCurrentImageIdx}
-          />
-          <p>{productInfo.description}</p>
-          <span>Share on Social Media! &nbsp;</span>
-          <a href="javascript:void(0)">Facebook</a>
-          <span>&nbsp;</span>
-          <a href="javascript:void(0)">Twitter</a>
-          <span>&nbsp;</span>
-          <a href="javascript:void(0)">Pinterest</a>
+    <div onClick={(event) => { props.trackPageView(event.target.outerHTML, 'Overview'); }}>
+      <div style={Container}>
+        <div style={imageViewStyles}>
+          {/* Left Side */}
+          <div style={{ flex: '40%' }}>
+            <ImageView
+              currentStyle={currentStyle}
+              productId={props.productId}
+              setDisplayType={setDisplayType}
+              displayType={displayType}
+              currentImageIdx={currentImageIdx}
+              setCurrentImageIdx={setCurrentImageIdx}
+            />
+            <p>{productInfo.description}</p>
+            <span>Share on Social Media! &nbsp;</span>
+            <a href="javascript:void(0)">Facebook</a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)">Twitter</a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)">Pinterest</a>
 
-        </div>
-
-        {/* Right Side */}
-        <div style={{ flex: '60%' }}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <StarRating rating={reviewAverage} />
-            <span> &ensp; Read all {reviewCount} Reviews&nbsp;</span>
-            <a href="javascript:void(0)">here</a>
           </div>
 
-          <h3>{productInfo.category}</h3>
-          <h2>{productInfo.name}</h2>
-          <Price currentStyle={currentStyle} />
+          {/* Right Side */}
+          <div style={{ flex: '60%' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <StarRating rating={reviewAverage} />
+              <span> &ensp; Read all {reviewCount} Reviews&nbsp;</span>
+              <a href="javascript:void(0)">here</a>
+            </div>
 
-          <div style={{ overflow: 'hidden' }}>
-            <p style={{ fontWeight: 'bold', float: 'left' }}>{'Styles >'} &ensp;</p>
-            <p style={{ float: 'left' }}>{currentStyle.name}</p>
+            <h3>{productInfo.category}</h3>
+            <h2>{productInfo.name}</h2>
+            <Price currentStyle={currentStyle} />
+
+            <div style={{ overflow: 'hidden' }}>
+              <p style={{ fontWeight: 'bold', float: 'left' }}>{'Styles >'} &ensp;</p>
+              <p style={{ float: 'left' }}>{currentStyle.name}</p>
+            </div>
+
+            <StylesList
+              styles={stylesInfo}
+              changeStyle={setCurrentStyle}
+              currentStyleID={currentStyle.style_id}
+            />
+
+            <CartSelector
+              productId={props.productId}
+              currentStyleID={currentStyle.style_id}
+              currentStyle={currentStyle}
+            />
+
           </div>
-
-          <StylesList
-            styles={stylesInfo}
-            changeStyle={setCurrentStyle}
-            currentStyleID={currentStyle.style_id}
-          />
-
-          <CartSelector
-            productId={props.productId}
-            currentStyleID={currentStyle.style_id}
-            currentStyle={currentStyle}
-          />
-
         </div>
       </div>
     </div>

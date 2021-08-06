@@ -68,7 +68,7 @@ function ActiveImage(props) {
                     src={props.imageSrc}
                     style={{
                       height: '600px',
-                      border: '3px solid #000000',
+                      border: '3px solid #17a1b3',
                       width: '100%',
                     }}
                     alt="no_img"
@@ -88,7 +88,7 @@ function ActiveImage(props) {
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#FFFFFF', position: 'absolute', left: '1.20em', bottom: '19em',
+                  fill: '#e72169', position: 'absolute', left: '1.20em', bottom: '19em',
                 }}
               />
             </span>
@@ -105,7 +105,7 @@ function ActiveImage(props) {
                   src={props.imageSrc}
                   style={{
                     height: '600px',
-                    border: '3px solid #000000',
+                    border: '3px solid #17a1b3',
                     width: '100%',
                   }}
                   alt="no_img"
@@ -128,7 +128,7 @@ function ActiveImage(props) {
               onClick={handlePressRight}
               size={50}
               style={{
-                fill: '#FFFFFF', position: 'absolute', left: '53.75em', bottom: '19em',
+                fill: '#e72169', position: 'absolute', left: '53.75em', bottom: '19em',
               }}
             />
           </span>
@@ -146,7 +146,7 @@ function ActiveImage(props) {
                     style={{
                       height: '600px',
                       width: '100%',
-                      border: '3px solid #000000',
+                      border: '3px solid #17a1b3',
                     }}
                     alt="no_img"
                     onPointerOver={() => setHovered(true)}
@@ -165,7 +165,7 @@ function ActiveImage(props) {
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#FFFFFF', position: 'absolute', left: '1.20em', bottom: '19em',
+                  fill: '#e72169', position: 'absolute', left: '1.20em', bottom: '19em',
                 }}
               />
 
@@ -178,7 +178,7 @@ function ActiveImage(props) {
                 onClick={handlePressRight}
                 size={50}
                 style={{
-                  fill: '#FFFFFF', position: 'absolute', left: '53.75em', bottom: '19em',
+                  fill: '#e72169', position: 'absolute', left: '53.75em', bottom: '19em',
                 }}
               />
             </span>

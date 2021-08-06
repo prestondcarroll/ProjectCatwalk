@@ -6,9 +6,15 @@ import QA from './QA.jsx';
 import Overview from './Overview.jsx';
 import RelatedProduct from './RelatedProduct.jsx';
 import Outfit from './Outfit.jsx';
+import background from "../images/myGrid.png";
 
 // should put default back to 20100 before pull request
 const DEFAULT_PRODUCT_ID = 20100;
+
+const AppStyles = {
+  backgroundImage: `url(${background})`,
+  backgroundRepeat: 'repeat',
+};
 
 const App = ({ trackPageView }) => {
   const [productId, setProductId] = useState(DEFAULT_PRODUCT_ID);
@@ -59,7 +65,7 @@ const App = ({ trackPageView }) => {
   //  }
 
   return (
-    <div>
+    <div style={AppStyles}>
       <Overview
         productId={productId}
         trackPageView={trackPageView}

@@ -8,7 +8,6 @@ import ActiveImage from './ActiveImage.jsx';
 import ZoomImage from './ZoomImage.jsx';
 
 const imageViewStyles = {
-  background: '#ddd',
   height: '650px',
   width: '1024px',
   margin: '40px auto',
