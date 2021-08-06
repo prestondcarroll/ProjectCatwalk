@@ -18,7 +18,7 @@ import ImageView from './ImageView.jsx';
 import CartSelector from './CartSelector.jsx';
 import ExpandedView from './ExpandedView.jsx';
 import Price from './Price.jsx';
-const SERVER_ENDPOINT = require('../../config.js');
+const SERVER_ENDPOINT = require('../../client.config.js');
 
 const imageViewStyles = {
   background: '#ddd',

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-const SERVER_ENDPOINT = require('../../../config.js');
+const SERVER_ENDPOINT = require('../../../client.config.js');
 
 window.dataLayer = window.dataLayer || [];
 function trackPageView(event, trackingHistory) {

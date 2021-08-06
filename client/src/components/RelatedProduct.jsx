@@ -3,7 +3,7 @@ import RelatedProductItem from './RelatedProductItem.jsx';
 import styled from 'styled-components';
 import $ from 'jquery';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-const SERVER_ENDPOINT = require('../../config.js');
+const SERVER_ENDPOINT = require('../../client.config.js');
 
 const CarouselContainer = styled.div`
   display: flex;
