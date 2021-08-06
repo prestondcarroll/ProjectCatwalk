@@ -14,6 +14,15 @@ module.exports = {
         test: /\.jsx?/,
         loader: "babel-loader",
       },
+      {
+        test: /\.(jpg|png|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 25000,
+          },
+        },
+      },
     ],
   },
 };
