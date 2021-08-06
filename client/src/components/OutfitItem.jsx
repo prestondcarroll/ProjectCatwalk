@@ -18,7 +18,6 @@ const Card = styled.div`
 
 // Modal.setAppElement('#root');
 const OutfitItem = (props) => {
-  // console.log(props);
   let rating = calculateAverage(props.product.reviews);
 
   return (

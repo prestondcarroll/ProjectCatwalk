@@ -6,6 +6,7 @@ import QA from './QA.jsx';
 import Overview from './Overview.jsx';
 import RelatedProduct from './RelatedProduct.jsx';
 import Outfit from './Outfit.jsx';
+const SERVER_ENDPOINT = require('../../client.config.js');
 
 // should put default back to 20100 before pull request
 const DEFAULT_PRODUCT_ID = 20100;
@@ -22,21 +23,19 @@ const App = ({ trackPageView }) => {
   }, []);
 
   const handleChangeOverview = (productId) => {
-    // console.log('productId', productId)
-    setProductId(productId);
-  };
+    setProductId(productId)
+  }
 
   const handleAddOutfits = () => {
     $.ajax({
       method: 'GET',
-      url: `http://localhost:3000/fullProducts/${productId}`,
+      url: `${SERVER_ENDPOINT}/fullProducts/${productId}`,
       success: (product) => {
-        // console.log(product);
-        const currentOutfits = JSON.parse(localStorage.getItem('outfits'));
-        if (currentOutfits.map((fullProduct) => fullProduct.id).indexOf(productId) === -1) {
-          currentOutfits.push(product);
-          localStorage.setItem('outfits', JSON.stringify(currentOutfits));
-          setOutfits(JSON.parse(localStorage.getItem('outfits')));
+        const currentOutfits = JSON.parse(localStorage.getItem('outfits'))
+        if (currentOutfits.map(fullProduct => fullProduct.id).indexOf(productId) === -1) {
+          currentOutfits.push(product)
+          localStorage.setItem('outfits', JSON.stringify(currentOutfits))
+          setOutfits(JSON.parse(localStorage.getItem('outfits')))
         }
       },
       error: (err) => {
@@ -50,13 +49,7 @@ const App = ({ trackPageView }) => {
     products = products.filter((product) => product.id !== deleteId);
     localStorage.setItem('outfits', JSON.stringify(products));
     setOutfits(products);
-  };
-
-  //  const handleClick = (e, moduleElem) => {
-  //    console.log(e.target);
-  //    console.log(new Date());
-  //    console.log(moduleElem);
-  //  }
+  }
 
   return (
     <div>
