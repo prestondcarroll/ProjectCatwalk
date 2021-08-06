@@ -1,6 +1,6 @@
 import $ from 'jquery';
+const SERVER_ENDPOINT = require('../../../client.config.js');
 
-window.dataLayer = window.dataLayer || [];
 function trackPageView(event, trackingHistory) {
   const body = {
     element: event.data.eventTarget,
@@ -10,7 +10,7 @@ function trackPageView(event, trackingHistory) {
   // console.log("event in: " + event.data.eventTarget + " " + event.data.module + " " + event.data.time);
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:3000/interactions',
+    url: `${SERVER_ENDPOINT}/interactions`,
     data: JSON.stringify(body),
     contentType: 'application/json',
     success: () => {
@@ -20,7 +20,6 @@ function trackPageView(event, trackingHistory) {
       console.log(err)
     }
   })
-  window.dataLayer.push(event);
   return event;
 }
 

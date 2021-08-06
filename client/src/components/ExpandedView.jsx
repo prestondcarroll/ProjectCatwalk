@@ -13,6 +13,7 @@ const imageViewStyles = {
   width: '1000px',
   margin: '40px auto',
   display: 'flex',
+  flexDirection: 'column',
 };
 
 const getCurrentImage = (currentStyle, idx) => (currentStyle.photos[idx] ? currentStyle.photos[idx].url : 'no photo found');
@@ -50,16 +51,6 @@ function ExpandedView(props) {
 
   return (
     <div style={imageViewStyles}>
-      {/* Left Side */}
-      <div style={{ flex: '1 1 10%' }}>
-        {/* NOTE possibly change to use a state currenStyle */}
-        <IconGrid
-          productId={props.productId}
-          thumbnails={currentStyle.photos}
-          currentImageIdx={props.currentImageIdx}
-          setCurrentImageIdx={props.setCurrentImageIdx}
-        />
-      </div>
 
       {/* Right Side */}
       <div style={{ flex: '1 1 90%' }}>
@@ -73,6 +64,16 @@ function ExpandedView(props) {
         />
       </div>
 
+      {/* Left Side */}
+      <div style={{ flex: '1 1 10%' }}>
+        {/* NOTE possibly change to use a state currenStyle */}
+        <IconGrid
+          productId={props.productId}
+          thumbnails={currentStyle.photos}
+          currentImageIdx={props.currentImageIdx}
+          setCurrentImageIdx={props.setCurrentImageIdx}
+        />
+      </div>
     </div>
   );
 }

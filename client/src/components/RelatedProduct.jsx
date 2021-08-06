@@ -3,6 +3,7 @@ import RelatedProductItem from './RelatedProductItem.jsx';
 import styled from 'styled-components';
 import $ from 'jquery';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+const SERVER_ENDPOINT = require('../../client.config.js');
 
 const CarouselContainer = styled.div`
   display: flex;
@@ -35,14 +36,12 @@ const RelatedProduct = (props) => {
   const [currentProduct, setCurrentProduct] = useState({});
 
   const CAROUSEL_WIDTH = 3;
-  // const [productReviews, setProductReviews] = useState({});
 
   useEffect(() => {
     $.ajax({
       method: 'GET',
-      url:`http://localhost:3000/products/${props.productId}/related/`,
+      url:`${SERVER_ENDPOINT}/products/${props.productId}/related/`,
       success: (products) => {
-        // console.log(products);
         setRelatedProducts(products);
         setProductIndex(0)
         setIsLeftButtonShown(false);
@@ -59,9 +58,8 @@ const RelatedProduct = (props) => {
   useEffect(() => {
     $.ajax({
       method: 'GET',
-      url:`http://localhost:3000/products/${props.productId}/`,
+      url:`${SERVER_ENDPOINT}/products/${props.productId}/`,
       success: (product) => {
-        // console.log(product);
         setCurrentProduct(product);
       },
       error: (err) => {
@@ -85,7 +83,7 @@ const RelatedProduct = (props) => {
       }
     }
   }
-  // console.log(props);
+
   return (
     <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Related Product')}}>
       <Wrapper>RELATED PRODUCTS</Wrapper>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ProductComparison = (props) => {
-  // console.log(props);
   const features = {};
   props.currentProduct.features.forEach(f => {
     if (!features[f.feature]) {
@@ -15,9 +14,8 @@ const ProductComparison = (props) => {
     }
     features[f.feature].compared = f.value;
   })
-  // console.log(features);
+
   return (
-      // <div>{props.product.default_price}</div>
       <table striped bordered hover>
       <thead>
         <tr>

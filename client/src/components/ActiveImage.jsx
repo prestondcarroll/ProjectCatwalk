@@ -68,7 +68,7 @@ function ActiveImage(props) {
                     src={props.imageSrc}
                     style={{
                       height: '600px',
-                      border: '3px solid #000000',
+                      border: '3px solid #17a1b3',
                       width: '100%',
                     }}
                     alt="no_img"
@@ -79,11 +79,16 @@ function ActiveImage(props) {
                 </div>
               </div>
 
+              <div style={{ position: 'absolute', left: '1.5em', bottom: '13em'}}>
+                <svg width="100%" >
+                  <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
+                </svg>
+              </div>
               <FaAngleLeft
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#FF0000', position: 'absolute', left: '0.20em', bottom: '15em',
+                  fill: '#e72169', position: 'absolute', left: '1.20em', bottom: '19em',
                 }}
               />
             </span>
@@ -100,7 +105,7 @@ function ActiveImage(props) {
                   src={props.imageSrc}
                   style={{
                     height: '600px',
-                    border: '3px solid #000000',
+                    border: '3px solid #17a1b3',
                     width: '100%',
                   }}
                   alt="no_img"
@@ -109,13 +114,21 @@ function ActiveImage(props) {
                   onClick={() => handleClick()}
                 />
               </div>
+            </div>
 
+            <div style={{
+              position: 'absolute', left: '53.75em', bottom: '13em',
+            }}
+            >
+              <svg width="100%">
+                <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
+              </svg >
             </div>
             <FaAngleRight
               onClick={handlePressRight}
               size={50}
               style={{
-                fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',
+                fill: '#e72169', position: 'absolute', left: '53.75em', bottom: '19em',
               }}
             />
           </span>
@@ -133,7 +146,7 @@ function ActiveImage(props) {
                     style={{
                       height: '600px',
                       width: '100%',
-                      border: '3px solid #000000',
+                      border: '3px solid #17a1b3',
                     }}
                     alt="no_img"
                     onPointerOver={() => setHovered(true)}
@@ -143,19 +156,29 @@ function ActiveImage(props) {
                 </div>
               </div>
 
+              <div style={{position: 'absolute', left: '1.5em', bottom: '13em'}}>
+                <svg width="100%">
+                  <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
+                </svg>
+              </div>
               <FaAngleLeft
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#FF0000', position: 'absolute', left: '0.20em', bottom: '15em',
+                  fill: '#e72169', position: 'absolute', left: '1.20em', bottom: '19em',
                 }}
               />
 
+              <div style={{position: 'absolute', left: '53.75em', bottom: '13em'}}>
+                <svg width="100%">
+                  <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
+                </svg>
+              </div>
               <FaAngleRight
                 onClick={handlePressRight}
                 size={50}
                 style={{
-                  fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',
+                  fill: '#e72169', position: 'absolute', left: '53.75em', bottom: '19em',
                 }}
               />
             </span>
