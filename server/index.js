@@ -15,8 +15,6 @@ $.ajaxPrefilter((settings, _, jqXHR) => {
 const app = express();
 
 app.use(express.json());
-
-// UNCOMMENT FOR REACT
 app.use(express.static(`${__dirname}/../client/dist`));
 
 const baseUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea';
@@ -189,11 +187,9 @@ app.get('/reviews/meta', (req, res) => {
     method: 'GET',
     url: `${baseUrl}/reviews/meta?product_id=${productId}`,
     success: (data) => {
-      // console.log(data);
       res.send(data);
     },
     error: (err) => {
-      // console.log(err);
       res.sendStatus(500, err);
     },
   });
@@ -314,7 +310,6 @@ app.post('/interactions', (req, res) => {
       res.send('ok');
     },
     error: (err) => {
-      // console.log(err);
       res.sendStatus(500, err.results);
     }
   })

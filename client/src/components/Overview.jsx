@@ -18,6 +18,7 @@ import ImageView from './ImageView.jsx';
 import CartSelector from './CartSelector.jsx';
 import ExpandedView from './ExpandedView.jsx';
 import Price from './Price.jsx';
+const SERVER_ENDPOINT = require('../../client.config.js');
 
 const Container = {
   width: '100%',
@@ -67,7 +68,7 @@ function Overview(props) {
   useEffect(() => {
     $.ajax({
       method: 'GET',
-      url: `http://localhost:3000/reviews/meta?product_id=${props.productId}`,
+      url: `${SERVER_ENDPOINT}/reviews/meta?product_id=${props.productId}`,
       success: (data) => {
         setReviewCount(calculateReviewCount(data));
         setAverage(calculateAverage(data));
@@ -81,7 +82,7 @@ function Overview(props) {
   useEffect(() => {
     $.ajax({
       method: 'GET',
-      url: `http://localhost:3000/products/${props.productId}`,
+      url: `${SERVER_ENDPOINT}/products/${props.productId}`,
       success: (data) => {
         setProductInfo(data);
       },
@@ -94,7 +95,7 @@ function Overview(props) {
   useEffect(() => {
     $.ajax({
       method: 'GET',
-      url: `http://localhost:3000/products/${props.productId}/styles/`,
+      url: `${SERVER_ENDPOINT}/products/${props.productId}/styles/`,
       success: (styles) => {
         setStylesInfo(styles.results);
         const defaultStyle = getDefaultStyle(styles.results);
