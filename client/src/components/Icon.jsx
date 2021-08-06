@@ -4,7 +4,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { FaCheck, FaBacon, FaEgg } from 'react-icons/fa';
+import { FaCheck, FaCircle } from 'react-icons/fa';
 
 const styles = {
   height: '100%',
@@ -23,17 +23,17 @@ function Thumbnail(props) {
     return (
       <div onClick={handleThumbClick} style={styles}>
         <span>
-          <FaBacon
+          {/* <FaCircle
             size={50}
             style={{
-              fill: '#df3f32',
+              fill: '#525252',
             }}
-          />
+          /> */}
 
-          <FaEgg
-            size={15}
+          <FaCircle
+            size={30}
             style={{
-              fill: '#fbfbf8', position: 'absolute', left: '2em', bottom: '2em',
+              fill: '#525252', position: 'absolute', left: '-0.5em', bottom: '3.65em',
             }}
           />
         </span>
@@ -43,10 +43,10 @@ function Thumbnail(props) {
 
   return (
     <div onClick={handleThumbClick} style={styles}>
-      <FaBacon
-        size={50}
+      <FaCircle
+        size={15}
         style={{
-          fill: '#df3f32',
+          fill: '#525252',
         }}
       />
     </div>

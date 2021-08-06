@@ -10,7 +10,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/button-has-type */
 import React from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaCircle } from 'react-icons/fa';
 
 const styles = {
   card: {
@@ -43,15 +43,32 @@ function Style(props) {
             src={props.style.photos[0].thumbnail_url}
             alt="no_img"
           />
-
-          <FaCheck
-            size={30}
-            textAnchor="middle"
-            alignmentBaseline="middle"
-            style={{
-              fill: '#a7ffa4', position: 'absolute', left: '.01em', bottom: '.25em',
-            }}
-          />
+          <span>
+            <FaCircle
+              size={31}
+              textAnchor="middle"
+              alignmentBaseline="middle"
+              style={{
+                fill: '#525252', position: 'absolute', left: '4.95em', bottom: '5.0em',
+              }}
+            />
+            <FaCircle
+              size={25}
+              textAnchor="middle"
+              alignmentBaseline="middle"
+              style={{
+                fill: '#ddd', position: 'absolute', left: '5.15em', bottom: '5.15em',
+              }}
+            />
+            <FaCheck
+              size={20}
+              textAnchor="middle"
+              alignmentBaseline="middle"
+              style={{
+                fill: '#525252', position: 'absolute', left: '5.3em', bottom: '5.25em',
+              }}
+            />
+          </span>
         </span>
       </div>
     );
