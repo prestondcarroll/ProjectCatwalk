@@ -8,12 +8,21 @@ import IconGrid from './IconGrid.jsx';
 import ZoomImage from './ZoomImage.jsx';
 
 const imageViewStyles = {
-  background: '#ddd',
+  background: '#281761',
   height: '700px',
   width: '1000px',
-  margin: '40px auto',
+  // margin: '40px auto',
   display: 'flex',
   flexDirection: 'column',
+};
+
+const Container = {
+  width: '78%',
+  height: '100%',
+  display: 'flex',
+  paddingLeft: '10em',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
 const getCurrentImage = (currentStyle, idx) => (currentStyle.photos[idx] ? currentStyle.photos[idx].url : 'no photo found');
@@ -44,12 +53,8 @@ function ExpandedView(props) {
     currentStyle = props.currentStyle;
   }
 
-  // reset current image to be default when a new product is loaded
-  // useEffect(() => {
-  //   props.setCurrentImageIdx(defaultImageIdx);
-  // }, [props.productId]);
-
   return (
+    <div style={Container}>
     <div style={imageViewStyles}>
 
       {/* Right Side */}
@@ -74,6 +79,7 @@ function ExpandedView(props) {
           setCurrentImageIdx={props.setCurrentImageIdx}
         />
       </div>
+    </div>
     </div>
   );
 }

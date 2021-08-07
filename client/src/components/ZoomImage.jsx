@@ -30,7 +30,7 @@ function ZoomImage(props) {
     width: `${figureWidth}px`,
     height: `${figureHeight}px`,
     overflow: 'hidden',
-    border: '3px solid #fff',
+    border: '3px solid #17a1b3',
     position: 'relative',
   };
 
@@ -39,12 +39,9 @@ function ZoomImage(props) {
     // height: '100%',
     maxWidth: '800px',
     maxHeight: '500px',
-
-    // minWidth: '100%',
     position: 'absolute',
     left: '50%',
     top: '50%',
-    // transform: `translate(-50%,-50%) scale(${scale})`,
     transform: `translate(-${clientX}%,-${clientY}%) scale(${scale})`,
     objectFit: 'scale-down',
   };
@@ -84,8 +81,6 @@ function ZoomImage(props) {
     const mWidth = figureElem.offsetWidth;
     const mHeight = figureElem.offsetHeight;
 
-
-
     console.log(`X: ${(tempClientX / mWidth * 100) - 66}`);
     console.log(`Y: ${(tempClientY / mHeight * 100) - 10}`);
 
@@ -98,9 +93,6 @@ function ZoomImage(props) {
     setScale(1);
     setClientX(50);
     setClientY(50);
-
-    // setFigureHeight(imgElem.height);
-    // setFigureWidth(imgElem.width);
   };
 
   return (
@@ -129,11 +121,16 @@ function ZoomImage(props) {
                 </figure>
               </div>
 
+              <div style={{ position: 'absolute', left: '1.25em', bottom: '13.25em' }}>
+                <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                  <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
+                </svg>
+              </div>
               <FaAngleLeft
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#FF0000', position: 'absolute', left: '0.20em', bottom: '15em',
+                  fill: '#e72169', position: 'absolute', left: '1.25em', bottom: '14em',
                 }}
               />
             </span>
@@ -165,11 +162,16 @@ function ZoomImage(props) {
                 </figure>
               </div>
 
+              <div style={{ position: 'absolute', left: '44.5em', bottom: '13.25em' }}>
+                <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                  <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
+                </svg>
+              </div>
               <FaAngleRight
                 onClick={handlePressRight}
                 size={50}
                 style={{
-                  fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',
+                  fill: '#e72169', position: 'absolute', left: '44.5em', bottom: '14em',
                 }}
               />
             </span>
@@ -200,19 +202,29 @@ function ZoomImage(props) {
                 </figure>
               </div>
 
+              <div style={{ position: 'absolute', left: '1.25em', bottom: '13.25em' }}>
+                <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                  <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
+                </svg>
+              </div>
               <FaAngleLeft
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#FF0000', position: 'absolute', left: '0.20em', bottom: '15em',
+                  fill: '#e72169', position: 'absolute', left: '1.25em', bottom: '14em',
                 }}
               />
 
+              <div style={{ position: 'absolute', left: '44.5em', bottom: '13.25em' }}>
+                <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                  <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
+                </svg>
+              </div>
               <FaAngleRight
                 onClick={handlePressRight}
                 size={50}
                 style={{
-                  fill: '#FF0000', position: 'absolute', left: '54em', bottom: '15em',
+                  fill: '#e72169', position: 'absolute', left: '44.5em', bottom: '14em',
                 }}
               />
             </span>

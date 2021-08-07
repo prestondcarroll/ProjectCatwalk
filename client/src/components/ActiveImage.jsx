@@ -79,16 +79,16 @@ function ActiveImage(props) {
                 </div>
               </div>
 
-              <div style={{ position: 'absolute', left: '1.5em', bottom: '13em'}}>
-                <svg width="100%" >
-                  <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
+              <div style={{ position: 'absolute', left: '0.4em', bottom: '14.75em' }}>
+                <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                  <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
                 </svg>
               </div>
               <FaAngleLeft
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#e72169', position: 'absolute', left: '1.20em', bottom: '19em',
+                  fill: '#e72169', position: 'absolute', left: '0.4em', bottom: '15.5em',
                 }}
               />
             </span>
@@ -117,18 +117,18 @@ function ActiveImage(props) {
             </div>
 
             <div style={{
-              position: 'absolute', left: '53.75em', bottom: '13em',
+              position: 'absolute', left: '41.75em', bottom: '14.75em',
             }}
             >
-              <svg width="100%">
-                <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
-              </svg >
+              <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
+              </svg>
             </div>
             <FaAngleRight
               onClick={handlePressRight}
               size={50}
               style={{
-                fill: '#e72169', position: 'absolute', left: '53.75em', bottom: '19em',
+                fill: '#e72169', position: 'absolute', left: '41.75em', bottom: '15.5em',
               }}
             />
           </span>
@@ -156,29 +156,32 @@ function ActiveImage(props) {
                 </div>
               </div>
 
-              <div style={{position: 'absolute', left: '1.5em', bottom: '13em'}}>
-                <svg width="100%">
-                  <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
+              <div style={{ position: 'absolute', left: '0.4em', bottom: '14.75em' }}>
+                <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                  <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
                 </svg>
               </div>
               <FaAngleLeft
                 onClick={handlePressLeft}
                 size={50}
                 style={{
-                  fill: '#e72169', position: 'absolute', left: '1.20em', bottom: '19em',
+                  fill: '#e72169', position: 'absolute', left: '0.4em', bottom: '15.5em',
                 }}
               />
 
-              <div style={{position: 'absolute', left: '53.75em', bottom: '13em'}}>
-                <svg width="100%">
-                  <rect fill="#525252" id="box" x="0" y="0" width="45" height="65" />
+              <div style={{
+                position: 'absolute', left: '41.75em', bottom: '14.75em',
+              }}
+              >
+                <svg width="45px" height="65px" style={{ border: '3px solid #17a1b3' }}>
+                  <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
                 </svg>
               </div>
               <FaAngleRight
                 onClick={handlePressRight}
                 size={50}
                 style={{
-                  fill: '#e72169', position: 'absolute', left: '53.75em', bottom: '19em',
+                  fill: '#e72169', position: 'absolute', left: '41.75em', bottom: '15.5em',
                 }}
               />
             </span>

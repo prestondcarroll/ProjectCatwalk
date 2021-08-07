@@ -23,17 +23,11 @@ function Thumbnail(props) {
     return (
       <div onClick={handleThumbClick} style={styles}>
         <span>
-          {/* <FaCircle
-            size={50}
-            style={{
-              fill: '#525252',
-            }}
-          /> */}
 
           <FaCircle
             size={30}
             style={{
-              fill: '#525252', position: 'absolute', left: '-0.5em', bottom: '3.65em',
+              fill: '#17a1b3', position: 'absolute', left: '-0.5em', bottom: '2.65em',
             }}
           />
         </span>
@@ -46,7 +40,7 @@ function Thumbnail(props) {
       <FaCircle
         size={15}
         style={{
-          fill: '#525252',
+          fill: '#17a1b3',
         }}
       />
     </div>

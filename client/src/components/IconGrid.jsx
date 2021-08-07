@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FaAngleLeft, FaAngleRight} from 'react-icons/fa';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import Icon from './Icon.jsx';
 
 // for each photo in currentStyle
@@ -118,11 +118,16 @@ function IconGrid(props) {
                     />
                   </Child>
 
+                  <div style={{ position: 'absolute', left: '9.85em', bottom: '2.35em' }}>
+                    <svg width="35px" height="35px" style={{ border: '3px solid #17a1b3' }}>
+                      <rect fill="#231c44" id="box" x="0" y="0" width="35" height="35" />
+                    </svg>
+                  </div>
                   <FaAngleLeft
                     onClick={handlePressUp}
                     size={35}
                     style={{
-                      fill: '#C0C0C0', position: 'absolute', left: '12em', bottom: '3.5em',
+                      fill: '#e72169', position: 'absolute', left: '10em', bottom: '2.75em',
                     }}
                   />
                 </span>
@@ -156,7 +161,7 @@ function IconGrid(props) {
           {/* Do last thumbnail determine if it needs an arrow */}
           {needDownArrow
             ? (
-              <div >
+              <div>
                 <span>
                   <Child>
                     <Icon
@@ -167,11 +172,16 @@ function IconGrid(props) {
                     />
                   </Child>
 
+                  <div style={{ position: 'absolute', left: '32.8em', bottom: '2.35em' }}>
+                    <svg width="35px" height="35px" style={{ border: '3px solid #17a1b3' }}>
+                      <rect fill="#231c44" id="box" x="0" y="0" width="35" height="35" />
+                    </svg>
+                  </div>
                   <FaAngleRight
                     onClick={handlePressDown}
                     size={35}
                     style={{
-                      fill: '#C0C0C0', position: 'absolute', left: '45em', bottom: '3.5em',
+                      fill: '#e72169', position: 'absolute', left: '33em', bottom: '2.75em',
                     }}
                   />
                 </span>

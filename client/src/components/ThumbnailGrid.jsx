@@ -24,10 +24,13 @@ const Child = styled.div`
 const styles = {
   height: '100%',
   width: '100%',
-
-  // background: '#333',
   position: 'relative',
 };
+
+const gridStyle = {
+  paddingTop: '45px',
+};
+
 
 // window for which ones are displayed
 // start : one to display first
@@ -104,7 +107,7 @@ function ThumbnailGrid(props) {
 
   if (typeof windowStart !== 'string' && typeof windowEnd !== 'string') {
     return (
-      <div>
+      <div style={gridStyle}>
         <Parent>
           {/* Do first thumbnail determine if it needs an arrow */}
           {needUpArrow
@@ -120,11 +123,16 @@ function ThumbnailGrid(props) {
                     />
                   </Child>
 
+                  <div style={{ position: 'absolute', left: '1.35em', bottom: '5.25em' }}>
+                    <svg width="35px" height="19px" style={{ border: '3px solid #17a1b3' }}>
+                      <rect fill="#231c44" id="box" x="0" y="0" width="35" height="35" />
+                    </svg>
+                  </div>
                   <FaAngleUp
                     onClick={handlePressUp}
                     size={35}
                     style={{
-                      fill: '#FF0000', position: 'absolute', left: '1.75em', bottom: '3.25em',
+                      fill: '#e72169', position: 'absolute', left: '1.5em', bottom: '5.25em',
                     }}
                   />
                 </span>
@@ -169,11 +177,17 @@ function ThumbnailGrid(props) {
                     />
                   </Child>
 
+
+                  <div style={{ position: 'absolute', left: '1.35em', bottom: '-1.5em' }}>
+                    <svg width="35px" height="19px" style={{ border: '3px solid #17a1b3' }}>
+                      <rect fill="#231c44" id="box" x="0" y="0" width="35" height="35" />
+                    </svg>
+                  </div>
                   <FaAngleDown
                     onClick={handlePressDown}
                     size={35}
                     style={{
-                      fill: '#FF0000', position: 'absolute', left: '1.75em', bottom: '.2em',
+                      fill: '#e72169', position: 'absolute', left: '1.5em', bottom: '-1.5em',
                     }}
                   />
                 </span>
