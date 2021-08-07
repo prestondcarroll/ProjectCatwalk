@@ -188,6 +188,7 @@ function Overview(props) {
               productId={props.productId}
               currentStyleID={currentStyle.style_id}
               currentStyle={currentStyle}
+              handleAddOutfits={props.handleAddOutfits}
             />
 
           </div>

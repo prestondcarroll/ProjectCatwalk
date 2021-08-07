@@ -116,7 +116,7 @@ function CartSelector(props) {
           <Child>
             <AddToCart setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} openMenu={openMenu} />
           </Child>
-          <Child><AddToOutfit /></Child>
+          <Child><AddToOutfit handleAddOutfits={props.handleAddOutfits} /></Child>
         </Parent>
       </ParentWrapper>
     </div>
