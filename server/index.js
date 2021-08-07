@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const jsdom = require('jsdom');
 
 const dom = new jsdom.JSDOM('');
@@ -13,6 +14,8 @@ $.ajaxPrefilter((settings, _, jqXHR) => {
 });
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.static(`${__dirname}/../client/dist`));
