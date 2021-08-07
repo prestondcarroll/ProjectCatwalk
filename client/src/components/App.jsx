@@ -63,10 +63,6 @@ const App = ({ trackPageView }) => {
 
   return (
     <div style={AppStyles}>
-      {/* <span style={{ display: 'inline-block', position: 'relative' }}>
-      <svg width="800px" height="2000px" style={{ border: '3px solid #17a1b3' }}>
-          <rect fill="#231c44" id="box" x="0" y="0" width="800" height="2000" />
-      </svg> */}
       <div>
         <Overview
           productId={productId}
