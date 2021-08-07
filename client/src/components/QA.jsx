@@ -71,6 +71,11 @@ const QA = (props) => {
       axios.get(`/products/${props.productId}`)
       .then((res) => setProductName(res.data.name))
   }, []);
+  useEffect(() => {
+    fetchQuestions();
+      axios.get(`/products/${props.productId}`)
+      .then((res) => setProductName(res.data.name))
+  }, [props.productId]);
 
   const fetchQuestions = () => {
     axios.get(`/questions?productId=${props.productId}`)
