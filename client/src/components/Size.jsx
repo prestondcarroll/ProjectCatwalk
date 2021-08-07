@@ -4,10 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 
 const styles = {
-  paddingTop: '.25em',
+  paddingTop: '1.25em',
   paddingLeft: '1.25em',
   width: '75%',
 };
+
 
 function Size(props) {
   // const [sizes, setSizes] = useState(['Select Size']);
@@ -35,7 +36,9 @@ function Size(props) {
   if (props.sizes[1] === undefined || props.sizes[1] === null) {
     return (
       <div>
-        <h6>{props.sizeMessage}</h6>
+        <div style={{fontSize: '90%'}} >
+          <p>{props.sizeMessage}</p>
+        </div>
         <div style={styles}>
           <Select
 
@@ -58,7 +61,9 @@ function Size(props) {
 
   return (
     <div>
-      <h3>{props.sizeMessage}</h3>
+        <div style={{fontSize: '90%'}} >
+          <div>{props.sizeMessage}</div>
+        </div>
       <div style={styles}>
         <Select
           ref={(r) => {
