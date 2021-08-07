@@ -32,12 +32,16 @@ Backend: Express
   Server handles API calls to private Hack Reactor API
 Send data to and from server using Jquery ajax requests
 
-Testing: Jest with React testing utils 
+Testing: Jest with React testing utils
 
-
+Deployed on AWS
 
 ## Setup
 
-
+npm run react-dev
+npm start
 
 ## Contributors
+Jessica Hu
+Preston Carroll
+Vinnie Glaser
