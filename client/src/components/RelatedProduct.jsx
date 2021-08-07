@@ -85,7 +85,7 @@ const RelatedProduct = (props) => {
   }
 
   return (
-    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Related Product')}}>
+    <div style={{background: '#281761'}} onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Related Product')}}>
       <Wrapper>RELATED PRODUCTS</Wrapper>
       <CarouselContainer>
         <FaAngleLeft size={30} onClick={() => handleClick(false)} style={{visibility: isLeftButtonShown ? 'visible' : 'hidden' }} />
