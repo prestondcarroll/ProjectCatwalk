@@ -49,7 +49,7 @@ function Style(props) {
               textAnchor="middle"
               alignmentBaseline="middle"
               style={{
-                fill: '#17a1b3', position: 'absolute', left: '4.95em', bottom: '5.0em',
+                fill: '#17a1b3', position: 'absolute', left: '3.55em', bottom: '4.0em',
               }}
             />
             <FaCircle
@@ -57,7 +57,7 @@ function Style(props) {
               textAnchor="middle"
               alignmentBaseline="middle"
               style={{
-                fill: '#241d47', position: 'absolute', left: '5.15em', bottom: '5.15em',
+                fill: '#241d47', position: 'absolute', left: '3.7em', bottom: '4.15em',
               }}
             />
             <FaCheck
@@ -65,7 +65,7 @@ function Style(props) {
               textAnchor="middle"
               alignmentBaseline="middle"
               style={{
-                fill: '#e72169', position: 'absolute', left: '5.3em', bottom: '5.25em',
+                fill: '#e72169', position: 'absolute', left: '3.8em', bottom: '4.25em',
               }}
             />
           </span>

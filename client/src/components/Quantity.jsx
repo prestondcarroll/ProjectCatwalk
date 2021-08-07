@@ -2,6 +2,23 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
+const styles = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  fontWeight: 'bold',
+  fontSize: '1.17em',
+  marginTop: '.75em',
+};
+
+// const quantityStyle = {
+//   fontSize: '150',
+//   marginTop: '0em',
+//   marginBottom: '0em',
+//   fontWeight: 'bold',
+// };
+
 function Quantity(props) {
   const [quantities, setQuantities] = useState(['-']);
 
@@ -22,14 +39,13 @@ function Quantity(props) {
   }, [props.inStockQuantity]);
 
   return (
-    <div>
-      <h3>Quantity</h3>
-      <select onChange={handleChange}>
+    <div style={styles}>
+      <div>Quantity</div>
+      <select style={{ width: '40px', height: '25px'}} onChange={handleChange}>
         {quantities.map((quantity) => (
           <option value={quantity}>{quantity}</option>
         ))}
       </select>
-
     </div>
   );
 }

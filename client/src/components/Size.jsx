@@ -3,6 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 
+const styles = {
+  paddingTop: '.25em',
+  paddingLeft: '1.25em',
+  width: '75%',
+};
+
 function Size(props) {
   // const [sizes, setSizes] = useState(['Select Size']);
   const [sizeOptions, setSizeOptions] = useState([{ value: 'Loading', label: 'Loading' }]);
@@ -30,18 +36,21 @@ function Size(props) {
     return (
       <div>
         <h6>{props.sizeMessage}</h6>
-        <Select
-          ref={(r) => {
-            props.setSelectRef(r);
-          }}
-          id="sizeSelect"
-          options={sizeOptions}
-          onClick={props.openMenu}
-          onFocus={props.openMenu}
-          onInputChange={onInputChange}
-          onChange={onChange}
-          menuIsOpen={props.isMenuOpen}
-        />
+        <div style={styles}>
+          <Select
+
+            ref={(r) => {
+              props.setSelectRef(r);
+            }}
+            id="sizeSelect"
+            options={sizeOptions}
+            onClick={props.openMenu}
+            onFocus={props.openMenu}
+            onInputChange={onInputChange}
+            onChange={onChange}
+            menuIsOpen={props.isMenuOpen}
+          />
+        </div>
 
       </div>
     );
@@ -50,18 +59,19 @@ function Size(props) {
   return (
     <div>
       <h3>{props.sizeMessage}</h3>
-      <Select
-        ref={(r) => {
-          props.setSelectRef(r);
-        }}
-        id="sizeSelect"
-        options={sizeOptions}
-        onFocus={props.openMenu}
-        onInputChange={onInputChange}
-        onChange={onChange}
-        menuIsOpen={props.isMenuOpen}
-      />
-
+      <div style={styles}>
+        <Select
+          ref={(r) => {
+            props.setSelectRef(r);
+          }}
+          id="sizeSelect"
+          options={sizeOptions}
+          onFocus={props.openMenu}
+          onInputChange={onInputChange}
+          onChange={onChange}
+          menuIsOpen={props.isMenuOpen}
+        />
+      </div>
     </div>
   );
 }

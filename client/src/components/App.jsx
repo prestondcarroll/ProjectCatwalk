@@ -15,6 +15,9 @@ const DEFAULT_PRODUCT_ID = 20100;
 const AppStyles = {
   backgroundImage: `url(${background})`,
   backgroundRepeat: 'repeat',
+  fontFamily: 'Helvetica, Arial, sans-serif',
+  color: '#17a1b3',
+  fontSize: '130%',
 };
 
 const App = ({ trackPageView }) => {

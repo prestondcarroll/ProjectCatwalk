@@ -18,21 +18,29 @@ import ImageView from './ImageView.jsx';
 import CartSelector from './CartSelector.jsx';
 import ExpandedView from './ExpandedView.jsx';
 import Price from './Price.jsx';
+
 const SERVER_ENDPOINT = require('../../client.config.js');
 
 const Container = {
-  width: '100%',
+  width: '78%',
   height: '100%',
   display: 'flex',
-  color: '#17a1b3',
+  paddingLeft: '10em',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
 };
 
 const imageViewStyles = {
   background: '#281761',
   margin: '40px auto',
   display: 'flex',
+};
+
+const descStyles = {
+  margin: '2em',
+
+  paddingLeft: '.5em',
+  // width: '75%',
 };
 
 const calculateReviewCount = (data) => {
@@ -140,13 +148,16 @@ function Overview(props) {
               currentImageIdx={currentImageIdx}
               setCurrentImageIdx={setCurrentImageIdx}
             />
-            <p>{productInfo.description}</p>
-            <span>Share on Social Media! &nbsp;</span>
-            <a href="javascript:void(0)">Facebook</a>
-            <span>&nbsp;</span>
-            <a href="javascript:void(0)">Twitter</a>
-            <span>&nbsp;</span>
-            <a href="javascript:void(0)">Pinterest</a>
+
+            <div style={descStyles}>
+              <p>{productInfo.description}</p>
+              <span>Share on Social Media! &nbsp;</span>
+              <a href="javascript:void(0)">Facebook</a>
+              <span>&nbsp;</span>
+              <a href="javascript:void(0)">Twitter</a>
+              <span>&nbsp;</span>
+              <a href="javascript:void(0)">Pinterest</a>
+            </div>
 
           </div>
 

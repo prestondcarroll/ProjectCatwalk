@@ -36,13 +36,6 @@ function Thumbnail(props) {
           <svg>
             <rect fill="#e72169" id="box" x="0" y="0" width="86" height="5" />
           </svg>
-
-          {/* <FaCheck
-            size={15}
-            style={{
-              fill: '#a7ffa4', position: 'absolute', left: '.01em', bottom: '.25em',
-            }}
-          /> */}
         </span>
       </div>
     );
