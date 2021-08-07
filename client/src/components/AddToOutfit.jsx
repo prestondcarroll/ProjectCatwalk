@@ -9,7 +9,7 @@ const styles = {
 function AddToOutfit(props) {
   return (
     <div style={styles}>
-      <h3>AddToOutfit</h3>
+      <h3 onClick={props.handleAddOutfits}>AddToOutfit</h3>
 
 
     </div>

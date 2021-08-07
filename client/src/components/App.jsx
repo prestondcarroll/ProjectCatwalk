@@ -67,6 +67,7 @@ const App = ({ trackPageView }) => {
         <Overview
           productId={productId}
           trackPageView={trackPageView}
+          handleAddOutfits={handleAddOutfits}
         />
         <RelatedProduct
           productId={productId}
