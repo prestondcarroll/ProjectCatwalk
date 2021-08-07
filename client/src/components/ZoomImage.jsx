@@ -55,7 +55,7 @@ function ZoomImage(props) {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    document.body.style.cursor = hovered ? 'zoom-in' : 'auto';
+    document.body.style.cursor = hovered ? 'zoom-out' : 'auto';
   }, [hovered]);
 
   const handlePressLeft = () => {
