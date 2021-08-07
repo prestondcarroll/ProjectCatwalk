@@ -131,7 +131,7 @@ const QA = (props) => {
   }
 
   return (
-    <div onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
+    <div style={{background: '#281761'}} onClick={(event) => {props.trackPageView(event.target.outerHTML, 'Overview')}}>
       <SearchBar value={searchValue} onChange={setSearchValue} />
       <QWrapper>
         <QuestionList fetchQuestions={fetchQuestions} productName={productName} questions={currentQuestions} productId={props.productId} questionsExpanded={questionsExpanded} />
