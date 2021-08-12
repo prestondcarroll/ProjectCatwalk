@@ -124,6 +124,8 @@ function ActiveImage(props) {
                 <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
               </svg>
             </div>
+
+            <div id="man go">
             <FaAngleRight
               onClick={handlePressRight}
               size={50}
@@ -131,6 +133,7 @@ function ActiveImage(props) {
                 fill: '#e72169', position: 'absolute', left: '41.75em', bottom: '15.5em',
               }}
             />
+            </div>
           </span>
         </div>
         )}
@@ -161,6 +164,8 @@ function ActiveImage(props) {
                   <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
                 </svg>
               </div>
+
+              <div id="melon">
               <FaAngleLeft
                 onClick={handlePressLeft}
                 size={50}
@@ -168,6 +173,7 @@ function ActiveImage(props) {
                   fill: '#e72169', position: 'absolute', left: '0.4em', bottom: '15.5em',
                 }}
               />
+              </div>
 
               <div style={{
                 position: 'absolute', left: '41.75em', bottom: '14.75em',
@@ -177,6 +183,8 @@ function ActiveImage(props) {
                   <rect fill="#231c44" id="box" x="0" y="0" width="45" height="65" />
                 </svg>
               </div>
+
+              <div id="mango">
               <FaAngleRight
                 onClick={handlePressRight}
                 size={50}
@@ -184,6 +192,7 @@ function ActiveImage(props) {
                   fill: '#e72169', position: 'absolute', left: '41.75em', bottom: '15.5em',
                 }}
               />
+              </div>
             </span>
           </div>
         )}
