@@ -198,7 +198,7 @@ app.get('/reviews/meta', (req, res) => {
 app.get('/questions', (req, res) => {
   $.ajax({
     method: 'GET',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions?product_id=${req.query.productId}&page=1&count=50`,
+    url: `http://localhost:3001/qa/questions?product_id=${req.query.productId}&page=1&count=50`,
     success: (data) => {
       res.send(data);
     },
@@ -211,7 +211,7 @@ app.get('/questions', (req, res) => {
 app.get('/answers', (req, res) => {
   $.ajax({
     method: 'GET',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/${req.query.questionId}/answers?page=1&count=30`,
+    url: `http://localhost:3001/qa/questions/${req.query.questionId}/answers?page=1&count=30`,
     success: (data) => {
       data.results.sort((a, b) => b.helpfulness - a.helpfulness);
       res.send(data.results);
@@ -223,7 +223,7 @@ app.get('/answers', (req, res) => {
 });
 
 app.post('/questions', (req, res) => {
-  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/', req.body, {
+  axios.post('http://localhost:3001/qa/questions/', req.body, {
     headers: {
       Authorization: API_KEY
     }
@@ -238,7 +238,7 @@ app.post('/questions', (req, res) => {
 // });
 
 app.post('/answers/:questionId', (req, res) => {
-  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sea/qa/questions/${req.params.questionId}/answers`, req.body, {
+  axios.post(`http://localhost:3001/qa/questions/${req.params.questionId}/answers`, req.body, {
     headers: {
       Authorization: API_KEY
     }
@@ -250,7 +250,7 @@ app.post('/answers/:questionId', (req, res) => {
 app.post('/questions/helpful/:questionId', (req, res) => {
   $.ajax({
     method: 'PUT',
-    url: `${baseUrl}/qa/questions/${req.params.questionId}/helpful`,
+    url: `http://localhost:3001/qa/questions/${req.params.questionId}/helpful`,
     success: () => {
       res.send()
     },
@@ -263,7 +263,7 @@ app.post('/questions/helpful/:questionId', (req, res) => {
 app.post('/questions/report/:questionId', (req,res) => {
   $.ajax({
     method: 'PUT',
-    url: `${baseUrl}/qa/questions/${req.params.questionId}/report`,
+    url: `http://localhost:3001/qa/questions/${req.params.questionId}/report`,
     success: () => {
       res.send()
     },
@@ -276,7 +276,7 @@ app.post('/questions/report/:questionId', (req,res) => {
 app.post('/answers/helpful/:answerId', (req, res) => {
   $.ajax({
     method: 'PUT',
-    url: `${baseUrl}/qa/answers/${req.params.answerId}/helpful`,
+    url: `http://localhost:3001/qa/answers/${req.params.answerId}/helpful`,
     success: () => {
       res.send()
     },
@@ -289,7 +289,7 @@ app.post('/answers/helpful/:answerId', (req, res) => {
 app.post('/answers/report/:answerId', (req, res) => {
   $.ajax({
     method: 'PUT',
-    url: `${baseUrl}/qa/answers/${req.params.answerId}/report`,
+    url: `http://localhost:3001/qa/answers/${req.params.answerId}/report`,
     success: () => {
       res.send()
     },

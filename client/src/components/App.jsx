@@ -9,7 +9,7 @@ import Outfit from './Outfit.jsx';
 const SERVER_ENDPOINT = require('../../client.config.js');
 
 // should put default back to 20100 before pull request
-const DEFAULT_PRODUCT_ID = 20100;
+const DEFAULT_PRODUCT_ID = 43377;
 
 const App = ({ trackPageView }) => {
   const [productId, setProductId] = useState(DEFAULT_PRODUCT_ID);
