@@ -31,7 +31,6 @@ const customStyles = {
   },
 };
 
-// Modal.setAppElement('#root');
 const RelatedProductItem = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   let rating = calculateAverage(props.product.reviews);

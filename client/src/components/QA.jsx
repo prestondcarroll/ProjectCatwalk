@@ -144,6 +144,8 @@ const QA = (props) => {
       <Wrapper>
         <Button onClick={() => setQuestionsExpanded(!questionsExpanded)}>{questionsExpanded ? 'LESS ANSWERED QUESTIONS' : 'MORE ANSWERED QUESTIONS'}</Button>
         <Button onClick={() => setQuestionModal(true)}>ADD A QUESTION  +</Button>
+        <div> <br></br> </div>
+        <div> <br></br> </div>
         <Modal
         isOpen={questionModal}
         onRequestClose={() => setQuestionModal(false)}>

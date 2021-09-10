@@ -1,14 +1,8 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
 import Thumbnail from './Thumbnail.jsx';
 
-// for each photo in currentStyle
-// map a thumbnail while passing down thumbnail url
 const Parent = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,11 +25,7 @@ const gridStyle = {
   paddingTop: '45px',
 };
 
-
 // window for which ones are displayed
-// start : one to display first
-// end: one to display last
-
 // default window to be 0-4
 
 function ThumbnailGrid(props) {

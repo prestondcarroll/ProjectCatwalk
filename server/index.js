@@ -303,7 +303,6 @@ app.post('/answers/report/:answerId', (req, res) => {
 })
 
 app.post('/interactions', (req, res) => {
-  console.log(JSON.stringify(req.body));
   $.ajax({
     method: 'POST',
     url: `${baseUrl}/interactions`,

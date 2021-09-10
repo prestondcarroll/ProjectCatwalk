@@ -1,7 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Size from './Size.jsx';

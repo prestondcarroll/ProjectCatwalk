@@ -1,8 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import styled from 'styled-components';
@@ -35,8 +30,6 @@ function ZoomImage(props) {
   };
 
   const MagnifyingImg = {
-    // width: '100%',
-    // height: '100%',
     maxWidth: '800px',
     maxHeight: '500px',
     position: 'absolute',

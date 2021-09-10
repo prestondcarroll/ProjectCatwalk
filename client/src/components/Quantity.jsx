@@ -1,5 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
 const styles = {
@@ -11,13 +9,6 @@ const styles = {
   fontSize: '1.17em',
   marginTop: '.75em',
 };
-
-// const quantityStyle = {
-//   fontSize: '150',
-//   marginTop: '0em',
-//   marginBottom: '0em',
-//   fontWeight: 'bold',
-// };
 
 function Quantity(props) {
   const [quantities, setQuantities] = useState(['-']);

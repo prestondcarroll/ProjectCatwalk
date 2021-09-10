@@ -1,14 +1,8 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import Icon from './Icon.jsx';
 
-// for each photo in currentStyle
-// map a thumbnail while passing down thumbnail url
 const Parent = styled.div`
   display: flex;
 `;

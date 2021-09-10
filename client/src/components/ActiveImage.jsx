@@ -1,15 +1,9 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 const styles = {
   height: '100%',
   width: '100%',
-  // border: '3px solid #000000',
   margin: '-5px',
   position: 'relative',
 };
@@ -19,11 +13,9 @@ const container = {
   flexDirection: 'column',
   alignItems: 'center',
   margin: '5px',
-  // border: '3px solid #000000',
 };
 
 const child = {
-  // border: '3px solid #fff',
   flexGrow: '1',
 };
 

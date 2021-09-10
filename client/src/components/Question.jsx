@@ -9,12 +9,13 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 font-size: 1.3em;
+color: #fff;
 `
 
 const Help = styled.span`
   justify-self: flex-end;
   font-size: 0.5em;
-  color: gray;
+  color: #17a1b3;
   white-space: pre;
 `
 
@@ -26,6 +27,7 @@ const Button = styled.a`
 const Answers = styled.div`
   display: flex;
   flex-direction: column;
+  color: #fff;
 `
 
 const Form = styled.form`

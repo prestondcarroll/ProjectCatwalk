@@ -1,7 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import ActiveImage from './ActiveImage.jsx';
 import IconGrid from './IconGrid.jsx';
@@ -11,7 +7,6 @@ const imageViewStyles = {
   background: '#281761',
   height: '700px',
   width: '1000px',
-  // margin: '40px auto',
   display: 'flex',
   flexDirection: 'column',
 };
@@ -41,7 +36,6 @@ const placeHolderStyle = {
 const defaultImageIdx = 0;
 
 function ExpandedView(props) {
-  // const [currentImageIdx, setCurrentImageIdx] = useState('currentImageIdx');
   let currentStyle = placeHolderStyle;
   const imageIdx = defaultImageIdx;
 
@@ -71,7 +65,6 @@ function ExpandedView(props) {
 
       {/* Left Side */}
       <div style={{ flex: '1 1 10%' }}>
-        {/* NOTE possibly change to use a state currenStyle */}
         <IconGrid
           productId={props.productId}
           thumbnails={currentStyle.photos}
