@@ -1,7 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import ThumbnailGrid from './ThumbnailGrid.jsx';
 import ActiveImage from './ActiveImage.jsx';
@@ -30,7 +26,6 @@ const placeHolderStyle = {
 const defaultImageIdx = 0;
 
 function ImageView(props) {
-  // const [currentImageIdx, setCurrentImageIdx] = useState('currentImageIdx');
   let currentStyle = placeHolderStyle;
   const imageIdx = defaultImageIdx;
 
@@ -43,7 +38,6 @@ function ImageView(props) {
     <div style={imageViewStyles}>
       {/* Left Side */}
       <div style={{ flex: '1 1 10%' }}>
-        {/* NOTE possibly change to use a state currenStyle */}
         <ThumbnailGrid
           productId={props.productId}
           thumbnails={currentStyle.photos}

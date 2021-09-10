@@ -1,13 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-plusplus */
-/* eslint-disable import/extensions */
-/* eslint-disable padded-blocks */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable spaced-comment */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Style from './Style.jsx';
@@ -41,9 +31,7 @@ const placeHolderStyle = {
 
 function StylesList(props) {
 
-  //placeholder style until it's loaded
   let styles = [placeHolderStyle];
-  //if styles are loaded change to styles to reflect that
   if (props.styles !== undefined && typeof props.styles !== 'string') {
     styles = props.styles;
   }

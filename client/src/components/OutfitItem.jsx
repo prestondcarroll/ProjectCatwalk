@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import $ from 'jquery';
 import styled from 'styled-components';
 import StarRating from './StarRating.jsx';
 import calculateAverage from '../utils/calculateAverage.js';
@@ -16,7 +15,6 @@ const Card = styled.div`
   position: relative;
 `
 
-// Modal.setAppElement('#root');
 const OutfitItem = (props) => {
   let rating = calculateAverage(props.product.reviews);
 

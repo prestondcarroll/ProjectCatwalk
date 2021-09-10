@@ -5,12 +5,12 @@ import axios from 'axios';
 
 const AnswerStyle = styled.div`
   font-size: 0.95em;
-  color: #696969;
+  color: #17a1b3;
   display: inline-block;
 `
 
 const Footer = styled.div`
-  color: #808080;
+  color: #17a1b3;
   font-size: 0.9em;
   white-space: pre;
   margin-bottom 1em;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 `
 
 const Helpful = styled.span`
-  color: #6d6b6b;
+  color: #17a1b3;
   font-size: 0.87em;
 `
 
@@ -56,7 +56,7 @@ const Answer = (props) => {
     return (
       <Wrapper>
         <AnswerStyle>{props.answer.body}</AnswerStyle>
-        <Footer>          by {props.answer.answerer_name}, {moment(props.answer.date.slice(0, 10)).format('MMMM d, YYYY')}   <Helpful>|   Helpful? <A onClick={helpfulHandler}>Yes</A> ({props.answer.helpfulness})   |</Helpful>   <A onClick={reportHandler} style={{fontSize: '0.87em'}}>Report</A></Footer>
+        <Footer> by {props.answer.answerer_name}, {moment(props.answer.date.slice(0, 10)).format('MMMM d, YYYY')}   <Helpful>|   Helpful? <A onClick={helpfulHandler}>Yes</A> ({props.answer.helpfulness})   |</Helpful>   <A onClick={reportHandler} style={{fontSize: '0.87em'}}>Report</A></Footer>
       </Wrapper>
     );
   } else {

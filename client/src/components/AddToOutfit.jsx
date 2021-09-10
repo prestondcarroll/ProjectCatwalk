@@ -10,8 +10,6 @@ function AddToOutfit(props) {
   return (
     <div style={styles}>
       <h3 onClick={props.handleAddOutfits}>AddToOutfit</h3>
-
-
     </div>
   );
 }

@@ -1,5 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 
@@ -11,7 +9,6 @@ const styles = {
 
 
 function Size(props) {
-  // const [sizes, setSizes] = useState(['Select Size']);
   const [sizeOptions, setSizeOptions] = useState([{ value: 'Loading', label: 'Loading' }]);
 
   useEffect(() => {

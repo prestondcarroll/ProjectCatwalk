@@ -38,9 +38,7 @@ const imageViewStyles = {
 
 const descStyles = {
   margin: '2em',
-
   paddingLeft: '.5em',
-  // width: '75%',
 };
 
 const calculateReviewCount = (data) => {

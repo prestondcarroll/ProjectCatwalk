@@ -1,16 +1,9 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { FaCheck, FaCircle } from 'react-icons/fa';
 
 const styles = {
   height: '100%',
   width: '100%',
-
-  // background: '#333',
   position: 'relative',
 };
 

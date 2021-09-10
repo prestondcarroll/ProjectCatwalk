@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
@@ -11,7 +10,7 @@ import background from '../images/myGrid.png';
 const SERVER_ENDPOINT = require('../../client.config.js');
 
 // should put default back to 20100 before pull request
-const DEFAULT_PRODUCT_ID = 20100;
+const DEFAULT_PRODUCT_ID = 43377;
 
 const AppStyles = {
   backgroundImage: `url(${background})`,
@@ -86,7 +85,6 @@ const App = ({ trackPageView }) => {
           trackPageView={trackPageView}
         />
       </div>
-      {/* </span> */}
     </div>
   );
 };
