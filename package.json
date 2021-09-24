@@ -6,6 +6,8 @@
   "scripts": {
     "react-dev": "webpack -d eval-source-map --config webpack.dev.js --watch",
     "react-prod": "webpack --config webpack.prod.js",
+    "startAPI": "nodemon api_server/index.js",
+    "startFast": "nodemon fast_server/index.js",
     "start": "nodemon server/index.js",
     "easystart": "concurrently --kill-others \"npm run react-dev\" \"npm run start\"",
     "test": "jest --coverage"
@@ -43,14 +45,21 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@newrelic/fastify": "github:newrelic-experimental/newrelic-javascript-fastify",
     "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "concurrently": "^6.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "fastify": "^3.20.2",
+    "fastify-cli": "^2.13.0",
+    "fastify-formbody": "^5.1.0",
+    "fastify-static": "^4.2.3",
     "jquery": "^3.6.0",
     "jsdom": "^16.6.0",
     "moment": "^2.29.1",
+    "newrelic": "^8.1.0",
+    "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
