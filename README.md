@@ -15,7 +15,7 @@ Server handles API calls to a Hack Reactor provided API.
 #### Product Overview
   A product overview component in which all general information is displayed for a given product. Information includes pictures, styles, review rating, price, and the ability to add to a running list of products known as "Your Outfit"
   
-  ![screenshot of SignUp](/screenshots/FEC1Full.gif?raw=true)
+  ![screenshot of SignUp](/screenshots/FEC1Full2.gif?raw=true)
   
 #### Related Products & Outfits
   A gallery component which displays all of the related products and products added to "Your Outfit".
